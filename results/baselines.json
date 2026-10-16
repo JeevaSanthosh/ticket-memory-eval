@@ -1,0 +1,54 @@
+{
+ "duplicate_threshold": 1.9734,
+ "chosen_on": "dev",
+ "dev": {
+  "tickets": 200,
+  "most_common": {
+   "component": 0.03,
+   "area": 0.22,
+   "issue_type": 0.58,
+   "duplicate": 0.5,
+   "duplicate_on_duplicates": 0.0,
+   "duplicate_on_non_duplicates": 1.0
+  },
+  "vote_of_5": {
+   "component": 0.52,
+   "area": 0.635,
+   "issue_type": 0.71,
+   "duplicate": 0.57,
+   "duplicate_on_duplicates": 0.2,
+   "duplicate_on_non_duplicates": 0.94
+  },
+  "search": {
+   "component_in_top_5": 0.745,
+   "original_in_top_5": 0.51,
+   "original_first": 0.31,
+   "component_never_seen_before": 0
+  }
+ },
+ "test": {
+  "tickets": 200,
+  "most_common": {
+   "component": 0.065,
+   "area": 0.28,
+   "issue_type": 0.665,
+   "duplicate": 0.5,
+   "duplicate_on_duplicates": 0.0,
+   "duplicate_on_non_duplicates": 1.0
+  },
+  "vote_of_5": {
+   "component": 0.455,
+   "area": 0.595,
+   "issue_type": 0.71,
+   "duplicate": 0.52,
+   "duplicate_on_duplicates": 0.17,
+   "duplicate_on_non_duplicates": 0.87
+  },
+  "search": {
+   "component_in_top_5": 0.73,
+   "original_in_top_5": 0.56,
+   "original_first": 0.32,
+   "component_never_seen_before": 0
+  }
+ }
+}

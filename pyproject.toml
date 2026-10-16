@@ -1,0 +1,31 @@
+[project]
+name = "ticket-memory-eval"
+version = "0.1.0"
+description = "Does memory of past tickets help a small local model route Jira tickets and spot duplicates?"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Jeeva Santhosh" }]
+dependencies = [
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+tme = "tme.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tme"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# With PYTHONWARNDEFAULTENCODING=1 (set in CI), reading or writing a file without an explicit
+# encoding fails the tests. Windows defaults to cp1252, which would garble the many non-ASCII
+# characters in ticket text (Chinese descriptions, non-breaking spaces).
+filterwarnings = ["error::EncodingWarning"]

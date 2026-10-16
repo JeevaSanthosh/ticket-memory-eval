@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+        env:
+          PYTHONWARNDEFAULTENCODING: "1"  # any file I/O without an explicit encoding fails (see pyproject.toml)
+
+  baselines:
+    # Rebuilds the dev/test split and the no-model baselines from the committed data, and
+    # fails if either differs from what is committed. No model runs here.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - run: |
+          tme split
+          tme baselines
+          git diff --exit-code data/split.json results/baselines.json
+        env:
+          PYTHONWARNDEFAULTENCODING: "1"

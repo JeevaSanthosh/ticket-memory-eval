@@ -19,8 +19,9 @@ jobs:
           PYTHONWARNDEFAULTENCODING: "1"  # any file I/O without an explicit encoding fails (see pyproject.toml)
 
   baselines:
-    # Rebuilds the dev/test split and the no-model baselines from the committed data, and
-    # fails if either differs from what is committed. No model runs here.
+    # Rebuilds the dev/test split and the no-model baselines (scores and per-ticket answers)
+    # from the committed data, and fails if anything differs from, or is missing from, what is
+    # committed. No model runs here.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -31,6 +32,7 @@ jobs:
       - run: |
           tme split
           tme baselines
-          git diff --exit-code data/split.json results/baselines.json
+          changed=$(git status --porcelain data results)
+          if [ -n "$changed" ]; then echo "Differs from what is committed:"; echo "$changed"; exit 1; fi
         env:
           PYTHONWARNDEFAULTENCODING: "1"

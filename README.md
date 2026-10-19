@@ -124,9 +124,19 @@ pytest
 # with Ollama running and `ollama pull qwen3.5:4b` done:
 tme run B dev --limit 5        # record the first 5 dev tickets, printing the time each takes
 tme run B dev --mode replay    # score from recordings only, as CI does
+
+# compare two sets of answers to the same tickets, e.g. B against the vote of the same 5 tickets
+tme compare results/baselines/dev/vote_of_5.jsonl runs/dev/B --set dev
 ```
 
-`tme run` writes its predictions, scores and timings to `runs/<set>/<condition>/`.
+`tme run` writes its predictions, scores and timings to `runs/<set>/<condition>/`. `tme baselines`
+also writes each baseline's answers to `results/baselines/<set>/`.
+
+`tme compare` is paired: each bootstrap resample (10,000) draws the same tickets for both sets of
+answers, so the 95% interval is for the change on identical tickets. A field is **better** when
+it rises by more than 0.02 and the interval lies above zero, **fail** when it falls by more than
+0.02 and the interval lies below zero, **warn** when it falls by more than 0.02 but the interval
+includes zero, and **pass** otherwise.
 
 ## Limitations known so far
 

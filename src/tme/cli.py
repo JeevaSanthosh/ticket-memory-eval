@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from tme import baselines
+from tme.compare import compare, load_predictions, report
 from tme.conditions import CONDITIONS
 from tme.data import DATA, load_tickets
 from tme.llm import OllamaClient
@@ -34,8 +35,14 @@ def cmd_split(args) -> None:
 
 def cmd_baselines(args) -> None:
     split = json.loads(args.split.read_text(encoding="utf-8"))
-    results = baselines.run(load_tickets(args.data), split)
+    results, predictions = baselines.run(load_tickets(args.data), split)
     write_json(args.out, results)
+    for set_name, by_baseline in predictions.items():
+        for baseline, answers in by_baseline.items():
+            path = args.out.parent / "baselines" / set_name / f"{baseline}.jsonl"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("".join(json.dumps({"key": k, "prediction": p}, ensure_ascii=False) + "\n"
+                                    for k, p in answers.items()), encoding="utf-8")
     columns = {"component": "component", "area": "area", "issue_type": "type", "duplicate": "duplicate",
                "duplicate_on_duplicates": "on dups", "duplicate_on_non_duplicates": "on non-dups"}
     print(f"duplicate threshold {results['duplicate_threshold']} (chosen on dev)")
@@ -46,7 +53,7 @@ def cmd_baselines(args) -> None:
         for baseline in ("most_common", "vote_of_5"):
             print(f"  {baseline:12s}" + "".join(f"{r[baseline][f]:12.3f}" for f in columns))
         print("  search: " + ", ".join(f"{k} {v}" for k, v in r["search"].items()))
-    print(f"\nwrote {args.out}")
+    print(f"\nwrote {args.out} and each baseline's answers in {args.out.parent / 'baselines'}")
 
 
 def cmd_run(args) -> None:
@@ -60,6 +67,13 @@ def cmd_run(args) -> None:
     print("\n" + ", ".join(f"{k} {v}" for k, v in scores.items()))
     print(", ".join(f"{k} {v}" for k, v in ops.items()))
     print(f"wrote runs/{args.set}/{args.condition}/")
+
+
+def cmd_compare(args) -> None:
+    gold = json.loads(args.split.read_text(encoding="utf-8"))[args.set]
+    name = lambda path: path.stem if path.suffix == ".jsonl" else path.name  # noqa: E731
+    results = compare(gold, load_predictions(args.baseline), load_predictions(args.candidate))
+    print(report(results, name(args.baseline), name(args.candidate), len(gold)))
 
 
 def main() -> None:
@@ -82,6 +96,12 @@ def main() -> None:
     p.add_argument("--split", type=Path, default=SPLIT)
     p.add_argument("--config", type=Path, default=Path("eval.toml"))
     p.set_defaults(func=cmd_run)
+    p = sub.add_parser("compare", help="compare two sets of answers to the same tickets, with paired bootstrap intervals")
+    p.add_argument("baseline", type=Path, help="predictions.jsonl, or a run folder holding one")
+    p.add_argument("candidate", type=Path)
+    p.add_argument("--set", choices=["dev", "test"], required=True)
+    p.add_argument("--split", type=Path, default=SPLIT)
+    p.set_defaults(func=cmd_compare)
     args = parser.parse_args()
     args.func(args)
 

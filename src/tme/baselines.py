@@ -43,7 +43,8 @@ def choose_threshold(top_hits: list[tuple[str | None, float, list[str]]]) -> flo
     return max(candidates, key=lambda t: (right(t), -t))
 
 
-def run(tickets: list[dict], split: dict[str, list[dict]]) -> dict:
+def run(tickets: list[dict], split: dict[str, list[dict]]) -> tuple[dict, dict]:
+    """Return the scores, and each baseline's answer per ticket: {set: {baseline: {key: answer}}}."""
     search = MemorySearch(tickets)
     by_key = {t["key"]: t for t in tickets}
     memory = {g["key"]: search.search(by_key[g["key"]], TOP_K) for gold in split.values() for g in gold}
@@ -56,6 +57,7 @@ def run(tickets: list[dict], split: dict[str, list[dict]]) -> dict:
     threshold = choose_threshold(dev_hits)
 
     results = {"duplicate_threshold": round(threshold, 4), "chosen_on": "dev"}
+    predictions = {}
     for name, gold in split.items():
         most_common, vote = {}, {}
         found = {"component_in_top_5": [], "original_in_top_5": [], "original_first": []}
@@ -87,4 +89,5 @@ def run(tickets: list[dict], split: dict[str, list[dict]]) -> dict:
             "search": {k: round(sum(v) / len(v), 3) for k, v in found.items()}
             | {"component_never_seen_before": unseen},
         }
-    return results
+        predictions[name] = {"most_common": most_common, "vote_of_5": vote}
+    return results, predictions

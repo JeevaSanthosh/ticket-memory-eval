@@ -11,8 +11,8 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
 
 The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
 
-**Status:** data, dev and test sets, memory search and the baselines that need no model. The
-model runs come next.
+**Status:** data, dev and test sets, memory search, the baselines that need no model, and
+conditions A and B ready to record. No model answers are recorded yet.
 
 ## Data
 
@@ -88,18 +88,30 @@ fails if they differ from [results/baselines.json](results/baselines.json).
 A model shown the same 5 tickets has to beat the vote of 5 to show it adds anything beyond
 search. On duplicates it can find at most the 51–56% whose original is among them.
 
-## Planned conditions
+## Conditions
 
-Each runs over all 200 test tickets with the same model (`qwen3.5:4b`), and answers as JSON with
-the component and type restricted to the valid values.
+Each runs over all 200 test tickets with the same model and settings (`eval.toml`). The answer
+is JSON, held by Ollama to a schema: the component must be one on offer, the type one of the
+four, and the duplicate one of the tickets shown or null.
 
-| | What the model sees |
-|---|---|
-| A. No memory | The ticket and the list of components |
-| B. Similar past tickets | A + the 5 tickets the memory search returns (key, summary, start of description, component, type) |
-| C. Written notes | A + one line per component, written once by the model from tickets before 2021 |
-| D1. Mislabelled memory | B, with one of the 5 tickets given a wrong component |
-| D2. Stale memory | B, with memory only from tickets 2+ years older (if time allows) |
+| | What the model sees | |
+|---|---|---|
+| A. No memory | Instructions ([prompts/route_v1.md](prompts/route_v1.md)), the components used by any earlier ticket, and the new ticket | Ready |
+| B. Similar past tickets | A + [prompts/duplicates_v1.md](prompts/duplicates_v1.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
+| C. Written notes | A + one line per component, written once by the model from tickets before 2021 | Planned |
+| D1. Mislabelled memory | B, with one of the 5 tickets given a wrong component | Planned |
+| D2. Stale memory | B, with memory only from tickets 2+ years older (if time allows) | Planned |
+
+A and B share every word except the memory part, so a difference between them comes from the
+memory. [src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no
+request shows the new ticket's own key or any ticket created after it.
+
+### Recording and replaying
+
+Model answers are recorded once on a machine running [Ollama](https://ollama.com), and saved in
+`cassettes/` under a hash of the whole request (model, prompt, ticket text, schema, options).
+Replaying reads them back without a model. Any change to the request changes the hash, so an old
+recording can never pass for a new prompt: replay stops and asks for a new recording.
 
 ## Running it
 
@@ -108,7 +120,13 @@ pip install -e ".[dev]"
 tme split        # rebuild data/split.json
 tme baselines    # rebuild results/baselines.json
 pytest
+
+# with Ollama running and `ollama pull qwen3.5:4b` done:
+tme run B dev --limit 5        # record the first 5 dev tickets, printing the time each takes
+tme run B dev --mode replay    # score from recordings only, as CI does
 ```
+
+`tme run` writes its predictions, scores and timings to `runs/<set>/<condition>/`.
 
 ## Limitations known so far
 

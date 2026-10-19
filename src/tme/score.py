@@ -32,8 +32,8 @@ def accuracy(predictions: dict[str, dict], gold: list[dict]) -> dict[str, float]
     """`predictions` maps each ticket key in `gold` to its prediction."""
     rows = [(correct(predictions[g["key"]], g), bool(g["duplicate_of"])) for g in gold]
 
-    def mean(values: list[bool]) -> float:
-        return round(sum(values) / len(values), 3)
+    def mean(values: list[bool]) -> float | None:  # None when a short run has none of that kind
+        return round(sum(values) / len(values), 3) if values else None
 
     scores = {field: mean([c[field] for c, _ in rows]) for field in ("component", "area", "issue_type", "duplicate")}
     scores["duplicate_on_duplicates"] = mean([c["duplicate"] for c, is_dup in rows if is_dup])

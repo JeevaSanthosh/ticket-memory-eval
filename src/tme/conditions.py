@@ -6,9 +6,9 @@
   component and type; the model may name one of them as the original.
 
 The components offered are those used by any ticket created before the new one, in
-alphabetical order. That covers every right answer in dev and test, uses nothing from later
-tickets, and rarely changes between consecutive tickets, so Ollama can reuse the processed
-start of the prompt from one call to the next.
+alphabetical order. That covers every right answer in dev and test and uses nothing from
+later tickets. (The list rarely changes between tickets, but with qwen3.5:4b Ollama re-read
+the whole prompt on every call in the timing check, so this saves no time.)
 """
 
 from __future__ import annotations

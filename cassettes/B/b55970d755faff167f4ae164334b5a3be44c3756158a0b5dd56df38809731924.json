@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16185",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / API\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": \"FLINK-9477\"\n}",
+  "latency_ms": 33178,
+  "load_ms": 9,
+  "prompt_ms": 23073,
+  "generate_ms": 8028,
+  "prompt_tokens": 1080,
+  "completion_tokens": 40
+ }
+}

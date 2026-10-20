@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17137",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Planner\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 26814,
+  "load_ms": 11,
+  "prompt_ms": 18802,
+  "generate_ms": 5806,
+  "prompt_tokens": 1079,
+  "completion_tokens": 32
+ }
+}

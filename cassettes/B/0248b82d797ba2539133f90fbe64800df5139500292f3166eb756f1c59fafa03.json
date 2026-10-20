@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18320",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-16455\"\n}",
+  "latency_ms": 34190,
+  "load_ms": 25,
+  "prompt_ms": 24230,
+  "generate_ms": 7662,
+  "prompt_tokens": 1179,
+  "completion_tokens": 41
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19120",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / HBase\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 26117,
+  "load_ms": 18,
+  "prompt_ms": 19235,
+  "generate_ms": 4784,
+  "prompt_tokens": 833,
+  "completion_tokens": 25
+ }
+}

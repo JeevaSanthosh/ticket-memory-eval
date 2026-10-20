@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18479",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / FileSystem\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 26883,
+  "load_ms": 11,
+  "prompt_ms": 19065,
+  "generate_ms": 5603,
+  "prompt_tokens": 1239,
+  "completion_tokens": 31
+ }
+}

@@ -12,7 +12,7 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
 The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
 
 **Status:** data, dev and test sets, memory search, the baselines that need no model, and
-conditions A and B ready to record. No model answers are recorded yet.
+conditions A and B recorded on dev with the first prompts. Test is not recorded yet.
 
 ## Data
 
@@ -106,6 +106,29 @@ A and B share every word except the memory part, so a difference between them co
 memory. [src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no
 request shows the new ticket's own key or any ticket created after it.
 
+### Dev results with the first prompts (v1)
+
+`qwen3.5:4b` on a CPU, all 200 dev tickets, 0 invalid answers. Answers are in
+[results/dev/](results/dev/); the changes and intervals come from `tme compare` (paired bootstrap).
+
+| | A, no memory | B, 5 earlier tickets | Vote of the same 5 | B against A | B against the vote |
+|---|---:|---:|---:|---|---|
+| Component | 0.465 | **0.640** | 0.520 | +0.175 (+0.100 to +0.250) | +0.120 (+0.060 to +0.180) |
+| Area | 0.645 | **0.775** | 0.635 | +0.130 (+0.065 to +0.200) | +0.140 (+0.080 to +0.200) |
+| Issue type | 0.760 | 0.760 | 0.710 | +0.000 (−0.040 to +0.040) | +0.050 (−0.015 to +0.120) |
+| Duplicate | 0.500 | 0.415 | **0.570** | −0.085 (−0.180 to +0.010) | −0.155 (−0.240 to −0.070) |
+| … original found, on duplicates | 0.000 | **0.390** | 0.200 | | |
+| … correctly none, on non-duplicates | 1.000 | 0.440 | **0.940** | | |
+| Seconds per ticket, median | 23 | 35 | | | |
+
+- **Memory helps routing.** B picks the right component on 35 more tickets than A, and on 24
+  more than the vote of the 5 tickets it was shown, so the model adds something beyond search.
+  Issue type doesn't move: A and B give the same type on 179 of 200 tickets.
+- **B finds originals but calls almost everything a duplicate.** When the original is among
+  the 5 it names it 39 times out of 51. But it names some ticket on 142 of 200, including 56 of
+  the 100 non-duplicates. It names the first ticket shown 65 times, rightly 25 times.
+  The duplicate prompt is the next thing to change, on dev.
+
 ### Recording and replaying
 
 Model answers are recorded once on a machine running [Ollama](https://ollama.com), and saved in
@@ -129,8 +152,15 @@ tme run B dev --mode replay    # score from recordings only, as CI does
 tme compare results/baselines/dev/vote_of_5.jsonl runs/dev/B --set dev
 ```
 
-`tme run` writes its predictions, scores and timings to `runs/<set>/<condition>/`. `tme baselines`
-also writes each baseline's answers to `results/baselines/<set>/`.
+`tme run` writes its predictions, scores and timings to `runs/<set>/<condition>/` (or `--out`).
+`tme baselines` also writes each baseline's answers to `results/baselines/<set>/`. Committed model
+results live in `results/<set>/<condition>/`, made with
+`tme run <condition> <set> --mode replay --out results/<set>/<condition>`.
+
+On every pull request, CI's `gate` job replays the recordings and checks they give the committed
+results exactly. Then it compares each condition with the target branch's results and blocks
+the merge on a significant drop (as `tme compare` defines it) in component, area, issue type or
+duplicate accuracy.
 
 `tme compare` is paired: each bootstrap resample (10,000) draws the same tickets for both sets of
 answers, so the 95% interval is for the change on identical tickets. A field is **better** when

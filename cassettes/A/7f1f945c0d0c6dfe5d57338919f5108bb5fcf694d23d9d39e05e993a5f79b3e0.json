@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19598",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / CI\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 52768,
+  "load_ms": 6,
+  "prompt_ms": 45169,
+  "generate_ms": 5508,
+  "prompt_tokens": 1534,
+  "completion_tokens": 24
+ }
+}

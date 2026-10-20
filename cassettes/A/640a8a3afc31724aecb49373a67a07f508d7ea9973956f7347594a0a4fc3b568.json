@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15769",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / State Processor\",\n  \"issue_type\": \"New Feature\"\n}",
+  "latency_ms": 35216,
+  "load_ms": 6,
+  "prompt_ms": 28118,
+  "generate_ms": 5033,
+  "prompt_tokens": 837,
+  "completion_tokens": 25
+ }
+}

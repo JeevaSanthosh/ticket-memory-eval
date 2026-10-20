@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20803",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-20651\"\n}",
+  "latency_ms": 34911,
+  "load_ms": 10,
+  "prompt_ms": 25514,
+  "generate_ms": 7137,
+  "prompt_tokens": 1194,
+  "completion_tokens": 39
+ }
+}

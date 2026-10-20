@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16882",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-16767\"\n}",
+  "latency_ms": 43274,
+  "load_ms": 6,
+  "prompt_ms": 33571,
+  "generate_ms": 7460,
+  "prompt_tokens": 1628,
+  "completion_tokens": 40
+ }
+}

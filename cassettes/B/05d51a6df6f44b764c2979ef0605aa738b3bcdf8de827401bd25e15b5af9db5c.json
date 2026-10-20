@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20659",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Deployment / YARN\",\n\"issue_type\": \"Bug\",\n\"duplicate_of\": \"FLINK-5204\"\n}",
+  "latency_ms": 57603,
+  "load_ms": 6,
+  "prompt_ms": 48335,
+  "generate_ms": 6818,
+  "prompt_tokens": 2170,
+  "completion_tokens": 36
+ }
+}

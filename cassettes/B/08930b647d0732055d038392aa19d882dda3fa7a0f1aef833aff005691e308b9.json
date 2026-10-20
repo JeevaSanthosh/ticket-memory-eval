@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17927",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / FileSystem\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-17925\"\n}",
+  "latency_ms": 23017,
+  "load_ms": 23,
+  "prompt_ms": 13273,
+  "generate_ms": 7524,
+  "prompt_tokens": 1073,
+  "completion_tokens": 41
+ }
+}

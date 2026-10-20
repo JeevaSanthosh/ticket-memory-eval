@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16617",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Core\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 21365,
+  "load_ms": 24,
+  "prompt_ms": 15087,
+  "generate_ms": 4203,
+  "prompt_tokens": 532,
+  "completion_tokens": 23
+ }
+}

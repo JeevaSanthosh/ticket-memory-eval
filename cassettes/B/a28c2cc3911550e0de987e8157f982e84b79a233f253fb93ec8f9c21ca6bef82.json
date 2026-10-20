@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18106",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Tests\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 21029,
+  "load_ms": 7,
+  "prompt_ms": 13691,
+  "generate_ms": 5245,
+  "prompt_tokens": 1092,
+  "completion_tokens": 29
+ }
+}

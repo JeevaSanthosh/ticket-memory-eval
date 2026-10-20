@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20238",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ElasticSearch\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-16788\"\n}",
+  "latency_ms": 38067,
+  "load_ms": 9,
+  "prompt_ms": 27796,
+  "generate_ms": 7989,
+  "prompt_tokens": 1527,
+  "completion_tokens": 42
+ }
+}

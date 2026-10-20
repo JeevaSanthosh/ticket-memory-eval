@@ -4,12 +4,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 from tme import baselines
 from tme.compare import compare, load_predictions, report
 from tme.conditions import CONDITIONS
 from tme.data import DATA, load_tickets
+from tme.gate import gate
 from tme.llm import OllamaClient
 from tme.run import load_config, load_prompts, run
 from tme.split import build_split
@@ -61,12 +63,13 @@ def cmd_run(args) -> None:
     split = json.loads(args.split.read_text(encoding="utf-8"))
     client = OllamaClient() if args.mode == "record" else None
     print(f"condition {args.condition} on {args.set} with {config['model']} ({args.mode})", flush=True)
+    out = args.out or Path("runs") / args.set / args.condition
     results = run(args.condition, args.set, load_tickets(args.data), split, config, load_prompts(config),
-                  args.mode, client=client, limit=args.limit, verbose=True)
+                  args.mode, client=client, out=out, limit=args.limit, verbose=True)
     scores, ops = results["scores"], results["operations"]
     print("\n" + ", ".join(f"{k} {v}" for k, v in scores.items()))
     print(", ".join(f"{k} {v}" for k, v in ops.items()))
-    print(f"wrote runs/{args.set}/{args.condition}/")
+    print(f"wrote {out.as_posix()}/")
 
 
 def cmd_compare(args) -> None:
@@ -74,6 +77,19 @@ def cmd_compare(args) -> None:
     name = lambda path: path.stem if path.suffix == ".jsonl" else path.name  # noqa: E731
     results = compare(gold, load_predictions(args.baseline), load_predictions(args.candidate))
     print(report(results, name(args.baseline), name(args.candidate), len(gold)))
+
+
+def cmd_gate(args) -> None:
+    config = load_config(args.config)
+    split = json.loads(args.split.read_text(encoding="utf-8"))
+    ok, text = gate(args.results, args.baseline, load_tickets(args.data), split, config, load_prompts(config))
+    print(text)
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a", encoding="utf-8") as f:
+            f.write(text)
+    if not ok:
+        raise SystemExit(1)
 
 
 def main() -> None:
@@ -95,6 +111,7 @@ def main() -> None:
     p.add_argument("--limit", type=int, help="only the first N tickets (e.g. a timing check)")
     p.add_argument("--split", type=Path, default=SPLIT)
     p.add_argument("--config", type=Path, default=Path("eval.toml"))
+    p.add_argument("--out", type=Path, help="where to write the answers (default runs/<set>/<condition>)")
     p.set_defaults(func=cmd_run)
     p = sub.add_parser("compare", help="compare two sets of answers to the same tickets, with paired bootstrap intervals")
     p.add_argument("baseline", type=Path, help="predictions.jsonl, or a run folder holding one")
@@ -102,6 +119,12 @@ def main() -> None:
     p.add_argument("--set", choices=["dev", "test"], required=True)
     p.add_argument("--split", type=Path, default=SPLIT)
     p.set_defaults(func=cmd_compare)
+    p = sub.add_parser("gate", help="check committed model results replay, and compare them with the target branch's")
+    p.add_argument("--results", type=Path, default=Path("results"))
+    p.add_argument("--baseline", type=Path, help="the target branch's results folder")
+    p.add_argument("--split", type=Path, default=SPLIT)
+    p.add_argument("--config", type=Path, default=Path("eval.toml"))
+    p.set_defaults(func=cmd_gate)
     args = parser.parse_args()
     args.func(args)
 

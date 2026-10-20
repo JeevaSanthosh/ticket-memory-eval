@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16870",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Formats (JSON, Avro, Parquet, ORC, SequenceFile)\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-14411\"\n}",
+  "latency_ms": 40621,
+  "load_ms": 25,
+  "prompt_ms": 28775,
+  "generate_ms": 9478,
+  "prompt_tokens": 1447,
+  "completion_tokens": 51
+ }
+}

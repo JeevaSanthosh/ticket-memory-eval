@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20682",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Configuration\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 14094,
+  "load_ms": 6,
+  "prompt_ms": 7767,
+  "generate_ms": 4250,
+  "prompt_tokens": 789,
+  "completion_tokens": 24
+ }
+}

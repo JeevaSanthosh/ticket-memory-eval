@@ -1,0 +1,22 @@
+{
+ "condition": "B",
+ "set": "dev",
+ "scores": {
+  "component": 0.64,
+  "area": 0.775,
+  "issue_type": 0.76,
+  "duplicate": 0.415,
+  "duplicate_on_duplicates": 0.39,
+  "duplicate_on_non_duplicates": 0.44
+ },
+ "operations": {
+  "tickets": 200,
+  "invalid_responses": 0,
+  "latency_ms_p50": 35360,
+  "latency_ms_p95": 60411,
+  "mean_prompt_tokens": 1440,
+  "mean_completion_tokens": 37,
+  "mean_prompt_ms": 29359,
+  "mean_generate_ms": 6974
+ }
+}

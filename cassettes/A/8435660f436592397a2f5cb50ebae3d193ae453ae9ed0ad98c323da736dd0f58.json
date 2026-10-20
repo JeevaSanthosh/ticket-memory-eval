@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20667",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ORC\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 8805,
+  "load_ms": 8,
+  "prompt_ms": 1727,
+  "generate_ms": 4844,
+  "prompt_tokens": 553,
+  "completion_tokens": 26
+ }
+}

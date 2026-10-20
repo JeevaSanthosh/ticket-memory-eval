@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16637",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Coordination\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-8612\"\n}",
+  "latency_ms": 33403,
+  "load_ms": 8,
+  "prompt_ms": 24098,
+  "generate_ms": 7211,
+  "prompt_tokens": 1198,
+  "completion_tokens": 39
+ }
+}

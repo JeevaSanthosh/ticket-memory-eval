@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20179",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Type Serialization System\",\n  \"issue_type\": \"New Feature\"\n}",
+  "latency_ms": 10609,
+  "load_ms": 19,
+  "prompt_ms": 3421,
+  "generate_ms": 5081,
+  "prompt_tokens": 618,
+  "completion_tokens": 26
+ }
+}

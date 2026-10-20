@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17272",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / Scripts\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-17023\"\n}",
+  "latency_ms": 26916,
+  "load_ms": 7,
+  "prompt_ms": 17527,
+  "generate_ms": 7190,
+  "prompt_tokens": 1074,
+  "completion_tokens": 39
+ }
+}

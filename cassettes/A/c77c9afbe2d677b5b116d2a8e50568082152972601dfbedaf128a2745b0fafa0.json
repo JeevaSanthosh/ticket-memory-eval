@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15753",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Web Frontend\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 24615,
+  "load_ms": 7,
+  "prompt_ms": 17192,
+  "generate_ms": 5325,
+  "prompt_tokens": 579,
+  "completion_tokens": 26
+ }
+}

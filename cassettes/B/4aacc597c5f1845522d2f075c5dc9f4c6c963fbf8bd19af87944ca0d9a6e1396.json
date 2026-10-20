@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19598",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Tests\",\n\"issue_type\": \"Bug\",\n\"duplicate_of\": \"FLINK-18817\"\n}",
+  "latency_ms": 71211,
+  "load_ms": 9,
+  "prompt_ms": 62305,
+  "generate_ms": 6566,
+  "prompt_tokens": 2498,
+  "completion_tokens": 34
+ }
+}

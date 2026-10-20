@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20177",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 12090,
+  "load_ms": 5,
+  "prompt_ms": 5332,
+  "generate_ms": 4317,
+  "prompt_tokens": 632,
+  "completion_tokens": 21
+ }
+}

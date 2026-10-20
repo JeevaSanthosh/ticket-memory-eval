@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19019",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"flink-docker\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-16880\"\n}",
+  "latency_ms": 32398,
+  "load_ms": 15,
+  "prompt_ms": 21827,
+  "generate_ms": 8304,
+  "prompt_tokens": 1168,
+  "completion_tokens": 41
+ }
+}

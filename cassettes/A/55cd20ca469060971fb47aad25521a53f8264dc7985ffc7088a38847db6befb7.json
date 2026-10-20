@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18042",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"BuildSystem / Shaded\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 8235,
+  "load_ms": 6,
+  "prompt_ms": 1234,
+  "generate_ms": 4912,
+  "prompt_tokens": 533,
+  "completion_tokens": 26
+ }
+}

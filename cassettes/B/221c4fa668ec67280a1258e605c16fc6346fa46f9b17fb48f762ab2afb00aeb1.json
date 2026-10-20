@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17961",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ElasticSearch\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": \"FLINK-2558\"\n}",
+  "latency_ms": 29725,
+  "load_ms": 6,
+  "prompt_ms": 18957,
+  "generate_ms": 8634,
+  "prompt_tokens": 1136,
+  "completion_tokens": 41
+ }
+}

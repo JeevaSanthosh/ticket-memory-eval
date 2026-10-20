@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19961",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / CI\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 33428,
+  "load_ms": 6,
+  "prompt_ms": 25391,
+  "generate_ms": 5732,
+  "prompt_tokens": 1332,
+  "completion_tokens": 31
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20754",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / Kubernetes\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 22772,
+  "load_ms": 11,
+  "prompt_ms": 16389,
+  "generate_ms": 4158,
+  "prompt_tokens": 752,
+  "completion_tokens": 23
+ }
+}

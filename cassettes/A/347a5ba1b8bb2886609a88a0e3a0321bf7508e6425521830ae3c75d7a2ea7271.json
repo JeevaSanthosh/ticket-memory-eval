@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16517",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Examples\",\n  \"issue_type\": \"New Feature\"\n}",
+  "latency_ms": 24763,
+  "load_ms": 7,
+  "prompt_ms": 18398,
+  "generate_ms": 4315,
+  "prompt_tokens": 672,
+  "completion_tokens": 22
+ }
+}

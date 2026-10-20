@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18348",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Network\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-17992\"\n}",
+  "latency_ms": 46731,
+  "load_ms": 10,
+  "prompt_ms": 37453,
+  "generate_ms": 7201,
+  "prompt_tokens": 1642,
+  "completion_tokens": 39
+ }
+}

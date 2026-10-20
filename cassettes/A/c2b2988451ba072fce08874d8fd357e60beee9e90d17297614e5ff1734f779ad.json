@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16929",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / State Backends\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 33534,
+  "load_ms": 7,
+  "prompt_ms": 26357,
+  "generate_ms": 5114,
+  "prompt_tokens": 800,
+  "completion_tokens": 25
+ }
+}

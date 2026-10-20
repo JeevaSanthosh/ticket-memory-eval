@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17326",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Client\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-13176\"\n}",
+  "latency_ms": 35983,
+  "load_ms": 7,
+  "prompt_ms": 26303,
+  "generate_ms": 7501,
+  "prompt_tokens": 1111,
+  "completion_tokens": 41
+ }
+}

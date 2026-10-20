@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16918",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Metrics\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-16635\"\n}",
+  "latency_ms": 36698,
+  "load_ms": 9,
+  "prompt_ms": 27117,
+  "generate_ms": 7312,
+  "prompt_tokens": 1343,
+  "completion_tokens": 39
+ }
+}

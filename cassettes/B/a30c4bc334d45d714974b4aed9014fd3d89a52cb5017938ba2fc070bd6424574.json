@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20450",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Command Line Client\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-19969\"\n}",
+  "latency_ms": 29161,
+  "load_ms": 6,
+  "prompt_ms": 19036,
+  "generate_ms": 7788,
+  "prompt_tokens": 1126,
+  "completion_tokens": 40
+ }
+}

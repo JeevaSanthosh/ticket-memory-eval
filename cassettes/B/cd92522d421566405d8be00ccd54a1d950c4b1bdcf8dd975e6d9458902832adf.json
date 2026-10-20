@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19212",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / REST\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-4393\"\n}",
+  "latency_ms": 46675,
+  "load_ms": 9,
+  "prompt_ms": 37260,
+  "generate_ms": 7118,
+  "prompt_tokens": 1891,
+  "completion_tokens": 38
+ }
+}

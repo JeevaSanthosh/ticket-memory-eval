@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20208",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / FileSystem\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 39135,
+  "load_ms": 8,
+  "prompt_ms": 30739,
+  "generate_ms": 5985,
+  "prompt_tokens": 1458,
+  "completion_tokens": 32
+ }
+}

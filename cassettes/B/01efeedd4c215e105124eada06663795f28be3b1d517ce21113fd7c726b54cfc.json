@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20686",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Command Line Client\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-19969\"\n}",
+  "latency_ms": 27191,
+  "load_ms": 9,
+  "prompt_ms": 17664,
+  "generate_ms": 7147,
+  "prompt_tokens": 1209,
+  "completion_tokens": 39
+ }
+}

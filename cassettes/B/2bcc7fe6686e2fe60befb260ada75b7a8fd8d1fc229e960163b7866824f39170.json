@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20269",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / State Backends\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-6485\"\n}",
+  "latency_ms": 33606,
+  "load_ms": 7,
+  "prompt_ms": 23640,
+  "generate_ms": 7590,
+  "prompt_tokens": 1285,
+  "completion_tokens": 41
+ }
+}

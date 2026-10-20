@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18227",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Scala Shell\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 24277,
+  "load_ms": 10,
+  "prompt_ms": 16838,
+  "generate_ms": 5244,
+  "prompt_tokens": 1216,
+  "completion_tokens": 29
+ }
+}

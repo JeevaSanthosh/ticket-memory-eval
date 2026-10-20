@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16037",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 22292,
+  "load_ms": 5,
+  "prompt_ms": 16027,
+  "generate_ms": 4170,
+  "prompt_tokens": 552,
+  "completion_tokens": 22
+ }
+}

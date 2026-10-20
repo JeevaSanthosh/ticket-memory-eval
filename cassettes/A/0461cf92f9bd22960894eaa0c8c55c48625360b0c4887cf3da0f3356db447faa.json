@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16353",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Scala\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 28364,
+  "load_ms": 9,
+  "prompt_ms": 21378,
+  "generate_ms": 4911,
+  "prompt_tokens": 772,
+  "completion_tokens": 23
+ }
+}

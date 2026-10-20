@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20805",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"BuildSystem / Shaded\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 17921,
+  "load_ms": 7,
+  "prompt_ms": 11262,
+  "generate_ms": 4582,
+  "prompt_tokens": 603,
+  "completion_tokens": 26
+ }
+}

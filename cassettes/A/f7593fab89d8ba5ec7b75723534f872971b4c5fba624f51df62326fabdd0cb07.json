@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16737",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"BuildSystem / Shaded\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 22242,
+  "load_ms": 6,
+  "prompt_ms": 15331,
+  "generate_ms": 4819,
+  "prompt_tokens": 567,
+  "completion_tokens": 26
+ }
+}

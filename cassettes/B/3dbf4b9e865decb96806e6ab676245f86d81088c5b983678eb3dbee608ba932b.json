@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15557",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-7732\"\n}",
+  "latency_ms": 31997,
+  "load_ms": 10,
+  "prompt_ms": 22609,
+  "generate_ms": 7190,
+  "prompt_tokens": 1336,
+  "completion_tokens": 39
+ }
+}

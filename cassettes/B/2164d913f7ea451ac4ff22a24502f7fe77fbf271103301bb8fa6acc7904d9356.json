@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15749",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Benchmarks\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-15748\"\n}",
+  "latency_ms": 34724,
+  "load_ms": 26,
+  "prompt_ms": 25175,
+  "generate_ms": 7352,
+  "prompt_tokens": 1197,
+  "completion_tokens": 40
+ }
+}

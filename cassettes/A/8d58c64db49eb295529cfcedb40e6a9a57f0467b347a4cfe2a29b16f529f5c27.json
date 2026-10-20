@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15525",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / HBase\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 22124,
+  "load_ms": 6,
+  "prompt_ms": 15423,
+  "generate_ms": 4610,
+  "prompt_tokens": 568,
+  "completion_tokens": 26
+ }
+}

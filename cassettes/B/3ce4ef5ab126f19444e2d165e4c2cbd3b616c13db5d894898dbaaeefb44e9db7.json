@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17234",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Coordination\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": \"FLINK-2455\"\n}",
+  "latency_ms": 52845,
+  "load_ms": 13,
+  "prompt_ms": 42282,
+  "generate_ms": 7638,
+  "prompt_tokens": 1831,
+  "completion_tokens": 40
+ }
+}

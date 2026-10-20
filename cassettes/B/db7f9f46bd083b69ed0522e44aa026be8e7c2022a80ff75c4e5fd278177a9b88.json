@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19095",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Stateful Functions\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 30476,
+  "load_ms": 9,
+  "prompt_ms": 22798,
+  "generate_ms": 5614,
+  "prompt_tokens": 1219,
+  "completion_tokens": 31
+ }
+}

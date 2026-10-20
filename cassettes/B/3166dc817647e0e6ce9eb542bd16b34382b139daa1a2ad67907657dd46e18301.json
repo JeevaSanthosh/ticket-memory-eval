@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17932",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / HBase\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 21851,
+  "load_ms": 10,
+  "prompt_ms": 13974,
+  "generate_ms": 5783,
+  "prompt_tokens": 1159,
+  "completion_tokens": 32
+ }
+}

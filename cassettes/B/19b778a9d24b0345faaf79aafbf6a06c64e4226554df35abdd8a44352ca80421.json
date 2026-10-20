@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20628",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Common\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 35495,
+  "load_ms": 8,
+  "prompt_ms": 27092,
+  "generate_ms": 6063,
+  "prompt_tokens": 1566,
+  "completion_tokens": 32
+ }
+}

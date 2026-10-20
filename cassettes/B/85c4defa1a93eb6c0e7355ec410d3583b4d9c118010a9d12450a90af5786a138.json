@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16112",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 47514,
+  "load_ms": 18,
+  "prompt_ms": 38676,
+  "generate_ms": 6534,
+  "prompt_tokens": 1386,
+  "completion_tokens": 32
+ }
+}

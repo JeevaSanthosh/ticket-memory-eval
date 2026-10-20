@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20179",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Formats (JSON, Avro, Parquet, ORC, SequenceFile)\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 24482,
+  "load_ms": 7,
+  "prompt_ms": 14531,
+  "generate_ms": 7861,
+  "prompt_tokens": 1111,
+  "completion_tokens": 43
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19791",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Runtime / Network\",\n\"issue_type\": \"Bug\",\n\"duplicate_of\": null\n}",
+  "latency_ms": 60081,
+  "load_ms": 11,
+  "prompt_ms": 52606,
+  "generate_ms": 5102,
+  "prompt_tokens": 2419,
+  "completion_tokens": 27
+ }
+}

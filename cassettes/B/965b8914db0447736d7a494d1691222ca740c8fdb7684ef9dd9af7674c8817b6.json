@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20754",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"flink-docker\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 37794,
+  "load_ms": 10,
+  "prompt_ms": 29541,
+  "generate_ms": 5968,
+  "prompt_tokens": 1437,
+  "completion_tokens": 31
+ }
+}

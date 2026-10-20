@@ -2,21 +2,21 @@
  "condition": "B",
  "set": "dev",
  "scores": {
-  "component": 0.64,
+  "component": 0.635,
   "area": 0.775,
-  "issue_type": 0.76,
-  "duplicate": 0.415,
-  "duplicate_on_duplicates": 0.39,
-  "duplicate_on_non_duplicates": 0.44
+  "issue_type": 0.755,
+  "duplicate": 0.535,
+  "duplicate_on_duplicates": 0.08,
+  "duplicate_on_non_duplicates": 0.99
  },
  "operations": {
   "tickets": 200,
   "invalid_responses": 0,
-  "latency_ms_p50": 35360,
-  "latency_ms_p95": 60411,
-  "mean_prompt_tokens": 1440,
-  "mean_completion_tokens": 37,
-  "mean_prompt_ms": 29359,
-  "mean_generate_ms": 6974
+  "latency_ms_p50": 36438,
+  "latency_ms_p95": 62437,
+  "mean_prompt_tokens": 1492,
+  "mean_completion_tokens": 32,
+  "mean_prompt_ms": 29719,
+  "mean_generate_ms": 6127
  }
 }

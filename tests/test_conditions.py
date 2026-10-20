@@ -46,16 +46,45 @@ def test_the_right_component_is_always_on_offer(tickets, split, setup):
         assert g["issue_type"] in schema["properties"]["issue_type"]["enum"]
 
 
-def test_a_and_b_differ_only_by_the_memory(tickets, split, setup):
-    a = next(requests_for(tickets, split, setup, "A"))
-    b = next(requests_for(tickets, split, setup, "B"))
+@pytest.mark.parametrize("answer", ["pick", "judge"])
+def test_a_and_b_differ_only_by_the_memory(tickets, split, setup, answer):
+    search, config, prompts = setup
+    config = {**config, "duplicate_answer": answer}
+    a = next(requests_for(tickets, split, (search, config, prompts), "A"))
+    b = next(requests_for(tickets, split, (search, config, prompts), "B"))
     _, memory, b_request, b_schema = b
     _, _, a_request, a_schema = a
-    assert "duplicate_of" not in a_schema["properties"]
-    assert b_schema["properties"]["duplicate_of"]["enum"] == [m["key"] for m in memory] + [None]
+    extra = "duplicate_of" if answer == "pick" else "earlier_tickets"
+    assert set(a_schema["properties"]) == {"component", "issue_type"}
+    assert set(b_schema["properties"]) == {"component", "issue_type", extra}
+    if answer == "pick":
+        assert b_schema["properties"]["duplicate_of"]["enum"] == [m["key"] for m in memory] + [None]
+    else:
+        assert list(b_schema["properties"]["earlier_tickets"]["properties"]) == [m["key"] for m in memory]
+        assert b_schema["properties"]["earlier_tickets"]["required"] == [m["key"] for m in memory]
     assert b_request["messages"][1]["content"].endswith(a_request["messages"][1]["content"])
     assert {k: v for k, v in a_schema["properties"].items()} == \
-        {k: v for k, v in b_schema["properties"].items() if k != "duplicate_of"}
+        {k: v for k, v in b_schema["properties"].items() if k != extra}
+
+
+def test_the_answer_style_leaves_earlier_requests_unchanged(tickets, split, setup):
+    # A's recordings, and B's under v1 and v2, must stay valid when B's answer style is switched.
+    from tme.llm import request_key
+    search, config, prompts = setup
+    plain = {k: v for k, v in config.items() if k != "duplicate_answer"}
+    for condition, styles in (("A", ("pick", "judge")), ("B", ("pick",))):
+        keys = {request_key(r) for style in styles
+                for _, _, r, _ in [next(requests_for(tickets, split, (search, {**plain, "duplicate_answer": style}, prompts), condition))]}
+        keys.add(request_key(next(requests_for(tickets, split, (search, plain, prompts), condition))[2]))
+        assert len(keys) == 1, condition
+
+
+def test_only_judged_requests_get_more_room_to_answer(tickets, split, setup):
+    search, config, prompts = setup
+    judged = next(requests_for(tickets, split, (search, {**config, "duplicate_answer": "judge"}, prompts), "B"))[2]
+    picked = next(requests_for(tickets, split, (search, {**config, "duplicate_answer": "pick"}, prompts), "B"))[2]
+    assert judged["options"]["num_predict"] == 256
+    assert picked["options"] == config["options"]
 
 
 def test_components_on_offer_are_those_used_before(tickets):

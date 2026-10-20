@@ -40,8 +40,16 @@ def parse(content: str, schema: dict) -> tuple[dict, str | None]:
         return prediction, "not a JSON object"
     invalid = []
     for field, spec in schema["properties"].items():
-        if field in answer and answer[field] in spec["enum"]:
-            prediction[field] = answer[field]
+        value = answer.get(field)
+        if "properties" in spec:  # one label per shown ticket (judged duplicates)
+            labels = spec["properties"]
+            if isinstance(value, dict) and all(value.get(k) in s["enum"] for k, s in labels.items()):
+                prediction[field] = {k: value[k] for k in labels}
+                prediction["duplicate_of"] = next((k for k in labels if value[k] == "same"), None)
+            else:
+                invalid.append(field)
+        elif field in answer and value in spec["enum"]:
+            prediction[field] = value
         else:
             invalid.append(field)
     return prediction, (f"invalid {', '.join(invalid)}" if invalid else None)

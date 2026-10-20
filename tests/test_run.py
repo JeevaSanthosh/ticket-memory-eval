@@ -16,7 +16,9 @@ class Stub:
 
     def complete(self, request):
         self.calls += 1
-        answer = {field: spec["enum"][0] for field, spec in request["format"]["properties"].items()}
+        answer = {field: ({k: v["enum"][0] for k, v in spec["properties"].items()} if "properties" in spec
+                          else spec["enum"][0])
+                  for field, spec in request["format"]["properties"].items()}
         return {"content": json.dumps(answer), "latency_ms": 1000, "load_ms": 0, "prompt_ms": 800,
                 "generate_ms": 200, "prompt_tokens": 900, "completion_tokens": 25}
 
@@ -73,3 +75,21 @@ def test_parse():
     assert error == "invalid component"
     assert parse('{"component": "Tests", "issue_type": "Bu', SCHEMA)[1] == "not JSON"
     assert parse('["Tests"]', SCHEMA)[1] == "not a JSON object"
+
+
+JUDGED = {"properties": {"component": {"enum": ["Tests"]}, "issue_type": {"enum": ["Bug"]},
+                         "earlier_tickets": {"properties": {k: {"enum": ["same", "related", "different"]}
+                                                            for k in ("FLINK-1", "FLINK-2", "FLINK-3")}}}}
+
+
+def test_parse_judged_answers_takes_the_first_same():
+    answer = {"component": "Tests", "issue_type": "Bug",
+              "earlier_tickets": {"FLINK-1": "related", "FLINK-2": "same", "FLINK-3": "same"}}
+    prediction, error = parse(json.dumps(answer), JUDGED)
+    assert error is None and prediction["duplicate_of"] == "FLINK-2"
+    assert prediction["earlier_tickets"] == answer["earlier_tickets"]
+    answer["earlier_tickets"] = {"FLINK-1": "related", "FLINK-2": "different", "FLINK-3": "different"}
+    assert parse(json.dumps(answer), JUDGED)[0]["duplicate_of"] is None
+    answer["earlier_tickets"] = {"FLINK-1": "maybe", "FLINK-2": "different", "FLINK-3": "different"}
+    prediction, error = parse(json.dumps(answer), JUDGED)
+    assert error == "invalid earlier_tickets" and prediction["duplicate_of"] is None

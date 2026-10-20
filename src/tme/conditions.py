@@ -3,7 +3,9 @@
 - A, no memory: the instructions, the components to choose from, and the new ticket.
 - B, similar past tickets: A plus the 5 earlier tickets the memory search returns (the same
   5 the vote-of-5 baseline uses), each with its key, summary, the start of its description,
-  component and type; the model may name one of them as the original.
+  component and type. With `duplicate_answer = "pick"` (duplicates v1, v2) the model names one
+  of them as the original or null; with "judge" (v3) it labels each one same, related or
+  different, and the first labelled same is taken as the original.
 
 The components offered are those used by any ticket created before the new one, in
 alphabetical order. That covers every right answer in dev and test and uses nothing from
@@ -17,6 +19,10 @@ from tme.data import ISSUE_TYPES, mask
 
 CONDITIONS = ("A", "B")
 MEMORY_DESCRIPTION_CHARS = 300
+JUDGEMENTS = ("same", "related", "different")
+# A judged answer is about 100 tokens against about 37 for a single pick, so it gets more room.
+# Only those requests change; A's and earlier B requests keep their options and recordings.
+JUDGED_NUM_PREDICT = 256
 
 
 def components_before(tickets: list[dict], memory_size: int) -> list[str]:
@@ -55,9 +61,19 @@ def build_request(condition: str, ticket: dict, memory: list[dict], components: 
     }
     system = [prompts["route"].strip()]
     user = []
+    options = config["options"]
     if condition == "B":
         system.append(prompts["duplicates"].strip())
-        properties["duplicate_of"] = {"enum": [t["key"] for t in memory] + [None]}
+        if config.get("duplicate_answer", "pick") == "judge":
+            # One label per shown ticket, in the order shown; the first "same" is the answer.
+            properties["earlier_tickets"] = {
+                "type": "object",
+                "properties": {t["key"]: {"type": "string", "enum": list(JUDGEMENTS)} for t in memory},
+                "required": [t["key"] for t in memory],
+            }
+            options = {**options, "num_predict": JUDGED_NUM_PREDICT}
+        else:
+            properties["duplicate_of"] = {"enum": [t["key"] for t in memory] + [None]}
         user.append("Earlier tickets most similar to the new one, most similar first:\n\n"
                     + "\n\n".join(render_memory_ticket(t) for t in memory))
     system.append("Components:\n" + "\n".join(components))
@@ -72,7 +88,7 @@ def build_request(condition: str, ticket: dict, memory: list[dict], components: 
             {"role": "user", "content": "\n\n".join(user)},
         ],
         "format": schema,
-        "options": config["options"],
+        "options": options,
     }
     if config.get("think") is not None:  # only for models that can think; part of the cassette key
         request["think"] = config["think"]

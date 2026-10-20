@@ -3,4 +3,5 @@
 model = "qwen3.5:4b"
 think = false                          # Qwen3.5 thinks by default; off keeps answers short on a CPU
 route_prompt = "prompts/route_v1.md"   # every condition
-duplicate_prompt = "prompts/duplicates_v2.md"   # added when earlier tickets are shown (B)
+duplicate_prompt = "prompts/duplicates_v3.md"   # added when earlier tickets are shown (B)
+duplicate_answer = "judge"   # B labels each shown ticket same/related/different (v3); "pick" names one or null (v1, v2)

@@ -3,7 +3,8 @@ import json
 import pytest
 
 from tme.llm import CassetteMiss
-from tme.run import load_config, parse, run
+from tme.notes import write_notes
+from tme.run import load_config, load_prompts, parse, run
 
 from conftest import ROOT
 
@@ -16,7 +17,9 @@ class Stub:
 
     def complete(self, request):
         self.calls += 1
-        answer = {field: spec["enum"][0] for field, spec in request["format"]["properties"].items()}
+        # notes have no allowed values, so the stub writes one
+        answer = {field: spec["enum"][0] if "enum" in spec else f"note on {field}"
+                  for field, spec in request["format"]["properties"].items()}
         return {"content": json.dumps(answer), "latency_ms": 1000, "load_ms": 0, "prompt_ms": 800,
                 "generate_ms": 200, "prompt_tokens": 900, "completion_tokens": 25}
 
@@ -24,16 +27,18 @@ class Stub:
 @pytest.fixture
 def inputs():
     config = load_config(ROOT / "eval.toml")
-    prompts = {name: (ROOT / config[path]).read_text(encoding="utf-8")
-               for name, path in (("route", "route_prompt"), ("duplicates", "duplicate_prompt"))}
-    return config, prompts
+    return config, load_prompts(config, ROOT)
 
 
-@pytest.mark.parametrize("condition", ["A", "B"])
+@pytest.mark.parametrize("condition", ["A", "B", "C", "D1"])
 def test_record_then_replay_gives_the_same_answers_without_a_model(tmp_path, tickets, split, inputs, condition):
     config, prompts = inputs
+    notes = write_notes(tickets, "dev", config, prompts["write_notes"], "record", client=Stub(),
+                        cassettes=tmp_path / "cassettes")
+    (tmp_path / "notes").mkdir()
+    (tmp_path / "notes" / "dev.json").write_text(json.dumps(notes), encoding="utf-8")
     stub = Stub()
-    common = dict(cassettes=tmp_path / "cassettes", limit=4)
+    common = dict(cassettes=tmp_path / "cassettes", limit=4, notes_folder=tmp_path / "notes")
     recorded = run(condition, "dev", tickets, split, config, prompts, "record", client=stub,
                    out=tmp_path / "rec", **common)
     assert stub.calls == 4

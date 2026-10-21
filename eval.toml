@@ -3,4 +3,6 @@
 model = "qwen3.5:4b"
 think = false                          # Qwen3.5 thinks by default; off keeps answers short on a CPU
 route_prompt = "prompts/route_v1.md"   # every condition
-duplicate_prompt = "prompts/duplicates_v2.md"   # added when earlier tickets are shown (B)
+duplicate_prompt = "prompts/duplicates_v2.md"   # added when earlier tickets are shown (B, D1)
+notes_prompt = "prompts/notes_v1.md"   # added to A's prompt when the components carry notes (C)
+write_notes_prompt = "prompts/write_notes_v1.md"   # for writing those notes, once per set

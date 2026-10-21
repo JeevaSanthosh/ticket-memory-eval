@@ -129,8 +129,8 @@ four, and the duplicate one of the tickets shown or null.
 |---|---|---|
 | A. No memory | Instructions ([prompts/route_v1.md](prompts/route_v1.md)), the components used by any earlier ticket, and the new ticket | Ready |
 | B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
-| C. Written notes | A + one line per component, written once by the model from tickets before 2021 | Planned |
-| D1. Mislabelled memory | B, with one of the 5 tickets given a wrong component | Planned |
+| C. Written notes | A, with each component in the list followed by a note of at most 15 words on what its tickets are about ([prompts/notes_v1.md](prompts/notes_v1.md)). The model writes the notes once per set, one area at a time, from the summaries of each component's 20 most recent tickets before the set starts ([prompts/write_notes_v1.md](prompts/write_notes_v1.md), [src/tme/notes.py](src/tme/notes.py)), so by the end of 2021 they are up to a year old | Ready |
+| D1. Mislabelled memory | B, except that the most similar earlier ticket is shown with a wrong component, drawn at random (seeded by the new ticket's key) from the components on offer other than its own and the new ticket's | Ready |
 | D2. Stale memory | B, with memory only from tickets 2+ years older (if time allows) | Planned |
 
 A and B share every word except the memory part, so a difference between them comes from the
@@ -188,6 +188,7 @@ pytest
 
 # with Ollama running and `ollama pull qwen3.5:4b` done:
 tme run B dev --limit 5        # record the first 5 dev tickets, printing the time each takes
+tme notes test                 # C only: the model writes the component notes, once per set
 tme run B dev --mode replay    # score from recordings only, as CI does
 
 # compare two sets of answers to the same tickets, e.g. B against the vote of the same 5 tickets

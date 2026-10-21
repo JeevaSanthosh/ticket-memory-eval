@@ -12,9 +12,7 @@ from conftest import ROOT
 @pytest.fixture(scope="module")
 def setup(tickets):
     config = load_config(ROOT / "eval.toml")
-    prompts = {name: (ROOT / path).read_text(encoding="utf-8")
-               for name, path in (("route", config["route_prompt"]), ("duplicates", config["duplicate_prompt"]))}
-    return MemorySearch(tickets), config, prompts
+    return MemorySearch(tickets), config, load_prompts(config, ROOT)
 
 
 def requests_for(tickets, split, setup, condition):

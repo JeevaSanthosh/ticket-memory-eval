@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21522",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / State Processor\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 22440,
+  "load_ms": 9,
+  "prompt_ms": 16022,
+  "generate_ms": 4353,
+  "prompt_tokens": 1050,
+  "completion_tokens": 24
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24531",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Benchmarks\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 13745,
+  "load_ms": 6,
+  "prompt_ms": 7628,
+  "generate_ms": 4046,
+  "prompt_tokens": 756,
+  "completion_tokens": 23
+ }
+}

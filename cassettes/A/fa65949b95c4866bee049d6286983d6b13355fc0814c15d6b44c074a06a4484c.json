@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22743",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataSet\",\n  \"issue_type\": \"New Feature\"\n}",
+  "latency_ms": 24205,
+  "load_ms": 20,
+  "prompt_ms": 17176,
+  "generate_ms": 4907,
+  "prompt_tokens": 947,
+  "completion_tokens": 24
+ }
+}

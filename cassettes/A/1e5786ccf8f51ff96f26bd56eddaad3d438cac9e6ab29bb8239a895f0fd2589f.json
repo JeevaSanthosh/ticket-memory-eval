@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22745",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / Mesos\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 9972,
+  "load_ms": 42,
+  "prompt_ms": 3010,
+  "generate_ms": 4824,
+  "prompt_tokens": 556,
+  "completion_tokens": 24
+ }
+}

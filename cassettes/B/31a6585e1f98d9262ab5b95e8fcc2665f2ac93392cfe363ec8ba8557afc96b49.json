@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25112",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / CI\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 26234,
+  "load_ms": 10,
+  "prompt_ms": 18222,
+  "generate_ms": 5937,
+  "prompt_tokens": 1283,
+  "completion_tokens": 32
+ }
+}

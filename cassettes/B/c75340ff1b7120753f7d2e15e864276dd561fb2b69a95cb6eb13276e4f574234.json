@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24733",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Pulsar\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 24359,
+  "load_ms": 9,
+  "prompt_ms": 16421,
+  "generate_ms": 5827,
+  "prompt_tokens": 1214,
+  "completion_tokens": 32
+ }
+}

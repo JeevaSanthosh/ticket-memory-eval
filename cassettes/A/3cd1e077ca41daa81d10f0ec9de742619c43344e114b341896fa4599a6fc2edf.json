@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25224",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hadoop Compatibility\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 11899,
+  "load_ms": 7,
+  "prompt_ms": 5070,
+  "generate_ms": 4770,
+  "prompt_tokens": 662,
+  "completion_tokens": 27
+ }
+}

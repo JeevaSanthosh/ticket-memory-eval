@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23620",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Configuration\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 12533,
+  "load_ms": 7,
+  "prompt_ms": 6227,
+  "generate_ms": 4250,
+  "prompt_tokens": 705,
+  "completion_tokens": 24
+ }
+}

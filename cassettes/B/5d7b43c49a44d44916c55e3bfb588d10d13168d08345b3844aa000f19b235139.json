@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24965",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / State Backends\",\n  \"issue_type\": \"Technical Debt\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 36231,
+  "load_ms": 8,
+  "prompt_ms": 27849,
+  "generate_ms": 6117,
+  "prompt_tokens": 1633,
+  "completion_tokens": 33
+ }
+}

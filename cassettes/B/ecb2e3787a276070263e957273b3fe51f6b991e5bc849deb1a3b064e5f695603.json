@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22385",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Network\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 27631,
+  "load_ms": 7,
+  "prompt_ms": 19742,
+  "generate_ms": 5664,
+  "prompt_tokens": 1306,
+  "completion_tokens": 30
+ }
+}

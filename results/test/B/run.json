@@ -1,0 +1,20 @@
+{
+ "condition": "B",
+ "set": "test",
+ "tickets": 200,
+ "model": "qwen3.5:4b",
+ "think": false,
+ "options": {
+  "temperature": 0,
+  "seed": 42,
+  "num_ctx": 8192,
+  "num_predict": 128
+ },
+ "prompts": {
+  "route": "d491b7ca3aad9eade62428ddcf00b37b8f419143449a85f2df1f88580f3c263f",
+  "duplicates": "e09bddefabd561bf2ec62e149ed66cffb07b2d4364d575092ba2380cfdccf280"
+ },
+ "mode": "replay",
+ "recorded_now": 0,
+ "finished_at": "2026-10-21T14:54:06+00:00"
+}

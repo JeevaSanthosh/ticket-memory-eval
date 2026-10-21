@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22183",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Project Website\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 8795,
+  "load_ms": 9,
+  "prompt_ms": 2434,
+  "generate_ms": 4198,
+  "prompt_tokens": 537,
+  "completion_tokens": 23
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21795",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / REST\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 8758,
+  "load_ms": 7,
+  "prompt_ms": 2452,
+  "generate_ms": 4247,
+  "prompt_tokens": 592,
+  "completion_tokens": 24
+ }
+}

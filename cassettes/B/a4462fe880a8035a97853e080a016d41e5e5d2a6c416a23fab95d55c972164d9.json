@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24610",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Planner\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 24633,
+  "load_ms": 8,
+  "prompt_ms": 16597,
+  "generate_ms": 5853,
+  "prompt_tokens": 1248,
+  "completion_tokens": 32
+ }
+}

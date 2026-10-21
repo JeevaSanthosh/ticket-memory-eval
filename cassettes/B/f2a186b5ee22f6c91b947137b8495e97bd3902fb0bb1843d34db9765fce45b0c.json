@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23480",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / YARN\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 26731,
+  "load_ms": 11,
+  "prompt_ms": 18767,
+  "generate_ms": 5893,
+  "prompt_tokens": 1315,
+  "completion_tokens": 32
+ }
+}

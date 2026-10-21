@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25283",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 24755,
+  "load_ms": 8,
+  "prompt_ms": 17096,
+  "generate_ms": 5498,
+  "prompt_tokens": 1275,
+  "completion_tokens": 30
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24386",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Coordination\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 19909,
+  "load_ms": 13,
+  "prompt_ms": 13230,
+  "generate_ms": 4444,
+  "prompt_tokens": 978,
+  "completion_tokens": 25
+ }
+}

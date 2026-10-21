@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22417",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ORC\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 68419,
+  "load_ms": 10,
+  "prompt_ms": 59017,
+  "generate_ms": 7212,
+  "prompt_tokens": 2447,
+  "completion_tokens": 32
+ }
+}

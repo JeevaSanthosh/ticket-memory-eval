@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22888",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Library / CEP\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 39933,
+  "load_ms": 15,
+  "prompt_ms": 32221,
+  "generate_ms": 5602,
+  "prompt_tokens": 1784,
+  "completion_tokens": 30
+ }
+}

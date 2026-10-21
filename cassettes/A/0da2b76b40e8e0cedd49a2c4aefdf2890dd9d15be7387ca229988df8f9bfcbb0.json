@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24035",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Network\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 12566,
+  "load_ms": 25,
+  "prompt_ms": 6431,
+  "generate_ms": 4032,
+  "prompt_tokens": 711,
+  "completion_tokens": 23
+ }
+}

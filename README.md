@@ -11,8 +11,39 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
 
 The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
 
-**Status:** data, dev and test sets, memory search, the baselines that need no model, and
-conditions A and B recorded on dev (two versions of the duplicate prompt). Test is not recorded yet.
+**Status:** conditions A (no memory) and B (similar past tickets) recorded on dev and test.
+Written notes (C) and mislabelled memory (D1) come next.
+
+## Results on test so far
+
+`qwen3.5:4b` on a CPU, 200 test tickets from 2021 that played no part in any design choice,
+0 invalid answers. B uses the duplicate prompt chosen on dev (v2). Changes are paired bootstrap
+95% intervals from `tme compare`; answers are in [results/test/](results/test/).
+
+| | A, no memory | B, 5 similar earlier tickets | Vote of the same 5 (no model) | B against A | B against the vote |
+|---|---:|---:|---:|---|---|
+| Component | 0.515 | **0.595** | 0.455 | **+0.080** (+0.020 to +0.140) | **+0.140** (+0.070 to +0.210) |
+| Area | 0.655 | **0.720** | 0.595 | **+0.065** (+0.015 to +0.120) | **+0.125** (+0.055 to +0.195) |
+| Issue type | 0.745 | 0.770 | 0.710 | +0.025 (−0.025 to +0.075) | +0.060 (−0.010 to +0.130) |
+| Duplicate (right original, or none) | 0.500 | 0.550 | 0.520 | +0.050 (+0.020 to +0.085) | +0.030 (−0.030 to +0.090) |
+| … original found, on duplicates | 0.000 | 0.110 | 0.170 | | |
+| … correctly none, on non-duplicates | 1.000 | 0.990 | 0.870 | | |
+| Seconds per ticket, median | 15 | 33 | | | |
+| Prompt tokens, mean | 856 | 1,635 | | | |
+
+- **Memory helps routing, and the model adds something beyond search.** With the 5 most
+  similar earlier tickets in the prompt, the model picks the right component on 16 more tickets
+  than without them, and on 28 more than a vote of those same 5 tickets. It takes its answer
+  from one of the shown tickets 171 times out of 200, but doesn't simply follow the majority: it
+  is right on 40 tickets where the vote is wrong, and wrong on 12 where the vote is right. The
+  gain over A is smaller than on dev (+0.170): A scored 0.465 on dev and 0.515 on test, B 0.635
+  and 0.595.
+- **Memory doesn't help the issue type.** A and B give the same type on 170 of 200 tickets.
+- **On duplicates the model is no better than search.** B names an earlier ticket 17 times and
+  is right 11 times; the vote names 39 and is right 17 times. Overall the two are level. On dev,
+  three prompt designs only moved how readily the model called a duplicate, never how well it
+  told one from a related ticket (see [Dev results](#dev-results)).
+- **Memory roughly doubles the cost:** about twice the prompt tokens and time per ticket.
 
 ## Data
 
@@ -133,6 +164,12 @@ for A and B v2 are in [results/dev/](results/dev/). Changes and intervals come f
   wrongly flagging 1. Overall v2 is better (+0.120, +0.030 to +0.210), and routing is unchanged.
   But neither beats the vote of 5 (v2 −0.035, −0.090 to +0.015). Keeping only those v1 picks
   whose search score clears a threshold set on dev reaches 0.575, no better than the vote.
+- **A third design, v3, asked for a label on each earlier ticket (same, related or different)**
+  ([#6](https://github.com/JeevaSanthosh/ticket-memory-eval/pull/6), kept as a record, not
+  merged). The real original got "same" 37 times out of 51, but so did 90 of the other 949 shown
+  tickets. v3 landed between v1 and v2 (0.500) and was the slowest (48 s a ticket), so v2 went to
+  test: it had the highest dev duplicate accuracy, routing was the same for all three, and it was
+  the cheapest.
 
 ### Recording and replaying
 
@@ -175,6 +212,11 @@ includes zero, and **pass** otherwise.
 
 ## Limitations known so far
 
+- Dev was used for three duplicate prompts and the rules tried on them. The test numbers above
+  are the honest ones; the dev numbers are where the choices were made.
+- One ticket was filed twice on the same day (FLINK-21615 and FLINK-21618, both duplicates of
+  FLINK-21614), so both are in the test set. Without memory their requests are identical, and A
+  answered them from one recording.
 - The snapshot shows each ticket as it was in January 2022. A memory ticket's component, type and
   description may have been set or edited after a later ticket was filed, so memory can be
   slightly better informed than it would have been at the time.

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24262",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / Stateful Functions\",\n  \"issue_type\": \"Technical Debt\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 19792,
+  "load_ms": 13,
+  "prompt_ms": 10656,
+  "generate_ms": 6193,
+  "prompt_tokens": 1009,
+  "completion_tokens": 34
+ }
+}

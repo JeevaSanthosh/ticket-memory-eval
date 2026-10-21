@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23480",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Configuration\",\n  \"issue_type\": \"New Feature\"\n}",
+  "latency_ms": 11504,
+  "load_ms": 10,
+  "prompt_ms": 5196,
+  "generate_ms": 4230,
+  "prompt_tokens": 663,
+  "completion_tokens": 24
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25134",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 9345,
+  "load_ms": 12,
+  "prompt_ms": 2826,
+  "generate_ms": 4441,
+  "prompt_tokens": 575,
+  "completion_tokens": 25
+ }
+}

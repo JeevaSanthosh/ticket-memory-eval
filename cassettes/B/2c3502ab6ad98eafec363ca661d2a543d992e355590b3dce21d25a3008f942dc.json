@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25133",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Release System\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 29951,
+  "load_ms": 7,
+  "prompt_ms": 22261,
+  "generate_ms": 5508,
+  "prompt_tokens": 1436,
+  "completion_tokens": 30
+ }
+}

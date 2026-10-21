@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22644",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"chinese-translation\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 25090,
+  "load_ms": 6,
+  "prompt_ms": 16360,
+  "generate_ms": 6510,
+  "prompt_tokens": 1192,
+  "completion_tokens": 32
+ }
+}

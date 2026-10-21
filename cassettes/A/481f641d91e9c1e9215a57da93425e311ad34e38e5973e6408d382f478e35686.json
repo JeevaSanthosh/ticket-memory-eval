@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23540",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 26958,
+  "load_ms": 9,
+  "prompt_ms": 20762,
+  "generate_ms": 4109,
+  "prompt_tokens": 1141,
+  "completion_tokens": 23
+ }
+}

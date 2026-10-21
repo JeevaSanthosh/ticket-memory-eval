@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22509",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / YARN\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 47944,
+  "load_ms": 8,
+  "prompt_ms": 38725,
+  "generate_ms": 7009,
+  "prompt_tokens": 1833,
+  "completion_tokens": 31
+ }
+}

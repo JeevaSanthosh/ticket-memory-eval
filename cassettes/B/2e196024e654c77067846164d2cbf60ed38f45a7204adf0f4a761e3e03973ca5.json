@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19893",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 28654,
+  "load_ms": 7,
+  "prompt_ms": 20527,
+  "generate_ms": 5821,
+  "prompt_tokens": 1348,
+  "completion_tokens": 32
+ }
+}

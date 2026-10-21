@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19614",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Network\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 31957,
+  "load_ms": 28,
+  "prompt_ms": 23993,
+  "generate_ms": 5647,
+  "prompt_tokens": 1275,
+  "completion_tokens": 31
+ }
+}

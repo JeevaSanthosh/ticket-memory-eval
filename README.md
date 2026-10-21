@@ -12,7 +12,7 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
 The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
 
 **Status:** data, dev and test sets, memory search, the baselines that need no model, and
-conditions A and B recorded on dev with the first prompts. Test is not recorded yet.
+conditions A and B recorded on dev (two versions of the duplicate prompt). Test is not recorded yet.
 
 ## Data
 
@@ -97,7 +97,7 @@ four, and the duplicate one of the tickets shown or null.
 | | What the model sees | |
 |---|---|---|
 | A. No memory | Instructions ([prompts/route_v1.md](prompts/route_v1.md)), the components used by any earlier ticket, and the new ticket | Ready |
-| B. Similar past tickets | A + [prompts/duplicates_v1.md](prompts/duplicates_v1.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
+| B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
 | C. Written notes | A + one line per component, written once by the model from tickets before 2021 | Planned |
 | D1. Mislabelled memory | B, with one of the 5 tickets given a wrong component | Planned |
 | D2. Stale memory | B, with memory only from tickets 2+ years older (if time allows) | Planned |
@@ -106,28 +106,33 @@ A and B share every word except the memory part, so a difference between them co
 memory. [src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no
 request shows the new ticket's own key or any ticket created after it.
 
-### Dev results with the first prompts (v1)
+### Dev results
 
-`qwen3.5:4b` on a CPU, all 200 dev tickets, 0 invalid answers. Answers are in
-[results/dev/](results/dev/); the changes and intervals come from `tme compare` (paired bootstrap).
+`qwen3.5:4b` on a CPU, all 200 dev tickets, 0 invalid answers. A uses `route_v1`; B adds
+`duplicates_v1` or `duplicates_v2`, which differ only in the duplicate instructions. The answers
+for A and B v2 are in [results/dev/](results/dev/). Changes and intervals come from `tme compare`
+(paired bootstrap, 95%).
 
-| | A, no memory | B, 5 earlier tickets | Vote of the same 5 | B against A | B against the vote |
-|---|---:|---:|---:|---|---|
-| Component | 0.465 | **0.640** | 0.520 | +0.175 (+0.100 to +0.250) | +0.120 (+0.060 to +0.180) |
-| Area | 0.645 | **0.775** | 0.635 | +0.130 (+0.065 to +0.200) | +0.140 (+0.080 to +0.200) |
-| Issue type | 0.760 | 0.760 | 0.710 | +0.000 (−0.040 to +0.040) | +0.050 (−0.015 to +0.120) |
-| Duplicate | 0.500 | 0.415 | **0.570** | −0.085 (−0.180 to +0.010) | −0.155 (−0.240 to −0.070) |
-| … original found, on duplicates | 0.000 | **0.390** | 0.200 | | |
-| … correctly none, on non-duplicates | 1.000 | 0.440 | **0.940** | | |
-| Seconds per ticket, median | 23 | 35 | | | |
+| | A, no memory | B, v1 | B, v2 | Vote of the same 5 |
+|---|---:|---:|---:|---:|
+| Component | 0.465 | **0.640** | 0.635 | 0.520 |
+| Area | 0.645 | **0.775** | **0.775** | 0.635 |
+| Issue type | **0.760** | **0.760** | 0.755 | 0.710 |
+| Duplicate | 0.500 | 0.415 | 0.535 | **0.570** |
+| … original found, on duplicates | 0.000 | **0.390** | 0.080 | 0.200 |
+| … correctly none, on non-duplicates | **1.000** | 0.440 | 0.990 | 0.940 |
+| Seconds per ticket, median | 23 | 35 | 36 | |
 
-- **Memory helps routing.** B picks the right component on 35 more tickets than A, and on 24
-  more than the vote of the 5 tickets it was shown, so the model adds something beyond search.
-  Issue type doesn't move: A and B give the same type on 179 of 200 tickets.
-- **B finds originals but calls almost everything a duplicate.** When the original is among
-  the 5 it names it 39 times out of 51. But it names some ticket on 142 of 200, including 56 of
-  the 100 non-duplicates. It names the first ticket shown 65 times, rightly 25 times.
-  The duplicate prompt is the next thing to change, on dev.
+- **Memory helps routing.** B v2 picks the right component on 34 more tickets than A (+0.170,
+  +0.095 to +0.245) and on 23 more than the vote of the 5 tickets it was shown (+0.115, +0.050
+  to +0.180), so the model adds something beyond search. Issue type doesn't move.
+- **On duplicates, the prompt sets how readily the model calls a duplicate, but not how well it
+  tells one apart.** v1 names a ticket on 142 of 200: it finds 39 of the 51 originals that are
+  among the 5, but wrongly flags 56 of the 100 non-duplicates. v2 says the 5 were found by
+  keyword search and that usually none is a duplicate. It names a ticket on only 14, finding 8 and
+  wrongly flagging 1. Overall v2 is better (+0.120, +0.030 to +0.210), and routing is unchanged.
+  But neither beats the vote of 5 (v2 −0.035, −0.090 to +0.015). Keeping only those v1 picks
+  whose search score clears a threshold set on dev reaches 0.575, no better than the vote.
 
 ### Recording and replaying
 

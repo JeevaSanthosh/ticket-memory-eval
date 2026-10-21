@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15581",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataSet\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-15549\"\n}",
+  "latency_ms": 34131,
+  "load_ms": 21,
+  "prompt_ms": 23626,
+  "generate_ms": 8276,
+  "prompt_tokens": 1342,
+  "completion_tokens": 39
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17697",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / JDBC\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 42257,
+  "load_ms": 9,
+  "prompt_ms": 34433,
+  "generate_ms": 5750,
+  "prompt_tokens": 1870,
+  "completion_tokens": 31
+ }
+}

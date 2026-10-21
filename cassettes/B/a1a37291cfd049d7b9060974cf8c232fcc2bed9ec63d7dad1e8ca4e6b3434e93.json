@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17552",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Task\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 28078,
+  "load_ms": 14,
+  "prompt_ms": 20589,
+  "generate_ms": 5410,
+  "prompt_tokens": 1163,
+  "completion_tokens": 30
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15941",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Type Serialization System\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 46959,
+  "load_ms": 10,
+  "prompt_ms": 37844,
+  "generate_ms": 6917,
+  "prompt_tokens": 1270,
+  "completion_tokens": 32
+ }
+}

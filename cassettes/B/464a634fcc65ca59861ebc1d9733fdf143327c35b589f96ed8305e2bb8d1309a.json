@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17885",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Connectors / FileSystem\",\n\"issue_type\": \"Bug\",\n\"duplicate_of\": null\n}",
+  "latency_ms": 23190,
+  "load_ms": 11,
+  "prompt_ms": 15914,
+  "generate_ms": 5053,
+  "prompt_tokens": 1233,
+  "completion_tokens": 28
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18584",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / JDBC\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": \"FLINK-17991\"\n}",
+  "latency_ms": 33431,
+  "load_ms": 10,
+  "prompt_ms": 23571,
+  "generate_ms": 7492,
+  "prompt_tokens": 1139,
+  "completion_tokens": 41
+ }
+}

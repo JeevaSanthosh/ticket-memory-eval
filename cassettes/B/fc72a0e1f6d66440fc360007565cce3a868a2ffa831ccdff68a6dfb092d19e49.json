@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17059",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Build System / Stateful Functions\",\n\"issue_type\": \"Bug\",\n\"duplicate_of\": null\n}",
+  "latency_ms": 41723,
+  "load_ms": 17,
+  "prompt_ms": 33001,
+  "generate_ms": 6448,
+  "prompt_tokens": 1519,
+  "completion_tokens": 30
+ }
+}

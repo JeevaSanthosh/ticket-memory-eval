@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20070",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Core\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": \"FLINK-20050\"\n}",
+  "latency_ms": 62437,
+  "load_ms": 8,
+  "prompt_ms": 52589,
+  "generate_ms": 7470,
+  "prompt_tokens": 2469,
+  "completion_tokens": 39
+ }
+}

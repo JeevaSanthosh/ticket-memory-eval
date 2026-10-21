@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15545",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / API\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-12881\": \"different\",\n    \"FLINK-14606\": \"different\",\n    \"FLINK-9832\": \"different\",\n    \"FLINK-12557\": \"related\",\n    \"FLINK-8469\": \"different\"\n  }\n}",
+  "latency_ms": 77423,
+  "load_ms": 11,
+  "prompt_ms": 51166,
+  "generate_ms": 24168,
+  "prompt_tokens": 1631,
+  "completion_tokens": 109
+ }
+}

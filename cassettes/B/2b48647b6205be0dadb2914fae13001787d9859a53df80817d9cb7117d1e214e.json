@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18975",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"chinese-translation\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-18860\": \"same\",\n    \"FLINK-18855\": \"related\",\n    \"FLINK-18854\": \"related\",\n    \"FLINK-13106\": \"related\",\n    \"FLINK-18974\": \"related\"\n  }\n}",
+  "latency_ms": 43423,
+  "load_ms": 7,
+  "prompt_ms": 20791,
+  "generate_ms": 20563,
+  "prompt_tokens": 1177,
+  "completion_tokens": 111
+ }
+}

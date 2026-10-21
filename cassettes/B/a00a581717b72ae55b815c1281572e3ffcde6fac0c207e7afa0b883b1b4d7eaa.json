@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20682",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Configuration\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-7967\": \"different\",\n    \"FLINK-11195\": \"related\",\n    \"FLINK-6144\": \"related\",\n    \"FLINK-6408\": \"related\",\n    \"FLINK-13694\": \"related\"\n  }\n}",
+  "latency_ms": 50806,
+  "load_ms": 9,
+  "prompt_ms": 27515,
+  "generate_ms": 20031,
+  "prompt_tokens": 1467,
+  "completion_tokens": 107
+ }
+}

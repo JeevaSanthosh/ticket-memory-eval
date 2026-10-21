@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17137",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Planner\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-16844\": \"related\",\n    \"FLINK-16581\": \"different\",\n    \"FLINK-13735\": \"related\",\n    \"FLINK-13736\": \"related\",\n    \"FLINK-16543\": \"related\"\n  }\n}",
+  "latency_ms": 41736,
+  "load_ms": 10,
+  "prompt_ms": 18886,
+  "generate_ms": 20560,
+  "prompt_tokens": 1137,
+  "completion_tokens": 111
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19019",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"flink-docker\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-4900\": \"different\",\n    \"FLINK-13865\": \"related\",\n    \"FLINK-11838\": \"different\",\n    \"FLINK-15831\": \"different\",\n    \"FLINK-16880\": \"related\"\n  }\n}",
+  "latency_ms": 46049,
+  "load_ms": 8,
+  "prompt_ms": 23277,
+  "generate_ms": 20373,
+  "prompt_tokens": 1226,
+  "completion_tokens": 110
+ }
+}

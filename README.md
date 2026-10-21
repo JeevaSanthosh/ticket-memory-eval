@@ -109,19 +109,19 @@ request shows the new ticket's own key or any ticket created after it.
 ### Dev results
 
 `qwen3.5:4b` on a CPU, all 200 dev tickets, 0 invalid answers. A uses `route_v1`; B adds
-`duplicates_v1` or `duplicates_v2`, which differ only in the duplicate instructions. The answers
-for A and B v2 are in [results/dev/](results/dev/). Changes and intervals come from `tme compare`
-(paired bootstrap, 95%).
+`duplicates_v1`, `v2` or `v3`, which differ only in the duplicate instructions (v3 also asks for a
+label per earlier ticket). The answers for A and B v3 are in [results/dev/](results/dev/). Changes
+and intervals come from `tme compare` (paired bootstrap, 95%).
 
-| | A, no memory | B, v1 | B, v2 | Vote of the same 5 |
-|---|---:|---:|---:|---:|
-| Component | 0.465 | **0.640** | 0.635 | 0.520 |
-| Area | 0.645 | **0.775** | **0.775** | 0.635 |
-| Issue type | **0.760** | **0.760** | 0.755 | 0.710 |
-| Duplicate | 0.500 | 0.415 | 0.535 | **0.570** |
-| … original found, on duplicates | 0.000 | **0.390** | 0.080 | 0.200 |
-| … correctly none, on non-duplicates | **1.000** | 0.440 | 0.990 | 0.940 |
-| Seconds per ticket, median | 23 | 35 | 36 | |
+| | A, no memory | B, v1 | B, v2 | B, v3 | Vote of the same 5 |
+|---|---:|---:|---:|---:|---:|
+| Component | 0.465 | **0.640** | 0.635 | 0.630 | 0.520 |
+| Area | 0.645 | **0.775** | **0.775** | 0.765 | 0.635 |
+| Issue type | **0.760** | **0.760** | 0.755 | 0.755 | 0.710 |
+| Duplicate | 0.500 | 0.415 | 0.535 | 0.500 | **0.570** |
+| … original found, on duplicates | 0.000 | **0.390** | 0.080 | 0.340 | 0.200 |
+| … correctly none, on non-duplicates | **1.000** | 0.440 | 0.990 | 0.660 | 0.940 |
+| Seconds per ticket, median | 23 | 35 | 36 | 48 | |
 
 - **Memory helps routing.** B v2 picks the right component on 34 more tickets than A (+0.170,
   +0.095 to +0.245) and on 23 more than the vote of the 5 tickets it was shown (+0.115, +0.050
@@ -133,6 +133,12 @@ for A and B v2 are in [results/dev/](results/dev/). Changes and intervals come f
   wrongly flagging 1. Overall v2 is better (+0.120, +0.030 to +0.210), and routing is unchanged.
   But neither beats the vote of 5 (v2 −0.035, −0.090 to +0.015). Keeping only those v1 picks
   whose search score clears a threshold set on dev reaches 0.575, no better than the vote.
+- **Judging each earlier ticket (v3) doesn't help either.** v3 asks for a label for each of the
+  5 tickets: same, related or different. The real original gets "same" 37 times out of 51, but 90
+  of the other 949 shown tickets get it too. So v3 lands between v1 and v2: 95 tickets named, 34
+  right, 34 of the 100 non-duplicates flagged; 0.500 against v2's 0.535 (−0.035, −0.110 to
+  +0.040). Rules on the labels chosen on dev reach 0.570 at best, and only by also requiring the
+  search score the vote uses.
 
 ### Recording and replaying
 

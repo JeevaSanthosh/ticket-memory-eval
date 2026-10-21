@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20179",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Formats (JSON, Avro, Parquet, ORC, SequenceFile)\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-17462\": \"same\",\n    \"FLINK-17526\": \"same\",\n    \"FLINK-17461\": \"same\",\n    \"FLINK-17604\": \"related\",\n    \"FLINK-17757\": \"related\"\n  }\n}",
+  "latency_ms": 40744,
+  "load_ms": 8,
+  "prompt_ms": 15782,
+  "generate_ms": 22595,
+  "prompt_tokens": 1117,
+  "completion_tokens": 122
+ }
+}

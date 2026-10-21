@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17600",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Planner\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-13393\": \"related\",\n    \"FLINK-13168\": \"related\",\n    \"FLINK-13238\": \"different\",\n    \"FLINK-13391\": \"related\",\n    \"FLINK-17171\": \"related\"\n  }\n}",
+  "latency_ms": 59214,
+  "load_ms": 9,
+  "prompt_ms": 35767,
+  "generate_ms": 20932,
+  "prompt_tokens": 1676,
+  "completion_tokens": 110
+ }
+}

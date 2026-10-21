@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15581",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataSet\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-15549\": \"same\",\n    \"FLINK-3586\": \"related\",\n    \"FLINK-3362\": \"related\",\n    \"FLINK-10367\": \"different\",\n    \"FLINK-3342\": \"different\"\n  }\n}",
+  "latency_ms": 42580,
+  "load_ms": 7,
+  "prompt_ms": 20056,
+  "generate_ms": 20303,
+  "prompt_tokens": 1348,
+  "completion_tokens": 106
+ }
+}

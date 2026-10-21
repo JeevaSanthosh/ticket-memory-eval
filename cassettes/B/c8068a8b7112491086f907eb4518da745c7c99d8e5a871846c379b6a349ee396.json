@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18728",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Network\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-14873\": \"related\",\n    \"FLINK-17823\": \"related\",\n    \"FLINK-8747\": \"related\",\n    \"FLINK-12511\": \"different\",\n    \"FLINK-7394\": \"related\"\n  }\n}",
+  "latency_ms": 43924,
+  "load_ms": 11,
+  "prompt_ms": 21451,
+  "generate_ms": 20298,
+  "prompt_tokens": 1172,
+  "completion_tokens": 109
+ }
+}

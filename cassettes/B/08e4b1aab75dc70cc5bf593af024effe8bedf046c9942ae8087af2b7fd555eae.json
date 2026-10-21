@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17927",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / FileSystem\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-17391\": \"related\",\n    \"FLINK-17925\": \"same\",\n    \"FLINK-14381\": \"different\",\n    \"FLINK-17587\": \"related\",\n    \"FLINK-15971\": \"different\"\n  }\n}",
+  "latency_ms": 35722,
+  "load_ms": 24,
+  "prompt_ms": 13012,
+  "generate_ms": 20424,
+  "prompt_tokens": 1131,
+  "completion_tokens": 111
+ }
+}

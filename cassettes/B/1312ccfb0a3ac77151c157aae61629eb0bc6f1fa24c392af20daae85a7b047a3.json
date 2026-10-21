@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16517",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Examples\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-857\": \"different\",\n    \"FLINK-773\": \"related\",\n    \"FLINK-215\": \"related\",\n    \"FLINK-121\": \"related\",\"FLINK-3670\": \"same\"\n  }\n}",
+  "latency_ms": 44372,
+  "load_ms": 12,
+  "prompt_ms": 23959,
+  "generate_ms": 18137,
+  "prompt_tokens": 1364,
+  "completion_tokens": 97
+ }
+}

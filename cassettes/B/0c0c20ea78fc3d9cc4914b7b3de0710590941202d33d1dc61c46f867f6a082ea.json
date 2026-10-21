@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18169",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ElasticSearch\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-11346\": \"same\",\n    \"FLINK-16942\": \"related\",\n    \"FLINK-16788\": \"related\",\n    \"FLINK-17116\": \"different\",\n    \"FLINK-16266\": \"different\"\n  }\n}",
+  "latency_ms": 40353,
+  "load_ms": 8,
+  "prompt_ms": 17435,
+  "generate_ms": 20615,
+  "prompt_tokens": 1290,
+  "completion_tokens": 111
+ }
+}

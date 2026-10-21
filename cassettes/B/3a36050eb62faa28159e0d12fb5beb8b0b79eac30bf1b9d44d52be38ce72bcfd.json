@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18042",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-11625\": \"same\",\n    \"FLINK-11626\": \"same\",\n    \"FLINK-12775\": \"same\",\n    \"FLINK-8112\": \"related\",\n    \"FLINK-10554\": \"related\"\n  }\n}",
+  "latency_ms": 29619,
+  "load_ms": 7,
+  "prompt_ms": 7321,
+  "generate_ms": 19985,
+  "prompt_tokens": 919,
+  "completion_tokens": 108
+ }
+}

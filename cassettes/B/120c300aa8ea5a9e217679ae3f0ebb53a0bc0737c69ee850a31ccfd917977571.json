@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19843",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataSet\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-18818\": \"different\",\n    \"FLINK-17636\": \"different\",\n    \"FLINK-16383\": \"different\",\n    \"FLINK-19093\": \"different\",\n    \"FLINK-18965\": \"different\"\n  }\n}",
+  "latency_ms": 86968,
+  "load_ms": 8,
+  "prompt_ms": 62918,
+  "generate_ms": 21560,
+  "prompt_tokens": 2624,
+  "completion_tokens": 109
+ }
+}

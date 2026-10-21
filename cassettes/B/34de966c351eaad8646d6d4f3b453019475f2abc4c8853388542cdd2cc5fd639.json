@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18491",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Python\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-18490\": \"related\",\n    \"FLINK-16762\": \"different\",\n    \"FLINK-6860\": \"different\",\n    \"FLINK-13004\": \"different\",\n    \"FLINK-16483\": \"related\"\n  }\n}",
+  "latency_ms": 36539,
+  "load_ms": 12,
+  "prompt_ms": 14010,
+  "generate_ms": 20214,
+  "prompt_tokens": 1112,
+  "completion_tokens": 109
+ }
+}

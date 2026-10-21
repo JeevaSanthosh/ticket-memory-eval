@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20667",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ORC\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-16682\": \"related\",\n    \"FLINK-15390\": \"related\",\n    \"FLINK-15290\": \"related\",\n    \"FLINK-6781\": \"different\",\n    \"FLINK-14135\": \"related\"\n  }\n}",
+  "latency_ms": 38303,
+  "load_ms": 8,
+  "prompt_ms": 15166,
+  "generate_ms": 20501,
+  "prompt_tokens": 1043,
+  "completion_tokens": 111
+ }
+}

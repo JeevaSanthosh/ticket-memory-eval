@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17680",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / REST\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-12261\": \"different\",\n    \"FLINK-10360\": \"related\",\n    \"FLINK-4598\": \"different\",\n    \"FLINK-8397\": \"different\",\n    \"FLINK-4641\": \"different\"\n  }\n}",
+  "latency_ms": 35520,
+  "load_ms": 9,
+  "prompt_ms": 13494,
+  "generate_ms": 19726,
+  "prompt_tokens": 1143,
+  "completion_tokens": 107
+ }
+}

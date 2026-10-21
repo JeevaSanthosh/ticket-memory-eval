@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16942",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / ElasticSearch\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-13235\": \"related\",\n    \"FLINK-9463\": \"related\",\n    \"FLINK-15306\": \"related\",\n    \"FLINK-5691\": \"different\",\n    \"FLINK-13771\": \"related\"\n  }\n}",
+  "latency_ms": 44293,
+  "load_ms": 27,
+  "prompt_ms": 21469,
+  "generate_ms": 20531,
+  "prompt_tokens": 1277,
+  "completion_tokens": 110
+ }
+}

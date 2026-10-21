@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17031",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-16840\": \"different\",\n    \"FLINK-3432\": \"different\",\n    \"FLINK-16610\": \"different\",\n    \"FLINK-9876\": \"different\",\n    \"FLINK-15464\": \"related\"\n  }\n}",
+  "latency_ms": 63982,
+  "load_ms": 12,
+  "prompt_ms": 40878,
+  "generate_ms": 20885,
+  "prompt_tokens": 1960,
+  "completion_tokens": 108
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16737",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"BuildSystem / Shaded\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-14998\": \"related\",\n    \"FLINK-16521\": \"related\",\n    \"FLINK-3305\": \"related\",\n    \"FLINK-10546\": \"different\",\n    \"FLINK-14000\": \"different\"\n  }\n}",
+  "latency_ms": 41621,
+  "load_ms": 13,
+  "prompt_ms": 18736,
+  "generate_ms": 20574,
+  "prompt_tokens": 1162,
+  "completion_tokens": 111
+ }
+}

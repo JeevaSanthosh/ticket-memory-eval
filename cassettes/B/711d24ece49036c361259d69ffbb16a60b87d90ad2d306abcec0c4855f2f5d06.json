@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20691",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Metrics\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-13787\": \"same\",\n    \"FLINK-11457\": \"same\",\n    \"FLINK-17487\": \"different\",\n    \"FLINK-10300\": \"same\",\"FLINK-1573\": \"related\"\n  }\n}",
+  "latency_ms": 39728,
+  "load_ms": 5,
+  "prompt_ms": 17593,
+  "generate_ms": 19797,
+  "prompt_tokens": 1271,
+  "completion_tokens": 106
+ }
+}

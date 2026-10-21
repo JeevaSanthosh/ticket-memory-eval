@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20044",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / State Backends\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-5463\": \"same\",\n    \"FLINK-4803\": \"related\",\n    \"FLINK-10621\": \"different\",\n    \"FLINK-9169\": \"different\",\n    \"FLINK-4990\": \"different\"\n  }\n}",
+  "latency_ms": 54928,
+  "load_ms": 9,
+  "prompt_ms": 32193,
+  "generate_ms": 20317,
+  "prompt_tokens": 1750,
+  "completion_tokens": 107
+ }
+}

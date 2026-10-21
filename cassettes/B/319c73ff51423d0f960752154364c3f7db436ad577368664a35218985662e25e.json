@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17262",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Stateful Functions\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-17261\": \"different\",\n\"FLINK-10544\": \"related\",\n\"FLINK-14345\": \"related\",\n\"FLINK-12523\": \"different\",\n\"FLINK-17168\": \"different\"\n}\n}",
+  "latency_ms": 52226,
+  "load_ms": 8,
+  "prompt_ms": 31190,
+  "generate_ms": 18784,
+  "prompt_tokens": 1511,
+  "completion_tokens": 100
+ }
+}

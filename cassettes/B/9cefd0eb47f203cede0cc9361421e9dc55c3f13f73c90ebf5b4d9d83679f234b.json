@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20763",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Formats (JSON, Avro, Parquet, ORC, SequenceFile)\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-19446\": \"same\",\n    \"FLINK-18824\": \"related\",\n    \"FLINK-19244\": \"related\",\n    \"FLINK-17150\": \"different\",\n    \"FLINK-16322\": \"different\"\n  }\n}",
+  "latency_ms": 71626,
+  "load_ms": 10,
+  "prompt_ms": 46033,
+  "generate_ms": 23292,
+  "prompt_tokens": 2060,
+  "completion_tokens": 121
+ }
+}

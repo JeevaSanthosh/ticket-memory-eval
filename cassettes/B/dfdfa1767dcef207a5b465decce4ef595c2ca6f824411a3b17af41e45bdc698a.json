@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15996",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataStream\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-15782\": \"related\",\n    \"FLINK-2419\": \"different\",\n    \"FLINK-11222\": \"different\",\n    \"FLINK-13361\": \"different\",\n    \"FLINK-6131\": \"same\"\n  }\n}",
+  "latency_ms": 46852,
+  "load_ms": 8,
+  "prompt_ms": 24399,
+  "generate_ms": 20266,
+  "prompt_tokens": 1149,
+  "completion_tokens": 109
+ }
+}

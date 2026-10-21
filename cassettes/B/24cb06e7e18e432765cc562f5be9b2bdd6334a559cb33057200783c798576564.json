@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16818",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-10348\": \"different\",\n    \"FLINK-16803\": \"related\",\n    \"FLINK-15245\": \"different\",\n    \"FLINK-13012\": \"different\",\n    \"FLINK-15404\": \"related\"\n  }\n}",
+  "latency_ms": 45695,
+  "load_ms": 7,
+  "prompt_ms": 22800,
+  "generate_ms": 20825,
+  "prompt_tokens": 1297,
+  "completion_tokens": 111
+ }
+}

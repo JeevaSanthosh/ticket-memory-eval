@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18429",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Type Serialization System\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-7117\": \"different\",\n    \"FLINK-12142\": \"related\",\n    \"FLINK-6566\": \"same\",\n    \"FLINK-3198\": \"different\",\n    \"FLINK-4417\": \"different\"\n  }\n}",
+  "latency_ms": 58356,
+  "load_ms": 10,
+  "prompt_ms": 35419,
+  "generate_ms": 20861,
+  "prompt_tokens": 1621,
+  "completion_tokens": 108
+ }
+}

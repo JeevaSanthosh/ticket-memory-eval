@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16897",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-6508\": \"different\",\n    \"FLINK-16893\": \"related\",\n    \"FLINK-16888\": \"related\",\n    \"FLINK-13967\": \"related\",\n    \"FLINK-13963\": \"different\"\n  }\n}",
+  "latency_ms": 42540,
+  "load_ms": 9,
+  "prompt_ms": 20303,
+  "generate_ms": 19932,
+  "prompt_tokens": 1220,
+  "completion_tokens": 107
+ }
+}

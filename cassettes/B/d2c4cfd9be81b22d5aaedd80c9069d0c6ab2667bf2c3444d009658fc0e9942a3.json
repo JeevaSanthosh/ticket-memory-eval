@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16870",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Formats (JSON, Avro, Parquet, ORC, SequenceFile)\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-16646\": \"same\",\n    \"FLINK-8830\": \"different\",\n    \"FLINK-11987\": \"different\",\n    \"FLINK-5464\": \"different\",\n    \"FLINK-14411\": \"related\"\n  }\n}",
+  "latency_ms": 52633,
+  "load_ms": 8,
+  "prompt_ms": 27628,
+  "generate_ms": 22656,
+  "prompt_tokens": 1505,
+  "completion_tokens": 119
+ }
+}

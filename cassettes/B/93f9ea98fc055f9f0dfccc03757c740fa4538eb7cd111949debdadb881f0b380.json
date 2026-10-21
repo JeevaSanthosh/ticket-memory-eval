@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18882",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-13443\": \"related\",\n    \"FLINK-12566\": \"different\",\n    \"FLINK-4359\": \"different\",\n    \"FLINK-13385\": \"related\",\n    \"FLINK-15853\": \"different\"\n  }\n}",
+  "latency_ms": 39995,
+  "load_ms": 9,
+  "prompt_ms": 17379,
+  "generate_ms": 20300,
+  "prompt_tokens": 1056,
+  "completion_tokens": 110
+ }
+}

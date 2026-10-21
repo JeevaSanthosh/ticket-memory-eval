@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15557",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-7732\": \"different\",\n    \"FLINK-12976\": \"related\",\n    \"FLINK-10891\": \"related\",\n    \"FLINK-10931\": \"related\",\n    \"FLINK-15362\": \"related\"\n  }\n}",
+  "latency_ms": 52670,
+  "load_ms": 7,
+  "prompt_ms": 26704,
+  "generate_ms": 23773,
+  "prompt_tokens": 1394,
+  "completion_tokens": 109
+ }
+}

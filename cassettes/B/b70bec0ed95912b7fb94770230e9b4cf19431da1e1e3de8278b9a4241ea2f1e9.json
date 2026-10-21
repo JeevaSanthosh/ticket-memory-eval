@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20674",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / API\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-20466\": \"related\",\n    \"FLINK-20322\": \"different\",\n    \"FLINK-11230\": \"related\",\n    \"FLINK-3941\": \"different\",\n    \"FLINK-12936\": \"different\"\n  }\n}",
+  "latency_ms": 49768,
+  "load_ms": 8,
+  "prompt_ms": 26042,
+  "generate_ms": 21630,
+  "prompt_tokens": 1415,
+  "completion_tokens": 109
+ }
+}

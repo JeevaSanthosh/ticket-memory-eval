@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17326",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Client\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-15472\": \"related\",\n    \"FLINK-13176\": \"same\",\"FLINK-9377\": \"different\",\"FLINK-2721\": \"different\",\"FLINK-12624\": \"different\"\n  }\n}",
+  "latency_ms": 42617,
+  "load_ms": 10,
+  "prompt_ms": 21490,
+  "generate_ms": 18864,
+  "prompt_tokens": 1169,
+  "completion_tokens": 101
+ }
+}

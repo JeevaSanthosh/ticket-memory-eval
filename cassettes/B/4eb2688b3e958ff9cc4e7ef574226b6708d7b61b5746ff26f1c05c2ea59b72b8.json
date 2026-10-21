@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19022",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Coordination\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-14207\": \"different\",\n    \"FLINK-12927\": \"related\",\n    \"FLINK-18068\": \"related\",\n    \"FLINK-8176\": \"related\",\n    \"FLINK-18438\": \"different\"\n  }\n}",
+  "latency_ms": 61659,
+  "load_ms": 11,
+  "prompt_ms": 38313,
+  "generate_ms": 21223,
+  "prompt_tokens": 1809,
+  "completion_tokens": 109
+ }
+}

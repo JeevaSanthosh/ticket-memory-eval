@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20222",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Checkpointing\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-13270\": \"related\",\n    \"FLINK-16986\": \"related\",\n    \"FLINK-5246\": \"related\",\n    \"FLINK-10855\": \"related\",\n    \"FLINK-17351\": \"same\"\n  }\n}",
+  "latency_ms": 45270,
+  "load_ms": 8,
+  "prompt_ms": 22615,
+  "generate_ms": 20408,
+  "prompt_tokens": 1319,
+  "completion_tokens": 110
+ }
+}

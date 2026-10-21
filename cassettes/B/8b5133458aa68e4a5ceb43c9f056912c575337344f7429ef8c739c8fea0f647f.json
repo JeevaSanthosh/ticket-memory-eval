@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15596",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-3755\": \"different\",\n    \"FLINK-15502\": \"different\",\n    \"FLINK-12896\": \"different\",\n    \"FLINK-6465\": \"related\",\n    \"FLINK-14358\": \"different\"\n  }\n}",
+  "latency_ms": 47554,
+  "load_ms": 7,
+  "prompt_ms": 24821,
+  "generate_ms": 20544,
+  "prompt_tokens": 1445,
+  "completion_tokens": 109
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16185",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / API\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-9477\": \"same\",\n    \"FLINK-14320\": \"related\",\n    \"FLINK-15472\": \"different\",\n    \"FLINK-11458\": \"different\",\n    \"FLINK-4319\": \"different\"\n  }\n}",
+  "latency_ms": 43380,
+  "load_ms": 9,
+  "prompt_ms": 21145,
+  "generate_ms": 20183,
+  "prompt_tokens": 1138,
+  "completion_tokens": 109
+ }
+}

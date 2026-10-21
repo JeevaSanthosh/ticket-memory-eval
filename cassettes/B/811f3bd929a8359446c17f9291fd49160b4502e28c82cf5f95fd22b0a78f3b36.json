@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20649",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Task\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-13695\": \"related\",\n    \"FLINK-3896\": \"different\",\n    \"FLINK-10275\": \"different\",\n    \"FLINK-6833\": \"related\",\n    \"FLINK-6684\": \"related\"\n  }\n}",
+  "latency_ms": 43624,
+  "load_ms": 10,
+  "prompt_ms": 20310,
+  "generate_ms": 20237,
+  "prompt_tokens": 1251,
+  "completion_tokens": 106
+ }
+}

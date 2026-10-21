@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17763",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Scala Shell\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-11224\": \"same\",\n    \"FLINK-11264\": \"related\",\n    \"FLINK-9445\": \"different\",\n    \"FLINK-14630\": \"different\",\n    \"FLINK-2947\": \"different\"\n  }\n}",
+  "latency_ms": 40275,
+  "load_ms": 9,
+  "prompt_ms": 18405,
+  "generate_ms": 19758,
+  "prompt_tokens": 1307,
+  "completion_tokens": 106
+ }
+}

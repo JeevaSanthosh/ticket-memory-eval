@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19825",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Scala\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-16969\": \"related\",\n    \"FLINK-9698\": \"different\",\n    \"FLINK-18410\": \"different\",\n    \"FLINK-11785\": \"different\",\n    \"FLINK-19486\": \"different\"\n  }\n}",
+  "latency_ms": 53201,
+  "load_ms": 7,
+  "prompt_ms": 30523,
+  "generate_ms": 20342,
+  "prompt_tokens": 1513,
+  "completion_tokens": 108
+ }
+}

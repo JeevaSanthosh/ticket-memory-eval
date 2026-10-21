@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18320",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-16032\": \"related\",\n    \"FLINK-16455\": \"same\",\n    \"FLINK-13400\": \"different\",\n    \"FLINK-13833\": \"different\",\n    \"FLINK-14849\": \"related\"\n  }\n}",
+  "latency_ms": 47812,
+  "load_ms": 23,
+  "prompt_ms": 24670,
+  "generate_ms": 20793,
+  "prompt_tokens": 1237,
+  "completion_tokens": 111
+ }
+}

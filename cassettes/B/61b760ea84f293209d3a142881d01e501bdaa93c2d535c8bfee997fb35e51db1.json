@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20438",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"API / DataStream\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-5006\": \"related\",\n\"FLINK-19775\": \"same\",\n\"FLINK-14120\": \"same\",\n\"FLINK-17194\": \"different\",\n\"FLINK-9616\": \"different\"\n}\n}",
+  "latency_ms": 57098,
+  "load_ms": 8,
+  "prompt_ms": 36132,
+  "generate_ms": 18896,
+  "prompt_tokens": 1788,
+  "completion_tokens": 99
+ }
+}

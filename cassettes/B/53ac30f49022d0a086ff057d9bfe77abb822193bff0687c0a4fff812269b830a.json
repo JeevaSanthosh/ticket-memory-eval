@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20628",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Common\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-19161\": \"different\",\n    \"FLINK-20625\": \"different\",\n    \"FLINK-3769\": \"related\",\n    \"FLINK-3406\": \"related\",\n    \"FLINK-13459\": \"related\"\n  }\n}",
+  "latency_ms": 48884,
+  "load_ms": 8,
+  "prompt_ms": 25818,
+  "generate_ms": 20743,
+  "prompt_tokens": 1572,
+  "completion_tokens": 109
+ }
+}

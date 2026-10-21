@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20039",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"FileSystems\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-18291\": \"same\",\n    \"FLINK-16457\": \"different\",\n    \"FLINK-19705\": \"different\",\n    \"FLINK-17624\": \"different\",\n    \"FLINK-17913\": \"same\"\n  }\n}",
+  "latency_ms": 88348,
+  "load_ms": 14,
+  "prompt_ms": 64808,
+  "generate_ms": 21468,
+  "prompt_tokens": 2896,
+  "completion_tokens": 108
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17221",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / YARN\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-2987\": \"related\",\n    \"FLINK-6843\": \"different\",\n    \"FLINK-6580\": \"related\",\n    \"FLINK-3636\": \"different\",\n    \"FLINK-8787\": \"related\"\n  }\n}",
+  "latency_ms": 61577,
+  "load_ms": 8,
+  "prompt_ms": 39016,
+  "generate_ms": 20168,
+  "prompt_tokens": 1834,
+  "completion_tokens": 105
+ }
+}

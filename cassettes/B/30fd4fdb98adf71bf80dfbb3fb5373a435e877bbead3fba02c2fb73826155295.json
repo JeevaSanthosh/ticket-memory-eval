@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19120",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / HBase\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-16759\": \"related\",\n    \"FLINK-2765\": \"different\",\n    \"FLINK-12162\": \"different\",\n    \"FLINK-7966\": \"different\",\n    \"FLINK-1065\": \"different\"\n  }\n}",
+  "latency_ms": 56032,
+  "load_ms": 11,
+  "prompt_ms": 33286,
+  "generate_ms": 20671,
+  "prompt_tokens": 1617,
+  "completion_tokens": 108
+ }
+}

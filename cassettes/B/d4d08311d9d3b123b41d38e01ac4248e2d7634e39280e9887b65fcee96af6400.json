@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17552",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Network\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-12474\": \"related\",\n    \"FLINK-8760\": \"related\",\n    \"FLINK-13063\": \"different\",\n    \"FLINK-5361\": \"different\",\n    \"FLINK-3560\": \"different\"\n  }\n}",
+  "latency_ms": 42459,
+  "load_ms": 8,
+  "prompt_ms": 20746,
+  "generate_ms": 19657,
+  "prompt_tokens": 1169,
+  "completion_tokens": 106
+ }
+}

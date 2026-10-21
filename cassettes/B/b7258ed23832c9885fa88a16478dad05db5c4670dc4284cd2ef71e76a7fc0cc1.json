@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20602",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kinesis\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-8249\": \"related\",\n    \"FLINK-5898\": \"different\",\n    \"FLINK-11942\": \"related\",\n    \"FLINK-11568\": \"different\",\n    \"FLINK-4138\": \"different\"\n  }\n}",
+  "latency_ms": 57790,
+  "load_ms": 7,
+  "prompt_ms": 34782,
+  "generate_ms": 20750,
+  "prompt_tokens": 1892,
+  "completion_tokens": 108
+ }
+}

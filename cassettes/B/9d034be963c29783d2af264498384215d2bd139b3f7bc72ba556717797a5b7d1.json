@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16617",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Type Serialization System\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-1360\": \"different\",\n    \"FLINK-12726\": \"related\",\n    \"FLINK-2609\": \"related\",\n    \"FLINK-1872\": \"different\",\n    \"FLINK-14904\": \"related\"\n  }\n}",
+  "latency_ms": 41499,
+  "load_ms": 7,
+  "prompt_ms": 19144,
+  "generate_ms": 20097,
+  "prompt_tokens": 1181,
+  "completion_tokens": 108
+ }
+}

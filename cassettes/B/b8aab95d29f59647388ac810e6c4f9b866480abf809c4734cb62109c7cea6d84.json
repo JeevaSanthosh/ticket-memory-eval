@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20208",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / FileSystem\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-11116\": \"related\",\n    \"FLINK-16574\": \"related\",\n    \"FLINK-13852\": \"related\",\n    \"FLINK-12574\": \"related\",\"FLINK-18032\": \"different\"\n  }\n}",
+  "latency_ms": 51360,
+  "load_ms": 8,
+  "prompt_ms": 28447,
+  "generate_ms": 20506,
+  "prompt_tokens": 1516,
+  "completion_tokens": 109
+ }
+}

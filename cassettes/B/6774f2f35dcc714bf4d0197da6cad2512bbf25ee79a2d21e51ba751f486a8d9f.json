@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20636",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Stateful Functions\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-14551\": \"different\",\n    \"FLINK-18404\": \"related\",\n    \"FLINK-17258\": \"different\",\n    \"FLINK-18405\": \"related\",\n    \"FLINK-19442\": \"related\"\n  }\n}",
+  "latency_ms": 37342,
+  "load_ms": 8,
+  "prompt_ms": 14585,
+  "generate_ms": 20425,
+  "prompt_tokens": 1178,
+  "completion_tokens": 110
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18999",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-15167\": \"related\",\n    \"FLINK-16532\": \"different\",\n    \"FLINK-17896\": \"related\",\n    \"FLINK-16291\": \"related\",\n    \"FLINK-963\": \"different\"\n  }\n}",
+  "latency_ms": 64374,
+  "load_ms": 12,
+  "prompt_ms": 41635,
+  "generate_ms": 20648,
+  "prompt_tokens": 1922,
+  "completion_tokens": 108
+ }
+}

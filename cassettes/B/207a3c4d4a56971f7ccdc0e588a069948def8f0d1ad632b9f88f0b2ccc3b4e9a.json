@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16918",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Metrics\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-16635\": \"same\",\n    \"FLINK-7155\": \"related\",\n    \"FLINK-16659\": \"different\",\n    \"FLINK-15596\": \"different\",\n    \"FLINK-14803\": \"related\"\n  }\n}",
+  "latency_ms": 51270,
+  "load_ms": 10,
+  "prompt_ms": 28655,
+  "generate_ms": 20168,
+  "prompt_tokens": 1401,
+  "completion_tokens": 108
+ }
+}

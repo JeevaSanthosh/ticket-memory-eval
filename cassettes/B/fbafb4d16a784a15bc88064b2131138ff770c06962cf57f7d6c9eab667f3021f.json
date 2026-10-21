@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18210",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Web Frontend\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-14557\": \"different\",\n    \"FLINK-538\": \"different\",\n    \"FLINK-15244\": \"related\",\n    \"FLINK-16542\": \"same\",\n    \"FLINK-5812\": \"different\"\n  }\n}",
+  "latency_ms": 40196,
+  "load_ms": 13,
+  "prompt_ms": 17693,
+  "generate_ms": 20205,
+  "prompt_tokens": 1299,
+  "completion_tokens": 108
+ }
+}

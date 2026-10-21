@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18284",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Scala Shell\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-16933\": \"different\",\n    \"FLINK-8461\": \"related\",\n    \"FLINK-15735\": \"same\",\n    \"FLINK-4581\": \"different\",\n    \"FLINK-11224\": \"same\"\n  }\n}",
+  "latency_ms": 52386,
+  "load_ms": 12,
+  "prompt_ms": 30095,
+  "generate_ms": 20024,
+  "prompt_tokens": 1355,
+  "completion_tokens": 107
+ }
+}

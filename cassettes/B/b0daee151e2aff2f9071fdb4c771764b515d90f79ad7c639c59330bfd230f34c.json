@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17059",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Build System / Stateful Functions\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-15540\": \"related\",\n\"FLINK-9540\": \"different\",\n\"FLINK-6466\": \"different\",\n\"FLINK-3501\": \"different\",\n\"FLINK-11972\": \"related\"\n}\n}",
+  "latency_ms": 53503,
+  "load_ms": 11,
+  "prompt_ms": 32056,
+  "generate_ms": 18937,
+  "prompt_tokens": 1525,
+  "completion_tokens": 100
+ }
+}

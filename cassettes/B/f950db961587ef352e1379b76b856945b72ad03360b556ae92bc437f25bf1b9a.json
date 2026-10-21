@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17234",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Coordination\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-15616\": \"related\",\n    \"FLINK-2455\": \"related\",\n    \"FLINK-10260\": \"related\",\n    \"FLINK-16283\": \"different\",\n    \"FLINK-771\": \"different\"\n  }\n}",
+  "latency_ms": 61488,
+  "load_ms": 10,
+  "prompt_ms": 38299,
+  "generate_ms": 20762,
+  "prompt_tokens": 1889,
+  "completion_tokens": 108
+ }
+}

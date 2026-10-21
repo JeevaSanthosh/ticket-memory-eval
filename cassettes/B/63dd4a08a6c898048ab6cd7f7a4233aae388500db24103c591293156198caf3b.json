@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17697",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / JDBC\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-17637\": \"different\",\n    \"FLINK-4793\": \"different\",\n    \"FLINK-1785\": \"different\",\n    \"FLINK-10999\": \"related\",\n    \"FLINK-1390\": \"different\"\n  }\n}",
+  "latency_ms": 56323,
+  "load_ms": 9,
+  "prompt_ms": 33834,
+  "generate_ms": 20411,
+  "prompt_tokens": 1876,
+  "completion_tokens": 107
+ }
+}

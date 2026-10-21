@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15749",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Benchmarks\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-13985\": \"different\",\n    \"FLINK-15145\": \"related\",\n    \"FLINK-15023\": \"related\",\n    \"FLINK-15748\": \"same\",\n    \"FLINK-14406\": \"different\"\n  }\n}",
+  "latency_ms": 40691,
+  "load_ms": 7,
+  "prompt_ms": 17915,
+  "generate_ms": 20590,
+  "prompt_tokens": 1255,
+  "completion_tokens": 110
+ }
+}

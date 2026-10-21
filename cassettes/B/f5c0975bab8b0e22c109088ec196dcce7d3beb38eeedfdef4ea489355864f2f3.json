@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18203",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / State Backends\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-8745\": \"different\",\n    \"FLINK-6014\": \"related\",\n    \"FLINK-8208\": \"different\",\n    \"FLINK-9571\": \"related\",\n    \"FLINK-3821\": \"different\"\n  }\n}",
+  "latency_ms": 40406,
+  "load_ms": 9,
+  "prompt_ms": 17990,
+  "generate_ms": 19984,
+  "prompt_tokens": 1222,
+  "completion_tokens": 107
+ }
+}

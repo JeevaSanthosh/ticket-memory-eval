@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17595",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Task\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-14784\": \"different\",\n    \"FLINK-12848\": \"related\",\n    \"FLINK-2986\": \"same\",\n    \"FLINK-12004\": \"related\",\n    \"FLINK-14436\": \"related\"\n  }\n}",
+  "latency_ms": 56889,
+  "load_ms": 8,
+  "prompt_ms": 33956,
+  "generate_ms": 20575,
+  "prompt_tokens": 1653,
+  "completion_tokens": 109
+ }
+}

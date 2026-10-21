@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20450",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Command Line Client\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-9509\": \"related\",\n    \"FLINK-2613\": \"different\",\n    \"FLINK-18718\": \"related\",\n    \"FLINK-19969\": \"same\",\n    \"FLINK-1422\": \"different\"\n  }\n}",
+  "latency_ms": 41326,
+  "load_ms": 9,
+  "prompt_ms": 18888,
+  "generate_ms": 19981,
+  "prompt_tokens": 1184,
+  "completion_tokens": 107
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19195",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Configuration\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-8170\": \"related\",\n    \"FLINK-10303\": \"related\",\n    \"FLINK-6805\": \"related\",\n    \"FLINK-5839\": \"same\",\n    \"FLINK-7992\": \"different\"\n  }\n}",
+  "latency_ms": 56972,
+  "load_ms": 9,
+  "prompt_ms": 34511,
+  "generate_ms": 20138,
+  "prompt_tokens": 1774,
+  "completion_tokens": 106
+ }
+}

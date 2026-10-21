@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20775",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Deployment / Kubernetes\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-20754\": \"same\",\n\"FLINK-20632\": \"same\",\n\"FLINK-12546\": \"related\",\n\"FLINK-20586\": \"different\",\n\"FLINK-8259\": \"different\"\n}\n}",
+  "latency_ms": 48404,
+  "load_ms": 9,
+  "prompt_ms": 27535,
+  "generate_ms": 18424,
+  "prompt_tokens": 1398,
+  "completion_tokens": 99
+ }
+}

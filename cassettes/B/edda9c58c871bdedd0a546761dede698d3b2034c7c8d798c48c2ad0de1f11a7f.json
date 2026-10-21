@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18431",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Core\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-18429\": \"same\",\n    \"FLINK-13960\": \"related\",\n    \"FLINK-15039\": \"related\",\n    \"FLINK-15041\": \"related\",\n    \"FLINK-12681\": \"different\"\n  }\n}",
+  "latency_ms": 40953,
+  "load_ms": 8,
+  "prompt_ms": 18200,
+  "generate_ms": 20458,
+  "prompt_tokens": 1259,
+  "completion_tokens": 110
+ }
+}

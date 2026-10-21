@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15565",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Table SQL / Client\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-15310\": \"same\",\n\"FLINK-15141\": \"related\",\n\"FLINK-13999\": \"different\",\n\"FLINK-11935\": \"different\",\n\"FLINK-6884\": \"related\"\n}\n}",
+  "latency_ms": 79346,
+  "load_ms": 10,
+  "prompt_ms": 57324,
+  "generate_ms": 19823,
+  "prompt_tokens": 2599,
+  "completion_tokens": 100
+ }
+}

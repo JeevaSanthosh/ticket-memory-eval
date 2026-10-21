@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17296",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / JDBC\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-17183\": \"related\",\n    \"FLINK-16294\": \"related\",\n    \"FLINK-12956\": \"different\",\n    \"FLINK-10447\": \"different\",\n    \"FLINK-17001\": \"different\"\n  }\n}",
+  "latency_ms": 49934,
+  "load_ms": 8,
+  "prompt_ms": 26595,
+  "generate_ms": 20748,
+  "prompt_tokens": 1234,
+  "completion_tokens": 111
+ }
+}

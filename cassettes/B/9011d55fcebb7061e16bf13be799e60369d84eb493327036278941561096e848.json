@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16028",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / HBase\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-16023\": \"same\",\n    \"FLINK-16027\": \"related\",\n    \"FLINK-13360\": \"different\",\n    \"FLINK-14647\": \"related\",\n    \"FLINK-9849\": \"different\"\n  }\n}",
+  "latency_ms": 40749,
+  "load_ms": 6,
+  "prompt_ms": 17893,
+  "generate_ms": 20594,
+  "prompt_tokens": 1139,
+  "completion_tokens": 111
+ }
+}

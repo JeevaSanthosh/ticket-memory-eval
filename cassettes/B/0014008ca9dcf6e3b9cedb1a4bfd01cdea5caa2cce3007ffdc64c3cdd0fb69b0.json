@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16112",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Type Serialization System\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-11740\": \"same\",\n    \"FLINK-4194\": \"related\",\n    \"FLINK-14302\": \"different\",\n    \"FLINK-8354\": \"different\",\n    \"FLINK-9303\": \"different\"\n  }\n}",
+  "latency_ms": 53773,
+  "load_ms": 9,
+  "prompt_ms": 31034,
+  "generate_ms": 20511,
+  "prompt_tokens": 1392,
+  "completion_tokens": 109
+ }
+}

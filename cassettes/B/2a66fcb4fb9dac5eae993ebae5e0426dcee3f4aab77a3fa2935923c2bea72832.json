@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17885",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Connectors / FileSystem\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-17878\": \"same\",\n\"FLINK-11054\": \"different\",\n\"FLINK-5058\": \"different\",\n\"FLINK-3439\": \"related\",\n\"FLINK-10412\": \"different\"\n}\n}",
+  "latency_ms": 36877,
+  "load_ms": 7,
+  "prompt_ms": 16070,
+  "generate_ms": 18554,
+  "prompt_tokens": 1239,
+  "completion_tokens": 99
+ }
+}

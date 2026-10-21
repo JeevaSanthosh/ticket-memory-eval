@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19212",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / REST\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-4393\": \"different\",\n    \"FLINK-14038\": \"related\",\n    \"FLINK-15966\": \"related\",\n    \"FLINK-12927\": \"different\",\n    \"FLINK-18068\": \"different\"\n  }\n}",
+  "latency_ms": 61714,
+  "load_ms": 8,
+  "prompt_ms": 38723,
+  "generate_ms": 20683,
+  "prompt_tokens": 1949,
+  "completion_tokens": 108
+ }
+}

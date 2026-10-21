@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16409",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / State Backends\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-16351\": \"same\",\n    \"FLINK-16352\": \"same\",\n    \"FLINK-16387\": \"same\",\n    \"FLINK-16386\": \"same\",\n    \"FLINK-16385\": \"same\"\n  }\n}",
+  "latency_ms": 49408,
+  "load_ms": 11,
+  "prompt_ms": 26239,
+  "generate_ms": 20937,
+  "prompt_tokens": 1336,
+  "completion_tokens": 112
+ }
+}

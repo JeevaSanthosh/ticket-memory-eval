@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18499",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation / Training / Exercises\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-18498\": \"same\",\n    \"FLINK-17276\": \"related\",\n    \"FLINK-17275\": \"related\",\n    \"FLINK-17277\": \"related\",\n    \"FLINK-18178\": \"different\"\n  }\n}",
+  "latency_ms": 33546,
+  "load_ms": 8,
+  "prompt_ms": 10848,
+  "generate_ms": 20610,
+  "prompt_tokens": 987,
+  "completion_tokens": 112
+ }
+}

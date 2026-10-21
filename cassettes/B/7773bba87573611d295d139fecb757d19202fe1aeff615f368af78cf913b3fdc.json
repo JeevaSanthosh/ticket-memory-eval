@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18041",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Connectors / JDBC\",\n\"issue_type\": \"Improvement\",\n\"earlier_tickets\": {\n\"FLINK-16495\": \"related\",\n\"FLINK-16496\": \"related\",\n\"FLINK-16497\": \"same\",\n\"FLINK-5728\": \"different\",\n\"FLINK-5848\": \"different\"\n}\n}",
+  "latency_ms": 44617,
+  "load_ms": 6,
+  "prompt_ms": 22590,
+  "generate_ms": 19926,
+  "prompt_tokens": 1460,
+  "completion_tokens": 100
+ }
+}

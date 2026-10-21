@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19893",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-18602\": \"related\",\n    \"FLINK-10348\": \"different\",\n    \"FLINK-6352\": \"same\",\n    \"FLINK-18714\": \"related\",\n    \"FLINK-14729\": \"different\"\n  }\n}",
+  "latency_ms": 46939,
+  "load_ms": 11,
+  "prompt_ms": 24040,
+  "generate_ms": 20537,
+  "prompt_tokens": 1354,
+  "completion_tokens": 110
+ }
+}

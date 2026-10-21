@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16003",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kinesis\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-11568\": \"same\",\n    \"FLINK-9268\": \"different\",\n    \"FLINK-9471\": \"different\",\n    \"FLINK-8187\": \"different\",\n    \"FLINK-9220\": \"different\"\n  }\n}",
+  "latency_ms": 57151,
+  "load_ms": 11,
+  "prompt_ms": 34709,
+  "generate_ms": 20357,
+  "prompt_tokens": 1515,
+  "completion_tokens": 108
+ }
+}

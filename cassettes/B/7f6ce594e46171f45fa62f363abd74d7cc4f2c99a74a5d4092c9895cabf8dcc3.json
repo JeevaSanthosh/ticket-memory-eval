@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18404",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Checkpointing\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-17979\": \"same\",\n    \"FLINK-14551\": \"related\",\n    \"FLINK-17258\": \"different\",\n    \"FLINK-17218\": \"different\",\n    \"FLINK-17323\": \"related\"\n  }\n}",
+  "latency_ms": 46693,
+  "load_ms": 10,
+  "prompt_ms": 23604,
+  "generate_ms": 20799,
+  "prompt_tokens": 1192,
+  "completion_tokens": 112
+ }
+}

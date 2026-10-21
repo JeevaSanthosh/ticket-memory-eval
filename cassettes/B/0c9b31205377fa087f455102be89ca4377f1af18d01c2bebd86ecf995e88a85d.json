@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15753",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Web Frontend\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-6452\": \"related\",\n    \"FLINK-6451\": \"related\",\n    \"FLINK-2903\": \"related\",\n    \"FLINK-6449\": \"related\",\n    \"FLINK-9841\": \"different\"\n  }\n}",
+  "latency_ms": 38088,
+  "load_ms": 9,
+  "prompt_ms": 15961,
+  "generate_ms": 19957,
+  "prompt_tokens": 1193,
+  "completion_tokens": 107
+ }
+}

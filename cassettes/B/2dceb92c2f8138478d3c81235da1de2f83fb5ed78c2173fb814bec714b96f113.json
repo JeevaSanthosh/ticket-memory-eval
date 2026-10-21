@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20803",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-15930\": \"related\",\n    \"FLINK-7976\": \"related\",\n    \"FLINK-20651\": \"related\",\n    \"FLINK-151\": \"different\",\n    \"FLINK-12774\": \"related\"\n  }\n}",
+  "latency_ms": 45925,
+  "load_ms": 6,
+  "prompt_ms": 23979,
+  "generate_ms": 19736,
+  "prompt_tokens": 1252,
+  "completion_tokens": 106
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17272",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / Scripts\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-17270\": \"same\",\n    \"FLINK-13865\": \"different\",\n    \"FLINK-17023\": \"related\",\n    \"FLINK-16539\": \"different\",\n    \"FLINK-6598\": \"different\"\n  }\n}",
+  "latency_ms": 39794,
+  "load_ms": 9,
+  "prompt_ms": 17511,
+  "generate_ms": 19991,
+  "prompt_tokens": 1132,
+  "completion_tokens": 108
+ }
+}

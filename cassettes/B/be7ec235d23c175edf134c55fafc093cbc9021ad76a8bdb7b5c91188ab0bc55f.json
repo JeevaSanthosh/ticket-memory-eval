@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-16462",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Metrics\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-16410\": \"same\",\n    \"FLINK-13606\": \"related\",\n    \"FLINK-14086\": \"different\",\n    \"FLINK-3636\": \"different\",\n    \"FLINK-11085\": \"different\"\n  }\n}",
+  "latency_ms": 54485,
+  "load_ms": 11,
+  "prompt_ms": 31603,
+  "generate_ms": 20785,
+  "prompt_tokens": 1523,
+  "completion_tokens": 108
+ }
+}

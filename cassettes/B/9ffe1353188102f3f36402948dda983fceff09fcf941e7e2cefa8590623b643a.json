@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-15769",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / State Processor\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-15262\": \"related\",\n    \"FLINK-3123\": \"related\",\n    \"FLINK-5704\": \"related\",\n    \"FLINK-9731\": \"different\",\n    \"FLINK-3386\": \"different\"\n  }\n}",
+  "latency_ms": 59650,
+  "load_ms": 12,
+  "prompt_ms": 37035,
+  "generate_ms": 20402,
+  "prompt_tokens": 1516,
+  "completion_tokens": 107
+ }
+}

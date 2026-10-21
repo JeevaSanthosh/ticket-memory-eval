@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19375",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-8304\": \"different\",\n    \"FLINK-14468\": \"related\",\n    \"FLINK-19373\": \"same\",\n    \"FLINK-17814\": \"different\",\n    \"FLINK-16293\": \"different\"\n  }\n}",
+  "latency_ms": 37038,
+  "load_ms": 15,
+  "prompt_ms": 15312,
+  "generate_ms": 19614,
+  "prompt_tokens": 1142,
+  "completion_tokens": 106
+ }
+}

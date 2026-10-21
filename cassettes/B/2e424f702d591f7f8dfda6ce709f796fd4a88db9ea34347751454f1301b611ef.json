@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18806",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / Scripts\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-1435\": \"different\",\n    \"FLINK-6628\": \"related\",\n    \"FLINK-10561\": \"related\",\n    \"FLINK-16856\": \"related\",\n    \"FLINK-13472\": \"different\"\n  }\n}",
+  "latency_ms": 51027,
+  "load_ms": 12,
+  "prompt_ms": 28953,
+  "generate_ms": 19988,
+  "prompt_tokens": 1436,
+  "completion_tokens": 107
+ }
+}

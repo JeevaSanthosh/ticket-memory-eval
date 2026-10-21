@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20201",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Table SQL / API\",\n\"issue_type\": \"Improvement\",\n\"earlier_tickets\": {\n\"FLINK-5678\": \"related\",\n\"FLINK-6862\": \"different\",\n\"FLINK-16726\": \"different\",\n\"FLINK-14981\": \"different\",\n\"FLINK-16727\": \"different\"\n}\n}",
+  "latency_ms": 51362,
+  "load_ms": 10,
+  "prompt_ms": 30137,
+  "generate_ms": 18935,
+  "prompt_tokens": 1684,
+  "completion_tokens": 100
+ }
+}

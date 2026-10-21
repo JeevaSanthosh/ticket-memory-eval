@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17597",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Python\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-17092\": \"same\",\n    \"FLINK-16750\": \"different\",\n    \"FLINK-5100\": \"different\",\n    \"FLINK-5099\": \"different\",\n    \"FLINK-17576\": \"different\"\n  }\n}",
+  "latency_ms": 73731,
+  "load_ms": 8,
+  "prompt_ms": 50504,
+  "generate_ms": 20957,
+  "prompt_tokens": 2429,
+  "completion_tokens": 107
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17274",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Build System / Azure Pipelines\",\n\"issue_type\": \"Bug\",\n\"earlier_tickets\": {\n\"FLINK-7589\": \"different\",\n\"FLINK-16411\": \"same\",\n\"FLINK-16982\": \"different\",\n\"FLINK-14226\": \"different\",\n\"FLINK-16643\": \"same\"\n}\n}",
+  "latency_ms": 58308,
+  "load_ms": 12,
+  "prompt_ms": 35003,
+  "generate_ms": 21218,
+  "prompt_tokens": 1760,
+  "completion_tokens": 102
+ }
+}

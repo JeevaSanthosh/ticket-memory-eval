@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-17054",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Tests\",\n  \"issue_type\": \"Improvement\",\n  \"earlier_tickets\": {\n    \"FLINK-13202\": \"same\",\n    \"FLINK-12015\": \"related\",\n    \"FLINK-8565\": \"different\",\n    \"FLINK-13212\": \"same\",\n    \"FLINK-8575\": \"different\"\n  }\n}",
+  "latency_ms": 49267,
+  "load_ms": 7,
+  "prompt_ms": 26924,
+  "generate_ms": 20044,
+  "prompt_tokens": 1475,
+  "completion_tokens": 106
+ }
+}

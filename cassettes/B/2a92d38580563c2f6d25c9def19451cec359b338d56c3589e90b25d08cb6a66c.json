@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20176",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Tests\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-17498\": \"same\",\n    \"FLINK-19027\": \"same\",\n    \"FLINK-20065\": \"same\",\n    \"FLINK-17801\": \"related\",\n    \"FLINK-17338\": \"different\"\n  }\n}",
+  "latency_ms": 69018,
+  "load_ms": 27,
+  "prompt_ms": 45781,
+  "generate_ms": 21010,
+  "prompt_tokens": 2190,
+  "completion_tokens": 107
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-19961",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / CI\",\n  \"issue_type\": \"Bug\",\n  \"earlier_tickets\": {\n    \"FLINK-13825\": \"different\",\n    \"FLINK-12674\": \"different\",\n    \"FLINK-11280\": \"different\",\n    \"FLINK-13145\": \"different\",\n    \"FLINK-9876\": \"related\"\n  }\n}",
+  "latency_ms": 50869,
+  "load_ms": 10,
+  "prompt_ms": 27091,
+  "generate_ms": 20338,
+  "prompt_tokens": 1390,
+  "completion_tokens": 109
+ }
+}

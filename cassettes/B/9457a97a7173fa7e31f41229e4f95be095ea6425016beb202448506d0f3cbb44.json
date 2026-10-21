@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-18106",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Tests\",\n  \"issue_type\": \"New Feature\",\n  \"earlier_tickets\": {\n    \"FLINK-17423\": \"related\",\n    \"FLINK-17013\": \"related\",\n    \"FLINK-16748\": \"different\",\n    \"FLINK-16673\": \"different\",\n    \"FLINK-6334\": \"different\"\n  }\n}",
+  "latency_ms": 35720,
+  "load_ms": 10,
+  "prompt_ms": 13919,
+  "generate_ms": 19728,
+  "prompt_tokens": 1150,
+  "completion_tokens": 107
+ }
+}

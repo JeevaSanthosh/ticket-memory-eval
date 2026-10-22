@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25340",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / Azure Pipelines\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 10747,
+  "load_ms": 20,
+  "prompt_ms": 3195,
+  "generate_ms": 5464,
+  "prompt_tokens": 1619,
+  "completion_tokens": 27
+ }
+}

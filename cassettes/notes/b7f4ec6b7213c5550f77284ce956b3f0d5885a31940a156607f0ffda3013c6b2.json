@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Legacy Components",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Legacy Components / Flink on Tez\": \"Tez execution features and legacy build issues.\",\n  \"Legacy Components / Storm Compatibility\": \"Storm integration bugs, missing dependencies, and deprecation.\"\n}",
+  "latency_ms": 28436,
+  "load_ms": 11,
+  "prompt_ms": 16860,
+  "generate_ms": 9447,
+  "prompt_tokens": 547,
+  "completion_tokens": 47
+ }
+}

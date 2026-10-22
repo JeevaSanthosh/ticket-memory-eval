@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22838",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Web Frontend\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 10240,
+  "load_ms": 33,
+  "prompt_ms": 2971,
+  "generate_ms": 5152,
+  "prompt_tokens": 1604,
+  "completion_tokens": 25
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23674",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kafka\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 23754,
+  "load_ms": 17,
+  "prompt_ms": 16694,
+  "generate_ms": 4945,
+  "prompt_tokens": 2035,
+  "completion_tokens": 24
+ }
+}

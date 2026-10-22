@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Library",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Library / CEP\": \"Pattern matching logic, state leaks, and timeout handling.\",\n  \"Library / Graph Processing (Gelly)\": \"Graph algorithms like PageRank, performance tuning, and deadlocks.\",\n  \"Library / Machine Learning\": \"ML model mappers, vectorizers, and pipeline compatibility.\"\n}",
+  "latency_ms": 44691,
+  "load_ms": 9,
+  "prompt_ms": 28088,
+  "generate_ms": 14428,
+  "prompt_tokens": 911,
+  "completion_tokens": 69
+ }
+}

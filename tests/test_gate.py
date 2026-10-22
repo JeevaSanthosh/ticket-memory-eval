@@ -3,7 +3,7 @@ import json
 import pytest
 
 from tme.gate import gate
-from tme.run import load_config, run
+from tme.run import load_config, load_prompts, run
 
 from conftest import ROOT
 from test_run import Stub
@@ -12,8 +12,7 @@ from test_run import Stub
 @pytest.fixture
 def setup(tmp_path, tickets, split):
     config = load_config(ROOT / "eval.toml")
-    prompts = {name: (ROOT / config[path]).read_text(encoding="utf-8")
-               for name, path in (("route", "route_prompt"), ("duplicates", "duplicate_prompt"))}
+    prompts = load_prompts(config, ROOT)
     small = {"dev": split["dev"][:6]}
     cassettes, results = tmp_path / "cassettes", tmp_path / "results"
     run("A", "dev", tickets, small, config, prompts, "record", client=Stub(), cassettes=cassettes,

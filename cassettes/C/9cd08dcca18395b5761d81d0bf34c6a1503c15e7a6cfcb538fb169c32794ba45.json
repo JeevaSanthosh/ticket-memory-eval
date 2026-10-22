@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21988",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Queryable State\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 20509,
+  "load_ms": 12,
+  "prompt_ms": 13772,
+  "generate_ms": 4652,
+  "prompt_tokens": 1998,
+  "completion_tokens": 25
+ }
+}

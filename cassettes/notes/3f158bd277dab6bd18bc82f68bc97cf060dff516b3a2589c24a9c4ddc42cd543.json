@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Command Line Client",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Command Line Client\": \"CLI tooling, execution targets, and error messages.\"\n}",
+  "latency_ms": 17980,
+  "load_ms": 8,
+  "prompt_ms": 11700,
+  "generate_ms": 4161,
+  "prompt_tokens": 417,
+  "completion_tokens": 23
+ }
+}

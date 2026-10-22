@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Client",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Client / Job Submission\": \"Handles job submission failures, resource allocation, and client-side configuration issues.\"\n}",
+  "latency_ms": 19844,
+  "load_ms": 6,
+  "prompt_ms": 12740,
+  "generate_ms": 4977,
+  "prompt_tokens": 436,
+  "completion_tokens": 27
+ }
+}

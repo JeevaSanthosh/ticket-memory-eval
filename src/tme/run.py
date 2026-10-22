@@ -9,8 +9,9 @@ import tomllib
 from datetime import datetime, timezone
 from pathlib import Path
 
-from tme.conditions import build_request, components_before
+from tme.conditions import WITH_MEMORY, build_request, components_before, mislabel_first
 from tme.llm import OPTIONS, Cassette
+from tme.notes import NOTES, load_notes
 from tme.score import accuracy
 from tme.search import MemorySearch
 
@@ -22,11 +23,14 @@ def load_config(path: Path = Path("eval.toml")) -> dict:
     return {**config, "options": OPTIONS}
 
 
-def load_prompts(config: dict) -> dict[str, str]:
+PROMPTS = {"route": "route_prompt", "duplicates": "duplicate_prompt", "notes": "notes_prompt",
+           "write_notes": "write_notes_prompt"}
+
+
+def load_prompts(config: dict, root: Path = Path(".")) -> dict[str, str]:
     # read_text turns Windows line endings into "\n", so a prompt checked out on Windows
     # gives the same request hash as on Linux and recordings replay in CI.
-    return {"route": Path(config["route_prompt"]).read_text(encoding="utf-8"),
-            "duplicates": Path(config["duplicate_prompt"]).read_text(encoding="utf-8")}
+    return {name: (root / config[key]).read_text(encoding="utf-8") for name, key in PROMPTS.items()}
 
 
 def parse(content: str, schema: dict) -> tuple[dict, str | None]:
@@ -70,8 +74,9 @@ def _operations(rows: list[dict]) -> dict:
 
 def run(condition: str, set_name: str, tickets: list[dict], split: dict, config: dict, prompts: dict,
         mode: str, client=None, cassettes: Path = Path("cassettes"), out: Path | None = None,
-        limit: int | None = None, verbose: bool = False) -> dict:
+        limit: int | None = None, verbose: bool = False, notes_folder: Path = NOTES) -> dict:
     gold = split[set_name][:limit]
+    notes = load_notes(set_name, notes_folder) if condition == "C" else None
     search = MemorySearch(tickets)
     by_key = {t["key"]: t for t in tickets}
     cassette = Cassette(cassettes / condition, mode)
@@ -79,13 +84,17 @@ def run(condition: str, set_name: str, tickets: list[dict], split: dict, config:
     rows = []
     for n, g in enumerate(gold, start=1):
         ticket = by_key[g["key"]]
-        memory = [t for t, _ in search.search(ticket, TOP_K)] if condition == "B" else []
+        memory = [t for t, _ in search.search(ticket, TOP_K)] if condition in WITH_MEMORY else []
         components = components_before(tickets, search.memory_size(ticket))
-        request, schema = build_request(condition, ticket, memory, components, config, prompts)
+        mislabelled = None
+        if condition == "D1":
+            memory, mislabelled = mislabel_first(memory, components, g["component"], g["key"])
+        request, schema = build_request(condition, ticket, memory, components, config, prompts, notes)
         response, key, fresh = cassette.call(request, g["key"], client)
         prediction, error = parse(response["content"], schema)
         rows.append({"key": g["key"], "prediction": prediction, "error": error,
-                     "shown": [t["key"] for t in memory], "cassette_key": key,
+                     "shown": [t["key"] for t in memory], **({"mislabelled": mislabelled} if mislabelled else {}),
+                     "cassette_key": key,
                      **{k: response.get(k) for k in ("latency_ms", "load_ms", "prompt_ms", "generate_ms",
                                                       "prompt_tokens", "completion_tokens")}})
         if verbose:

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21970",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Library / Graph Processing (Gelly)\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 25676,
+  "load_ms": 7,
+  "prompt_ms": 18522,
+  "generate_ms": 5085,
+  "prompt_tokens": 2169,
+  "completion_tokens": 27
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21145",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 22985,
+  "load_ms": 11,
+  "prompt_ms": 15320,
+  "generate_ms": 5598,
+  "prompt_tokens": 1665,
+  "completion_tokens": 25
+ }
+}

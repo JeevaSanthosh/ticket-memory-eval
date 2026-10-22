@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24782",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation / Training\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 9088,
+  "load_ms": 10,
+  "prompt_ms": 1982,
+  "generate_ms": 5026,
+  "prompt_tokens": 1582,
+  "completion_tokens": 24
+ }
+}

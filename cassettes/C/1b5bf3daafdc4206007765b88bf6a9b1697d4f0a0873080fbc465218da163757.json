@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21316",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Test Infrastructure\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 52110,
+  "load_ms": 14,
+  "prompt_ms": 44981,
+  "generate_ms": 5000,
+  "prompt_tokens": 2530,
+  "completion_tokens": 23
+ }
+}

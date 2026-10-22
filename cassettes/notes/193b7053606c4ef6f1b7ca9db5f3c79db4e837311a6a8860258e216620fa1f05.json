@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Quickstarts",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Quickstarts\": \"Ensures Flink tutorials run locally and across IDEs.\"\n}",
+  "latency_ms": 19081,
+  "load_ms": 24,
+  "prompt_ms": 12278,
+  "generate_ms": 4626,
+  "prompt_tokens": 368,
+  "completion_tokens": 23
+ }
+}

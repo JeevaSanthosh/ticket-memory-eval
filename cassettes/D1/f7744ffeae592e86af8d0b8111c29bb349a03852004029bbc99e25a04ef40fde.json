@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23345",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Python\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 32454,
+  "load_ms": 11,
+  "prompt_ms": 24553,
+  "generate_ms": 5760,
+  "prompt_tokens": 1508,
+  "completion_tokens": 31
+ }
+}

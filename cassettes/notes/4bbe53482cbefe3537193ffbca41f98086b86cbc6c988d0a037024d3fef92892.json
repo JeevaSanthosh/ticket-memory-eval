@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Deployment",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Deployment / Kubernetes\": \"K8s session clusters, HA ZNodes/ConfigMaps, and native setup customization.\",\n  \"Deployment / Mesos\": \"Mesos e2e tests, ResourceManager async logic, and WorkerResourceSpec serialization.\",\n  \"Deployment / Scripts\": \"BashJavaUtils scripts, Windows/macOS taskmanager.sh issues, and release automation.\",\n  \"Deployment / YARN\": \"YARN per-job mode failures, Kerberos delegation tokens, and resource allocation bugs.\"\n}",
+  "latency_ms": 65936,
+  "load_ms": 10,
+  "prompt_ms": 41948,
+  "generate_ms": 21832,
+  "prompt_tokens": 1345,
+  "completion_tokens": 108
+ }
+}

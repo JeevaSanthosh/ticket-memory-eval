@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22363",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / CI\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 45932,
+  "load_ms": 8,
+  "prompt_ms": 37875,
+  "generate_ms": 5914,
+  "prompt_tokens": 1937,
+  "completion_tokens": 31
+ }
+}

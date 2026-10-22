@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Test Infrastructure",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Test Infrastructure\": \"End-to-end testing, Docker setup, and Java process management.\"\n}",
+  "latency_ms": 17525,
+  "load_ms": 19,
+  "prompt_ms": 11129,
+  "generate_ms": 4233,
+  "prompt_tokens": 399,
+  "completion_tokens": 24
+ }
+}

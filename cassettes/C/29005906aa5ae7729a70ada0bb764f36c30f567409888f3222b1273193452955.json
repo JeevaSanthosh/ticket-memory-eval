@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24913",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kinesis\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 12423,
+  "load_ms": 11,
+  "prompt_ms": 5069,
+  "generate_ms": 5265,
+  "prompt_tokens": 1684,
+  "completion_tokens": 26
+ }
+}

@@ -1,6 +1,7 @@
 """The CI gate for model results. No model runs here.
 
-For every committed `results/<set>/<condition>/predictions.jsonl`:
+First, every committed `results/notes/<set>.json` (condition C's notes) must be what replaying
+its recordings writes. Then, for every committed `results/<set>/<condition>/predictions.jsonl`:
 1. Replay the condition from the cassettes with this branch's code, prompts and settings, and
    check the answers are exactly the committed ones. A prompt changed without re-recording
    stops here (no recording), and so does code that would score the recordings differently.
@@ -13,12 +14,14 @@ For every committed `results/<set>/<condition>/predictions.jsonl`:
 
 from __future__ import annotations
 
+import json
 import tempfile
 from pathlib import Path
 
 from tme.compare import compare, load_predictions, report
 from tme.conditions import CONDITIONS
 from tme.llm import CassetteMiss
+from tme.notes import write_notes
 from tme.run import run
 
 GATING_FIELDS = ("component", "area", "issue_type", "duplicate")
@@ -27,17 +30,31 @@ GATING_FIELDS = ("component", "area", "issue_type", "duplicate")
 def gate(results: Path, baseline: Path | None, tickets: list[dict], split: dict, config: dict,
          prompts: dict, cassettes: Path = Path("cassettes")) -> tuple[bool, str]:
     ok, lines = True, ["## Model results gate", ""]
+    for path in sorted((results / "notes").glob("*.json")):
+        set_name = path.stem
+        try:
+            rebuilt = write_notes(tickets, set_name, config, prompts["write_notes"], "replay", cassettes=cassettes)
+        except CassetteMiss as exc:
+            ok = False
+            lines += [f"❌ Notes for {set_name}: {exc}", ""]
+            continue
+        if rebuilt != json.loads(path.read_text(encoding="utf-8")):
+            ok = False
+            lines += [f"❌ Replaying the note recordings no longer gives `{path.as_posix()}`. "
+                      f"Re-run `tme notes {set_name} --mode replay` and commit the result.", ""]
+        else:
+            lines += [f"Notes for {set_name} replay to the committed notes.", ""]
     committed = sorted(p for p in results.glob("*/*/predictions.jsonl")
                        if p.parts[-3] in split and p.parts[-2] in CONDITIONS)
     if not committed:
-        return True, "\n".join(lines + ["No model results committed yet: nothing to check.", ""])
+        return ok, "\n".join(lines + ["No model results committed yet: nothing to check.", ""])
     for path in committed:
         set_name, condition = path.parts[-3], path.parts[-2]
         lines.append(f"### {condition} on {set_name}")
         with tempfile.TemporaryDirectory() as tmp:
             try:
                 run(condition, set_name, tickets, split, config, prompts, "replay",
-                    cassettes=cassettes, out=Path(tmp))
+                    cassettes=cassettes, out=Path(tmp), notes_folder=results / "notes")
             except CassetteMiss as exc:
                 ok = False
                 lines += [f"❌ {exc}", ""]

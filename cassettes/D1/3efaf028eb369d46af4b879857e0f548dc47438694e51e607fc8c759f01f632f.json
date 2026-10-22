@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21708",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Core\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 27893,
+  "load_ms": 7,
+  "prompt_ms": 19643,
+  "generate_ms": 6065,
+  "prompt_tokens": 1334,
+  "completion_tokens": 31
+ }
+}

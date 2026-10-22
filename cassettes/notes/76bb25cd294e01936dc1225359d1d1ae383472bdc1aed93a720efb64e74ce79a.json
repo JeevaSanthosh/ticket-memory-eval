@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Benchmarks",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Benchmarks\": \"Tracks benchmark performance regressions, migrations, and test infrastructure.\"\n}",
+  "latency_ms": 18268,
+  "load_ms": 7,
+  "prompt_ms": 11891,
+  "generate_ms": 4207,
+  "prompt_tokens": 415,
+  "completion_tokens": 24
+ }
+}

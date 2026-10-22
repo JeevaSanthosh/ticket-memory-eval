@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Examples",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Examples\": \"Fixes broken, missing, or outdated code examples and documentation.\"\n}",
+  "latency_ms": 18499,
+  "load_ms": 25,
+  "prompt_ms": 11810,
+  "generate_ms": 4514,
+  "prompt_tokens": 370,
+  "completion_tokens": 23
+ }
+}

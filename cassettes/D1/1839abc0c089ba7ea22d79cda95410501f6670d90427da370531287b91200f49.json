@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25164",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Metrics\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 40654,
+  "load_ms": 12,
+  "prompt_ms": 32472,
+  "generate_ms": 6098,
+  "prompt_tokens": 1604,
+  "completion_tokens": 31
+ }
+}

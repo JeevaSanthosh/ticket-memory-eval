@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22978",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 23764,
+  "load_ms": 7,
+  "prompt_ms": 15991,
+  "generate_ms": 5539,
+  "prompt_tokens": 1221,
+  "completion_tokens": 29
+ }
+}

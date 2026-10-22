@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Documentation",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Documentation\": \"Fixes typos and adds missing docs for APIs, connectors, and release notes.\",\n  \"Documentation / Training\": \"Translates lessons and updates tutorials for new Flink versions.\",\n  \"Documentation / Training / Exercises\": \"Builds and improves coding exercises with data generators.\"\n}",
+  "latency_ms": 44058,
+  "load_ms": 7,
+  "prompt_ms": 27539,
+  "generate_ms": 14364,
+  "prompt_tokens": 828,
+  "completion_tokens": 67
+ }
+}

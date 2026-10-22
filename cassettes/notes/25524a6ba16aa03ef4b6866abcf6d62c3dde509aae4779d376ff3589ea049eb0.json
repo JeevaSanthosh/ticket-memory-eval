@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for flink-docker",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"flink-docker\": \"Manages Docker image builds, security, and versioning for Flink containers.\"\n}",
+  "latency_ms": 21665,
+  "load_ms": 19,
+  "prompt_ms": 13733,
+  "generate_ms": 5801,
+  "prompt_tokens": 411,
+  "completion_tokens": 29
+ }
+}

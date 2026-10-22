@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for chinese-translation",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"chinese-translation\": \"Translates Flink documentation pages and guides into Chinese.\"\n}",
+  "latency_ms": 18072,
+  "load_ms": 5,
+  "prompt_ms": 11603,
+  "generate_ms": 4345,
+  "prompt_tokens": 408,
+  "completion_tokens": 24
+ }
+}

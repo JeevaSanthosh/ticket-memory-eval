@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Formats (JSON, Avro, Parquet, ORC, SequenceFile)",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Formats (JSON, Avro, Parquet, ORC, SequenceFile)\": \"Handles schema evolution, metadata access, and deserialization errors for data formats.\"\n}",
+  "latency_ms": 24698,
+  "load_ms": 7,
+  "prompt_ms": 14604,
+  "generate_ms": 7881,
+  "prompt_tokens": 461,
+  "completion_tokens": 39
+ }
+}

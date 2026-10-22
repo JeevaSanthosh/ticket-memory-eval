@@ -11,39 +11,64 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
 
 The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
 
-**Status:** conditions A (no memory) and B (similar past tickets) recorded on dev and test.
-Written notes (C) and mislabelled memory (D1) come next.
+**Status:** conditions A (no memory), B (similar past tickets), C (written notes) and D1
+(mislabelled memory) recorded on test; A and B also on dev.
 
-## Results on test so far
+## Results on test
 
 `qwen3.5:4b` on a CPU, 200 test tickets from 2021 that played no part in any design choice,
-0 invalid answers. B uses the duplicate prompt chosen on dev (v2). Changes are paired bootstrap
-95% intervals from `tme compare`; answers are in [results/test/](results/test/).
+0 invalid answers. B and D1 use the duplicate prompt chosen on dev (v2). Changes are paired
+bootstrap 95% intervals from `tme compare`; answers are in [results/test/](results/test/).
 
-| | A, no memory | B, 5 similar earlier tickets | Vote of the same 5 (no model) | B against A | B against the vote |
-|---|---:|---:|---:|---|---|
-| Component | 0.515 | **0.595** | 0.455 | **+0.080** (+0.020 to +0.140) | **+0.140** (+0.070 to +0.210) |
-| Area | 0.655 | **0.720** | 0.595 | **+0.065** (+0.015 to +0.120) | **+0.125** (+0.055 to +0.195) |
-| Issue type | 0.745 | 0.770 | 0.710 | +0.025 (−0.025 to +0.075) | +0.060 (−0.010 to +0.130) |
-| Duplicate (right original, or none) | 0.500 | 0.550 | 0.520 | +0.050 (+0.020 to +0.085) | +0.030 (−0.030 to +0.090) |
-| … original found, on duplicates | 0.000 | 0.110 | 0.170 | | |
-| … correctly none, on non-duplicates | 1.000 | 0.990 | 0.870 | | |
-| Seconds per ticket, median | 15 | 33 | | | |
-| Prompt tokens, mean | 856 | 1,635 | | | |
+| | A, no memory | B, 5 similar earlier tickets | C, written notes | D1, B with one wrong label | Vote of B's 5 (no model) |
+|---|---:|---:|---:|---:|---:|
+| Component | 0.515 | **0.595** | 0.485 | 0.545 | 0.455 |
+| Area | 0.655 | **0.720** | 0.595 | 0.675 | 0.595 |
+| Issue type | 0.745 | **0.770** | 0.765 | 0.760 | 0.710 |
+| Duplicate (right original, or none) | 0.500 | **0.550** | 0.500 | 0.520 | 0.520 |
+| … original found, on duplicates | 0.000 | 0.110 | 0.000 | 0.060 | **0.170** |
+| … correctly none, on non-duplicates | **1.000** | 0.990 | **1.000** | 0.980 | 0.870 |
+| Prompt tokens, mean | 856 | 1,635 | 1,884 | 1,635 | |
+| Seconds per ticket, median | 15 | 33 | 17 | 34 | |
 
-- **Memory helps routing, and the model adds something beyond search.** With the 5 most
-  similar earlier tickets in the prompt, the model picks the right component on 16 more tickets
-  than without them, and on 28 more than a vote of those same 5 tickets. It takes its answer
-  from one of the shown tickets 171 times out of 200, but doesn't simply follow the majority: it
-  is right on 40 tickets where the vote is wrong, and wrong on 12 where the vote is right. The
-  gain over A is smaller than on dev (+0.170): A scored 0.465 on dev and 0.515 on test, B 0.635
-  and 0.595.
+| Change in component accuracy | | 95% interval |
+|---|---:|---|
+| B against A (memory) | **+0.080** | +0.020 to +0.140 |
+| B against the vote of its 5 tickets (the model over search) | **+0.140** | +0.070 to +0.210 |
+| C against A (notes) | −0.030 | −0.085 to +0.025 |
+| C against B (notes instead of similar tickets) | **−0.110** | −0.175 to −0.045 |
+| D1 against B (one wrong label) | **−0.050** | −0.095 to −0.010 |
+
+- **Similar past tickets help routing, and the model adds something beyond search.** With the 5
+  most similar earlier tickets in the prompt, the model picks the right component on 16 more
+  tickets than without them, and on 28 more than a vote of those same 5 tickets. It takes its
+  answer from one of the shown tickets 171 times out of 200, but doesn't simply follow the
+  majority: it is right on 40 tickets where the vote is wrong, and wrong on 12 where the vote is
+  right. The gain over A is smaller than on dev (+0.170): A scored 0.465 on dev and 0.515 on
+  test, B 0.635 and 0.595.
+- **Written notes don't help; they cost area accuracy** (−0.060, −0.110 to −0.010, against A).
+  The 73 notes are short (9 words at the median), but they lose the project's habits. Flink
+  files a failing test ("JMXJobManagerMetricTest crashes on azure") under the component whose
+  code is tested. The note for `Build System / Azure Pipelines`, written from its own recent
+  tickets, reads "Azure CI stability, test execution, and Python wheel builds". C answers
+  that component 18 times, against 8 for A and 4 for B, and it is right for only 4 test
+  tickets. Similar tickets carry the habit; a summary of each component doesn't.
+- **One wrong label in memory costs 10 right components, but is rarely copied.** D1 shows the
+  most similar ticket with a wrong component. The model answers with that wrong label only 4
+  times out of 200. Instead it loses its footing: of the 111 tickets where B's answer matched
+  that ticket's real component, 25 switch to some other component in D1. The wrong label also
+  hides duplicates. B found 8 originals in first place; D1, with that original's component
+  shown wrong, finds 3.
 - **Memory doesn't help the issue type.** A and B give the same type on 170 of 200 tickets.
 - **On duplicates the model is no better than search.** B names an earlier ticket 17 times and
   is right 11 times; the vote names 39 and is right 17 times. Overall the two are level. On dev,
   three prompt designs only moved how readily the model called a duplicate, never how well it
   told one from a related ticket (see [Dev results](#dev-results)).
-- **Memory roughly doubles the cost:** about twice the prompt tokens and time per ticket.
+- **Cost:** B nearly doubles the prompt (+780 tokens) and C adds more (+1,030), but the time
+  doesn't follow the tokens. Ollama sometimes reuses the processed start of a prompt from the
+  previous call, and C's notes sit in the part that never changes. So C ran nearly as fast as A,
+  while B's 5 tickets change with every ticket and took twice as long. Prompt tokens are the
+  fairer measure of cost; the time depends on the runtime.
 
 ## Data
 
@@ -129,8 +154,8 @@ four, and the duplicate one of the tickets shown or null.
 |---|---|---|
 | A. No memory | Instructions ([prompts/route_v1.md](prompts/route_v1.md)), the components used by any earlier ticket, and the new ticket | Ready |
 | B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
-| C. Written notes | A + one line per component, written once by the model from tickets before 2021 | Planned |
-| D1. Mislabelled memory | B, with one of the 5 tickets given a wrong component | Planned |
+| C. Written notes | A, with each component in the list followed by a note of at most 15 words on what its tickets are about ([prompts/notes_v1.md](prompts/notes_v1.md)). The model writes the notes once per set, one area at a time, from the summaries of each component's 20 most recent tickets before the set starts ([prompts/write_notes_v1.md](prompts/write_notes_v1.md), [src/tme/notes.py](src/tme/notes.py)), so by the end of 2021 they are up to a year old | Test |
+| D1. Mislabelled memory | B, except that the most similar earlier ticket is shown with a wrong component, drawn at random (seeded by the new ticket's key) from the components on offer other than its own and the new ticket's | Test |
 | D2. Stale memory | B, with memory only from tickets 2+ years older (if time allows) | Planned |
 
 A and B share every word except the memory part, so a difference between them comes from the
@@ -188,6 +213,7 @@ pytest
 
 # with Ollama running and `ollama pull qwen3.5:4b` done:
 tme run B dev --limit 5        # record the first 5 dev tickets, printing the time each takes
+tme notes test                 # C only: the model writes the component notes, once per set
 tme run B dev --mode replay    # score from recordings only, as CI does
 
 # compare two sets of answers to the same tickets, e.g. B against the vote of the same 5 tickets

@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for API",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"API / Core\": \"Core runtime internals, source APIs, and basic execution logic.\",\n  \"API / DataSet\": \"Legacy batch processing, dataset transformations, and data flow SDKs.\",\n  \"API / DataStream\": \"Streaming pipelines, batch execution modes, and continuous triggers.\",\n  \"API / Python\": \"PyFlink optimizations, UDF support, and Python-specific API features.\",\n  \"API / Scala\": \"Scala compatibility, case classes, and JVM serialization issues.\",\n  \"API / State Processor\": \"State management, savepoints, and state processing APIs.\",\n  \"API / Type Serialization System\": \"Data type handling, serializers, and object persistence logic.\"\n}",
+  "latency_ms": 105260,
+  "load_ms": 9670,
+  "prompt_ms": 63056,
+  "generate_ms": 30245,
+  "prompt_tokens": 2109,
+  "completion_tokens": 148
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Table SQL",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Table SQL / API\": \"API usability and syntax features like unnest or distinct.\",\n  \"Table SQL / Client\": \"SQL CLI configuration, startup issues, and schema registry tests.\",\n  \"Table SQL / Ecosystem\": \"Connector-specific bugs for JDBC, Kafka, CSV, and Elasticsearch.\",\n  \"Table SQL / Legacy Planner\": \"Old planner stability, type inference errors, and plan mismatches.\",\n  \"Table SQL / Planner\": \"Blink execution node separation, stream/batch logic, and aggregate implementation.\",\n  \"Table SQL / Runtime\": \"Execution engine correctness, windowing bugs, shuffle issues, and operator failures.\"\n}",
+  "latency_ms": 89771,
+  "load_ms": 7,
+  "prompt_ms": 59869,
+  "generate_ms": 27743,
+  "prompt_tokens": 1790,
+  "completion_tokens": 139
+ }
+}

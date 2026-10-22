@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21506",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Deployment / Mesos\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 11955,
+  "load_ms": 7,
+  "prompt_ms": 4400,
+  "generate_ms": 5490,
+  "prompt_tokens": 1618,
+  "completion_tokens": 25
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Build System",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Build System\": \"Handles build configuration, code formatting, and license checks.\",\n  \"Build System / Azure Pipelines\": \"Focuses on Azure CI stability, test execution, and Python wheel builds.\",\n  \"Build System / CI\": \"Manages general CI workflows, duration tracking, and tooling migrations.\",\n  \"Build System / Stateful Functions\": \"Covers build setup, licensing, and Kubernetes support for stateful functions.\"\n}",
+  "latency_ms": 45635,
+  "load_ms": 7,
+  "prompt_ms": 25338,
+  "generate_ms": 18173,
+  "prompt_tokens": 896,
+  "completion_tokens": 97
+ }
+}

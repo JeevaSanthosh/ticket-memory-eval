@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for FileSystems",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"FileSystems\": \"Handles diverse storage backends like S3, HDFS, and GCS with format-specific logic.\"\n}",
+  "latency_ms": 22168,
+  "load_ms": 24,
+  "prompt_ms": 13734,
+  "generate_ms": 6270,
+  "prompt_tokens": 447,
+  "completion_tokens": 31
+ }
+}

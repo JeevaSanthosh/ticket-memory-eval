@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22986",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Build System / Azure Pipelines\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 39871,
+  "load_ms": 33,
+  "prompt_ms": 32223,
+  "generate_ms": 5506,
+  "prompt_tokens": 2403,
+  "completion_tokens": 26
+ }
+}

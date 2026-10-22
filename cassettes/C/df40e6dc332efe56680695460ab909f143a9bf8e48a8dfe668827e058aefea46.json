@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21690",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Core\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 16054,
+  "load_ms": 7,
+  "prompt_ms": 9299,
+  "generate_ms": 4670,
+  "prompt_tokens": 1853,
+  "completion_tokens": 24
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25172",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Project Website\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 10580,
+  "load_ms": 9,
+  "prompt_ms": 3937,
+  "generate_ms": 4553,
+  "prompt_tokens": 1626,
+  "completion_tokens": 22
+ }
+}

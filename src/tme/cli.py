@@ -13,6 +13,7 @@ from tme.conditions import CONDITIONS
 from tme.data import DATA, load_tickets
 from tme.gate import gate
 from tme.llm import OllamaClient
+from tme.notes import NOTES, write_notes
 from tme.run import load_config, load_prompts, run
 from tme.split import build_split
 
@@ -72,6 +73,20 @@ def cmd_run(args) -> None:
     print(f"wrote {out.as_posix()}/")
 
 
+def cmd_notes(args) -> None:
+    config = load_config(args.config)
+    client = OllamaClient() if args.mode == "record" else None
+    print(f"writing notes for {args.set} with {config['model']} ({args.mode})", flush=True)
+    result = write_notes(load_tickets(args.data), args.set, config, load_prompts(config)["write_notes"],
+                         args.mode, client=client, verbose=True)
+    write_json(NOTES / f"{args.set}.json", result)
+    for component, note in result["notes"].items():
+        print(f"  {component}: {note}")
+    if result["missing"]:
+        print(f"no note for: {', '.join(result['missing'])}")
+    print(f"wrote {(NOTES / f'{args.set}.json').as_posix()}")
+
+
 def cmd_compare(args) -> None:
     gold = json.loads(args.split.read_text(encoding="utf-8"))[args.set]
     name = lambda path: path.stem if path.suffix == ".jsonl" else path.name  # noqa: E731
@@ -113,6 +128,11 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=Path("eval.toml"))
     p.add_argument("--out", type=Path, help="where to write the answers (default runs/<set>/<condition>)")
     p.set_defaults(func=cmd_run)
+    p = sub.add_parser("notes", help="have the model write the component notes for condition C, once per set")
+    p.add_argument("set", choices=["dev", "test"])
+    p.add_argument("--mode", choices=["record", "replay"], default="record")
+    p.add_argument("--config", type=Path, default=Path("eval.toml"))
+    p.set_defaults(func=cmd_notes)
     p = sub.add_parser("compare", help="compare two sets of answers to the same tickets, with paired bootstrap intervals")
     p.add_argument("baseline", type=Path, help="predictions.jsonl, or a run folder holding one")
     p.add_argument("candidate", type=Path)

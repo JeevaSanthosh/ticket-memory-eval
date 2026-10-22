@@ -10,6 +10,9 @@
   component. The wrong one is drawn at random (seeded by the new ticket's key) from the
   components on offer, other than that ticket's own and the new ticket's. It measures how far
   one wrong label in memory pulls the answer.
+- D2, stale memory: B, except that memory holds only tickets created at least two years (730
+  days) before the new one, as if the store had not been updated since. The components on offer
+  and the wording are B's; the model is not told the memory is old.
 
 The components offered are those used by any ticket created before the new one, in
 alphabetical order. That covers every right answer in dev and test and uses nothing from
@@ -21,11 +24,20 @@ sit in the unchanging system prompt.)
 from __future__ import annotations
 
 import random
+from datetime import datetime, timedelta
 
 from tme.data import ISSUE_TYPES, mask
 
-CONDITIONS = ("A", "B", "C", "D1")
-WITH_MEMORY = ("B", "D1")
+CONDITIONS = ("A", "B", "C", "D1", "D2")
+WITH_MEMORY = ("B", "D1", "D2")
+STALE_DAYS = 730
+TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%f%z"
+
+
+def stale_cutoff(created: str) -> str:
+    """D2's memory ends this long before the new ticket, in the dataset's own time format."""
+    when = datetime.strptime(created, TIME_FORMAT) - timedelta(days=STALE_DAYS)
+    return when.strftime("%Y-%m-%dT%H:%M:%S.") + f"{when.microsecond // 1000:03d}" + when.strftime("%z")
 MEMORY_DESCRIPTION_CHARS = 300
 
 

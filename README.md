@@ -156,7 +156,7 @@ four, and the duplicate one of the tickets shown or null.
 | B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
 | C. Written notes | A, with each component in the list followed by a note of at most 15 words on what its tickets are about ([prompts/notes_v1.md](prompts/notes_v1.md)). The model writes the notes once per set, one area at a time, from the summaries of each component's 20 most recent tickets before the set starts ([prompts/write_notes_v1.md](prompts/write_notes_v1.md), [src/tme/notes.py](src/tme/notes.py)), so by the end of 2021 they are up to a year old | Test |
 | D1. Mislabelled memory | B, except that the most similar earlier ticket is shown with a wrong component, drawn at random (seeded by the new ticket's key) from the components on offer other than its own and the new ticket's | Test |
-| D2. Stale memory | B, with memory only from tickets 2+ years older (if time allows) | Planned |
+| D2. Stale memory | B, except that memory holds only tickets created at least two years (730 days) before the new one, as if the store had not been updated since; the model is not told | Ready |
 
 A and B share every word except the memory part, so a difference between them comes from the
 memory. [src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no

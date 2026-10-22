@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Connectors",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Connectors / Cassandra\": \"Cassandra sink failures, memory leaks, and driver compatibility issues.\",\n  \"Connectors / Common\": \"Source coordinator bugs, split management, and new connector introductions.\",\n  \"Connectors / ElasticSearch\": \"Elasticsearch sink hangs, authentication errors, and Docker image failures.\",\n  \"Connectors / FileSystem\": \"File source data loss, compression issues, and partition commit delays.\",\n  \"Connectors / Google Cloud PubSub\": \"PubSub connector setup, retry logic, and Azure emulator test failures.\",\n  \"Connectors / HBase\": \"HBase sink stability, Zookeeper connection leaks, and SQL query timeouts.\",\n  \"Connectors / Hadoop Compatibility\": \"Hadoop API implementation, MapReduce integration, and YARN token issues.\",\n  \"Connectors / Hive\": \"Hive catalog caching, temporal join errors, and partition handling bugs.\",\n  \"Connectors / JDBC\": \"JDBC retry mechanisms, connection pool issues, and type casting errors.\",\n  \"Connectors / Kafka\": \"Kafka offset management, producer timeouts, and exactly-once semantics.\",\n  \"Connectors / Kinesis\": \"Kinesis consumer stability, AWS SDK upgrades, and shard polling issues.\",\n  \"Connectors / Nifi\": \"Apache NiFi data consumer integration.\",\n  \"Connectors / ORC\": \"ORC vectorized reading, schema handling, and filter push down support.\",\n  \"Connectors / Pulsar\": \"Pulsar sink functionality.\"\n}",
+  "latency_ms": 188624,
+  "load_ms": 15,
+  "prompt_ms": 112556,
+  "generate_ms": 73918,
+  "prompt_tokens": 3789,
+  "completion_tokens": 322
+ }
+}

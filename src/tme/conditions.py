@@ -13,8 +13,9 @@
 
 The components offered are those used by any ticket created before the new one, in
 alphabetical order. That covers every right answer in dev and test and uses nothing from
-later tickets. (The list rarely changes between tickets, but with qwen3.5:4b Ollama re-read
-the whole prompt on every call in the timing check, so this saves no time.)
+later tickets. (Ollama sometimes reuses the processed start of a prompt from the previous call;
+the 5-ticket timing check saw no reuse, but the full runs did, most of all for C, whose notes
+sit in the unchanging system prompt.)
 """
 
 from __future__ import annotations

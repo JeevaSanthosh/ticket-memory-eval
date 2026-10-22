@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22928",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataStream\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 26187,
+  "load_ms": 8,
+  "prompt_ms": 19108,
+  "generate_ms": 5005,
+  "prompt_tokens": 2049,
+  "completion_tokens": 24
+ }
+}

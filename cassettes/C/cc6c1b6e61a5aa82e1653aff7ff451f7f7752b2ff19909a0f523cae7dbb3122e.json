@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22968",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Scala\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 22941,
+  "load_ms": 10,
+  "prompt_ms": 15831,
+  "generate_ms": 5030,
+  "prompt_tokens": 1961,
+  "completion_tokens": 24
+ }
+}

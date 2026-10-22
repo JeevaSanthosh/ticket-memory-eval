@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24223",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Client / Job Submission\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 12854,
+  "load_ms": 19,
+  "prompt_ms": 5663,
+  "generate_ms": 5089,
+  "prompt_tokens": 1701,
+  "completion_tokens": 25
+ }
+}

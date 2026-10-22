@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Tests",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Tests\": \"End-to-end tests and migration scripts for Flink components.\"\n}",
+  "latency_ms": 16401,
+  "load_ms": 10,
+  "prompt_ms": 10380,
+  "generate_ms": 3902,
+  "prompt_tokens": 366,
+  "completion_tokens": 22
+ }
+}

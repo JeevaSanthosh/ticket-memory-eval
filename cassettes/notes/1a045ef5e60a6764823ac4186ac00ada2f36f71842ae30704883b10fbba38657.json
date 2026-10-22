@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Travis",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Travis\": \"Optimizes CI builds, handles dependencies, and manages cron jobs.\"\n}",
+  "latency_ms": 18243,
+  "load_ms": 10,
+  "prompt_ms": 11598,
+  "generate_ms": 4524,
+  "prompt_tokens": 397,
+  "completion_tokens": 25
+ }
+}

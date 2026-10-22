@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24316",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / Core\",\n  \"issue_type\": \"Technical Debt\"\n}",
+  "latency_ms": 17469,
+  "load_ms": 9,
+  "prompt_ms": 10508,
+  "generate_ms": 4891,
+  "prompt_tokens": 1849,
+  "completion_tokens": 24
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20981",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Coordination\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 19951,
+  "load_ms": 9,
+  "prompt_ms": 13278,
+  "generate_ms": 4589,
+  "prompt_tokens": 1612,
+  "completion_tokens": 24
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Stateful Functions",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Stateful Functions\": \"Handles state management, upgrades, and function invocations.\"\n}",
+  "latency_ms": 20704,
+  "load_ms": 19,
+  "prompt_ms": 14020,
+  "generate_ms": 4529,
+  "prompt_tokens": 412,
+  "completion_tokens": 23
+ }
+}

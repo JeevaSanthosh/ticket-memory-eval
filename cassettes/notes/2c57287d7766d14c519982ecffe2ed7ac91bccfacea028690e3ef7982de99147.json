@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Project Website",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Project Website\": \"Website content, docs, and build issues unique to the project site.\"\n}",
+  "latency_ms": 20007,
+  "load_ms": 6,
+  "prompt_ms": 12814,
+  "generate_ms": 5015,
+  "prompt_tokens": 405,
+  "completion_tokens": 25
+ }
+}

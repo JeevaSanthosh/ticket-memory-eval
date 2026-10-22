@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Release System",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Release System\": \"Manages versioning, releases, and build artifacts.\"\n}",
+  "latency_ms": 20372,
+  "load_ms": 11,
+  "prompt_ms": 13682,
+  "generate_ms": 4545,
+  "prompt_tokens": 397,
+  "completion_tokens": 22
+ }
+}

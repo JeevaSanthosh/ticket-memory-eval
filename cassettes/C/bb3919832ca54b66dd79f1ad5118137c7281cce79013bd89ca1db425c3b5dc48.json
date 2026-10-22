@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-24886",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Configuration\",\n  \"issue_type\": \"Bug\"\n}",
+  "latency_ms": 13273,
+  "load_ms": 7,
+  "prompt_ms": 6514,
+  "generate_ms": 4664,
+  "prompt_tokens": 1733,
+  "completion_tokens": 23
+ }
+}

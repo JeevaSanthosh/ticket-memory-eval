@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-20829",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Metrics\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 70697,
+  "load_ms": 8216,
+  "prompt_ms": 54086,
+  "generate_ms": 6202,
+  "prompt_tokens": 1665,
+  "completion_tokens": 30
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for BuildSystem",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"BuildSystem / Shaded\": \"Manages shaded dependencies, library versions, and build configuration.\"\n}",
+  "latency_ms": 19503,
+  "load_ms": 8,
+  "prompt_ms": 12751,
+  "generate_ms": 4583,
+  "prompt_tokens": 450,
+  "completion_tokens": 26
+ }
+}

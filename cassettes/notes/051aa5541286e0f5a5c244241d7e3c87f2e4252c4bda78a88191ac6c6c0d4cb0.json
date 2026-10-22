@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for Connectors/ RabbitMQ",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"Connectors/ RabbitMQ\": \"Handles AMQP features, backpressure, and client upgrades.\"\n}",
+  "latency_ms": 20234,
+  "load_ms": 6,
+  "prompt_ms": 13153,
+  "generate_ms": 4901,
+  "prompt_tokens": 387,
+  "completion_tokens": 26
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "condition": "D1",
+ "set": "test",
+ "scores": {
+  "component": 0.545,
+  "area": 0.675,
+  "issue_type": 0.76,
+  "duplicate": 0.52,
+  "duplicate_on_duplicates": 0.06,
+  "duplicate_on_non_duplicates": 0.98
+ },
+ "operations": {
+  "tickets": 200,
+  "invalid_responses": 0,
+  "latency_ms_p50": 33858,
+  "latency_ms_p95": 66633,
+  "mean_prompt_tokens": 1635,
+  "mean_completion_tokens": 31,
+  "mean_prompt_ms": 29913,
+  "mean_generate_ms": 6091
+ }
+}

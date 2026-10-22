@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-25160",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation\",\n  \"issue_type\": \"Improvement\"\n}",
+  "latency_ms": 9625,
+  "load_ms": 24,
+  "prompt_ms": 3083,
+  "generate_ms": 4427,
+  "prompt_tokens": 1621,
+  "completion_tokens": 22
+ }
+}

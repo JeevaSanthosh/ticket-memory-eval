@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23375",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n\"component\": \"Connectors / JDBC\",\n\"issue_type\": \"Bug\",\n\"duplicate_of\": null\n}",
+  "latency_ms": 31924,
+  "load_ms": 7,
+  "prompt_ms": 24460,
+  "generate_ms": 5224,
+  "prompt_tokens": 1533,
+  "completion_tokens": 28
+ }
+}

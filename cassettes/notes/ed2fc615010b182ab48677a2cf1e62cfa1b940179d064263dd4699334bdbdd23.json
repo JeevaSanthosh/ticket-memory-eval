@@ -1,0 +1,13 @@
+{
+ "ticket": "test notes for flink-contrib",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"flink-contrib\": \"Third-party connectors, utilities, and build/test infrastructure.\"\n}",
+  "latency_ms": 21579,
+  "load_ms": 26,
+  "prompt_ms": 14913,
+  "generate_ms": 4515,
+  "prompt_tokens": 426,
+  "completion_tokens": 23
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22087",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Checkpointing\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 30438,
+  "load_ms": 9,
+  "prompt_ms": 22204,
+  "generate_ms": 5921,
+  "prompt_tokens": 1308,
+  "completion_tokens": 32
+ }
+}

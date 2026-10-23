@@ -11,8 +11,8 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
 
 The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
 
-**Status:** conditions A (no memory), B (similar past tickets), C (written notes) and D1
-(mislabelled memory) recorded on test; A and B also on dev.
+**Status:** all conditions recorded on test: A (no memory), B (similar past tickets), C (written
+notes), D1 (mislabelled memory) and D2 (stale memory); A and B also on dev.
 
 ## Results on test
 
@@ -20,16 +20,16 @@ The model runs locally through [Ollama](https://ollama.com). CI never calls a mo
 0 invalid answers. B and D1 use the duplicate prompt chosen on dev (v2). Changes are paired
 bootstrap 95% intervals from `tme compare`; answers are in [results/test/](results/test/).
 
-| | A, no memory | B, 5 similar earlier tickets | C, written notes | D1, B with one wrong label | Vote of B's 5 (no model) |
-|---|---:|---:|---:|---:|---:|
-| Component | 0.515 | **0.595** | 0.485 | 0.545 | 0.455 |
-| Area | 0.655 | **0.720** | 0.595 | 0.675 | 0.595 |
-| Issue type | 0.745 | **0.770** | 0.765 | 0.760 | 0.710 |
-| Duplicate (right original, or none) | 0.500 | **0.550** | 0.500 | 0.520 | 0.520 |
-| … original found, on duplicates | 0.000 | 0.110 | 0.000 | 0.060 | **0.170** |
-| … correctly none, on non-duplicates | **1.000** | 0.990 | **1.000** | 0.980 | 0.870 |
-| Prompt tokens, mean | 856 | 1,635 | 1,884 | 1,635 | |
-| Seconds per ticket, median | 15 | 33 | 17 | 34 | |
+| | A, no memory | B, 5 similar earlier tickets | C, written notes | D1, B with one wrong label | D2, B with 2-year-old memory | Vote of B's 5 (no model) |
+|---|---:|---:|---:|---:|---:|---:|
+| Component | 0.515 | **0.595** | 0.485 | 0.545 | 0.515 | 0.455 |
+| Area | 0.655 | **0.720** | 0.595 | 0.675 | 0.675 | 0.595 |
+| Issue type | 0.745 | 0.770 | 0.765 | 0.760 | **0.775** | 0.710 |
+| Duplicate (right original, or none) | 0.500 | **0.550** | 0.500 | 0.520 | 0.495 | 0.520 |
+| … original found, on duplicates | 0.000 | 0.110 | 0.000 | 0.060 | 0.000 | **0.170** |
+| … correctly none, on non-duplicates | **1.000** | 0.990 | **1.000** | 0.980 | 0.990 | 0.870 |
+| Prompt tokens, mean | 856 | 1,635 | 1,884 | 1,635 | 1,546 | |
+| Seconds per ticket, median | 15 | 33 | 17 | 34 | 34 | |
 
 | Change in component accuracy | | 95% interval |
 |---|---:|---|
@@ -38,6 +38,8 @@ bootstrap 95% intervals from `tme compare`; answers are in [results/test/](resul
 | C against A (notes) | −0.030 | −0.085 to +0.025 |
 | C against B (notes instead of similar tickets) | **−0.110** | −0.175 to −0.045 |
 | D1 against B (one wrong label) | **−0.050** | −0.095 to −0.010 |
+| D2 against B (memory two years old) | **−0.080** | −0.135 to −0.025 |
+| D2 against A | +0.000 | −0.055 to +0.055 |
 
 - **Similar past tickets help routing, and the model adds something beyond search.** With the 5
   most similar earlier tickets in the prompt, the model picks the right component on 16 more
@@ -59,6 +61,12 @@ bootstrap 95% intervals from `tme compare`; answers are in [results/test/](resul
   that ticket's real component, 25 switch to some other component in D1. The wrong label also
   hides duplicates. B found 8 originals in first place; D1, with that original's component
   shown wrong, finds 3.
+- **Memory two years out of date is worth nothing.** D2 shows the 5 most similar tickets created
+  at least 730 days earlier (the most similar one about 3 years earlier, at the median). That loses all of B's routing gain (−0.080
+  against B) and lands exactly on A. It neither helps nor misleads on balance: D2 and A disagree
+  on 30 tickets, 15 right each way, and even where the old memory shows the right component (101
+  tickets), D2 does no better than A (0.68 each). With only 1 original among the old tickets, it
+  finds no duplicates. It costs 80% more prompt tokens than A for nothing.
 - **Memory doesn't help the issue type.** A and B give the same type on 170 of 200 tickets.
 - **On duplicates the model is no better than search.** B names an earlier ticket 17 times and
   is right 11 times; the vote names 39 and is right 17 times. Overall the two are level. On dev,
@@ -156,7 +164,7 @@ four, and the duplicate one of the tickets shown or null.
 | B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
 | C. Written notes | A, with each component in the list followed by a note of at most 15 words on what its tickets are about ([prompts/notes_v1.md](prompts/notes_v1.md)). The model writes the notes once per set, one area at a time, from the summaries of each component's 20 most recent tickets before the set starts ([prompts/write_notes_v1.md](prompts/write_notes_v1.md), [src/tme/notes.py](src/tme/notes.py)), so by the end of 2021 they are up to a year old | Test |
 | D1. Mislabelled memory | B, except that the most similar earlier ticket is shown with a wrong component, drawn at random (seeded by the new ticket's key) from the components on offer other than its own and the new ticket's | Test |
-| D2. Stale memory | B, except that memory holds only tickets created at least two years (730 days) before the new one, as if the store had not been updated since; the model is not told | Ready |
+| D2. Stale memory | B, except that memory holds only tickets created at least two years (730 days) before the new one, as if the store had not been updated since; the model is not told | Test |
 
 A and B share every word except the memory part, so a difference between them comes from the
 memory. [src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no

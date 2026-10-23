@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22986",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Tests\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 58243,
+  "load_ms": 9,
+  "prompt_ms": 50751,
+  "generate_ms": 5407,
+  "prompt_tokens": 2177,
+  "completion_tokens": 28
+ }
+}

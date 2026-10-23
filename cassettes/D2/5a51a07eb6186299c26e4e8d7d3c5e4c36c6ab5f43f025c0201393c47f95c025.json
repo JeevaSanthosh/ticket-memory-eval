@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21690",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Runtime / Checkpointing\",\n  \"issue_type\": \"Technical Debt\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 35996,
+  "load_ms": 10,
+  "prompt_ms": 27693,
+  "generate_ms": 6141,
+  "prompt_tokens": 1564,
+  "completion_tokens": 33
+ }
+}

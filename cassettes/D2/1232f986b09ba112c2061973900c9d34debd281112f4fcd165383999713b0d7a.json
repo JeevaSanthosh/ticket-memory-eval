@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21862",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Examples\",\n  \"issue_type\": \"New Feature\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 26499,
+  "load_ms": 26,
+  "prompt_ms": 19107,
+  "generate_ms": 5313,
+  "prompt_tokens": 1295,
+  "completion_tokens": 29
+ }
+}

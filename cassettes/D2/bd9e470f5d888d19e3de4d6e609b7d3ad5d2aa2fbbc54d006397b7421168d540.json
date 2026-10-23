@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22762",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Table SQL / Ecosystem\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 29969,
+  "load_ms": 10,
+  "prompt_ms": 21761,
+  "generate_ms": 5866,
+  "prompt_tokens": 1381,
+  "completion_tokens": 32
+ }
+}

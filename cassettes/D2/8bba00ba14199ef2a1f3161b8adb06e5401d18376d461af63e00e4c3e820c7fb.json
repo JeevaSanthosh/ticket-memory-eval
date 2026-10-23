@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23705",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Kinesis\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 29764,
+  "load_ms": 83,
+  "prompt_ms": 21442,
+  "generate_ms": 5937,
+  "prompt_tokens": 1294,
+  "completion_tokens": 32
+ }
+}

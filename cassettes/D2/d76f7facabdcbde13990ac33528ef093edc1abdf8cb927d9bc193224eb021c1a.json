@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23523",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Documentation\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 25172,
+  "load_ms": 13,
+  "prompt_ms": 16887,
+  "generate_ms": 5791,
+  "prompt_tokens": 1028,
+  "completion_tokens": 28
+ }
+}

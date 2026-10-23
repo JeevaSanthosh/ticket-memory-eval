@@ -77,9 +77,14 @@ class MemorySearch:
         """How many tickets were created strictly before this one."""
         return bisect_left(self.created, ticket["created"])
 
-    def search(self, ticket: dict, k: int = 5) -> list[tuple[dict, float]]:
-        """The k earlier tickets that score highest, best first, with their combined scores."""
+    def search(self, ticket: dict, k: int = 5, before: str | None = None) -> list[tuple[dict, float]]:
+        """The k earlier tickets that score highest, best first, with their combined scores.
+
+        `before` (a creation time) narrows memory, and its statistics, to tickets created before it.
+        """
         p = self.memory_size(ticket)
+        if before:  # never later than the ticket itself
+            p = min(p, bisect_left(self.created, before))
         a = self.summary.scores(tokens(summary_text(ticket)), p)
         b = self.full.scores(tokens(full_text(ticket)), p)
         combined = a / (a.max(initial=0) or 1) + b / (b.max(initial=0) or 1)

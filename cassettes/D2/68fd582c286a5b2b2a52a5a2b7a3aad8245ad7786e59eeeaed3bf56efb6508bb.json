@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-22193",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"Connectors / Hive\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 29401,
+  "load_ms": 11,
+  "prompt_ms": 21589,
+  "generate_ms": 5688,
+  "prompt_tokens": 1383,
+  "completion_tokens": 31
+ }
+}

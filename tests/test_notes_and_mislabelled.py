@@ -100,3 +100,41 @@ def test_edited_notes_fail_the_gate(tmp_path, tickets, split, setup):
     path.write_text(json.dumps(notes), encoding="utf-8")
     ok, text = gate(results, None, tickets, small, config, prompts, cassettes)
     assert not ok and "no longer gives" in text
+
+
+def test_d2_memory_is_at_least_two_years_older_than_each_ticket(tickets, split, setup):
+    from datetime import datetime
+    from tme.conditions import TIME_FORMAT, stale_cutoff
+    search, _, _ = setup
+    by_key = {t["key"]: t for t in tickets}
+    for g in split["test"]:
+        t = by_key[g["key"]]
+        cutoff = stale_cutoff(t["created"])
+        hits = search.search(t, TOP_K, before=cutoff)
+        assert len(hits) == 5
+        for m, _ in hits:
+            age = datetime.strptime(t["created"], TIME_FORMAT) - datetime.strptime(m["created"], TIME_FORMAT)
+            assert m["created"] < cutoff and age.days >= 730, (g["key"], m["key"])
+
+
+def test_d2_differs_from_b_only_by_which_tickets_are_shown(tickets, split, setup):
+    from tme.conditions import stale_cutoff
+    search, config, prompts = setup
+    by_key = {t["key"]: t for t in tickets}
+    t = by_key[split["test"][0]["key"]]
+    components = components_before(tickets, search.memory_size(t))
+    fresh = [m for m, _ in search.search(t, TOP_K)]
+    stale = [m for m, _ in search.search(t, TOP_K, before=stale_cutoff(t["created"]))]
+    b, b_schema = build_request("B", t, fresh, components, config, prompts)
+    d2, d2_schema = build_request("D2", t, stale, components, config, prompts)
+    assert b["messages"][0] == d2["messages"][0] and b["options"] == d2["options"]
+    assert d2_schema["properties"]["duplicate_of"]["enum"] == [m["key"] for m in stale] + [None]
+    new_ticket = b["messages"][1]["content"].split("\n\nNew ticket\n")[1]
+    assert d2["messages"][1]["content"].endswith("\n\nNew ticket\n" + new_ticket)
+    assert [m["key"] for m in stale] != [m["key"] for m in fresh]  # B may also show old tickets
+
+
+def test_a_cutoff_cannot_reach_past_the_ticket_itself(tickets, setup):
+    search, _, _ = setup
+    t = tickets[1000]
+    assert search.search(t, TOP_K, before="9999") == search.search(t, TOP_K)

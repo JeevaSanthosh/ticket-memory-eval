@@ -9,7 +9,7 @@ import tomllib
 from datetime import datetime, timezone
 from pathlib import Path
 
-from tme.conditions import WITH_MEMORY, build_request, components_before, mislabel_first
+from tme.conditions import WITH_MEMORY, build_request, components_before, mislabel_first, stale_cutoff
 from tme.llm import OPTIONS, Cassette
 from tme.notes import NOTES, load_notes
 from tme.score import accuracy
@@ -84,7 +84,8 @@ def run(condition: str, set_name: str, tickets: list[dict], split: dict, config:
     rows = []
     for n, g in enumerate(gold, start=1):
         ticket = by_key[g["key"]]
-        memory = [t for t, _ in search.search(ticket, TOP_K)] if condition in WITH_MEMORY else []
+        before = stale_cutoff(ticket["created"]) if condition == "D2" else None
+        memory = [t for t, _ in search.search(ticket, TOP_K, before)] if condition in WITH_MEMORY else []
         components = components_before(tickets, search.memory_size(ticket))
         mislabelled = None
         if condition == "D1":
@@ -94,6 +95,7 @@ def run(condition: str, set_name: str, tickets: list[dict], split: dict, config:
         prediction, error = parse(response["content"], schema)
         rows.append({"key": g["key"], "prediction": prediction, "error": error,
                      "shown": [t["key"] for t in memory], **({"mislabelled": mislabelled} if mislabelled else {}),
+                     **({"memory_before": before} if before else {}),
                      "cassette_key": key,
                      **{k: response.get(k) for k in ("latency_ms", "load_ms", "prompt_ms", "generate_ms",
                                                       "prompt_tokens", "completion_tokens")}})

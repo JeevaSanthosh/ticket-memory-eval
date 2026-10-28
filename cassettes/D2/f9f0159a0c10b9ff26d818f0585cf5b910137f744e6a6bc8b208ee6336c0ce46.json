@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-21711",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"API / DataStream\",\n  \"issue_type\": \"Improvement\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 25833,
+  "load_ms": 7,
+  "prompt_ms": 17893,
+  "generate_ms": 5884,
+  "prompt_tokens": 1211,
+  "completion_tokens": 32
+ }
+}

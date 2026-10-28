@@ -1,0 +1,13 @@
+{
+ "ticket": "FLINK-23387",
+ "model": "qwen3.5:4b",
+ "response": {
+  "content": "{\n  \"component\": \"FileSystems\",\n  \"issue_type\": \"Bug\",\n  \"duplicate_of\": null\n}",
+  "latency_ms": 35533,
+  "load_ms": 9,
+  "prompt_ms": 28075,
+  "generate_ms": 5370,
+  "prompt_tokens": 1377,
+  "completion_tokens": 29
+ }
+}

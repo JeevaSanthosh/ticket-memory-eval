@@ -30,7 +30,7 @@ def inputs():
     return config, load_prompts(config, ROOT)
 
 
-@pytest.mark.parametrize("condition", ["A", "B", "C", "D1"])
+@pytest.mark.parametrize("condition", ["A", "B", "C", "D1", "D2"])
 def test_record_then_replay_gives_the_same_answers_without_a_model(tmp_path, tickets, split, inputs, condition):
     config, prompts = inputs
     notes = write_notes(tickets, "dev", config, prompts["write_notes"], "record", client=Stub(),

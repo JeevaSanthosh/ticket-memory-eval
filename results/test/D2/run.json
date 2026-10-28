@@ -1,0 +1,22 @@
+{
+ "condition": "D2",
+ "set": "test",
+ "tickets": 200,
+ "model": "qwen3.5:4b",
+ "think": false,
+ "options": {
+  "temperature": 0,
+  "seed": 42,
+  "num_ctx": 8192,
+  "num_predict": 128
+ },
+ "prompts": {
+  "route": "d491b7ca3aad9eade62428ddcf00b37b8f419143449a85f2df1f88580f3c263f",
+  "duplicates": "e09bddefabd561bf2ec62e149ed66cffb07b2d4364d575092ba2380cfdccf280",
+  "notes": "a0a131e27332520d73955a3315ba392df9dda007593e06507d1f01b520920eee",
+  "write_notes": "b49dfa777929123b2aa6423e61e2683bd2eaba8303928bec3bc05e2f225c9efb"
+ },
+ "mode": "replay",
+ "recorded_now": 0,
+ "finished_at": "2026-10-23T18:56:22+00:00"
+}

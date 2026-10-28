@@ -9,10 +9,24 @@ A ticket assistant reads a new Jira ticket from Apache Flink and answers two que
    New Feature, Technical Debt)?
 2. **Duplicates:** does it repeat an earlier ticket, and if so, which one?
 
-The model runs locally through [Ollama](https://ollama.com). CI never calls a model.
+The model (`qwen3.5:4b`) runs locally through [Ollama](https://ollama.com) on a CPU. Its answers
+are recorded once and replayed, so CI never calls a model.
 
-**Status:** all conditions recorded on test: A (no memory), B (similar past tickets), C (written
-notes), D1 (mislabelled memory) and D2 (stale memory); A and B also on dev.
+## In short
+
+On 200 held-out Flink tickets from 2021:
+
+- **The 5 most similar past tickets in the prompt help routing:** component accuracy 0.515 →
+  0.595 (+0.080, 95% interval +0.020 to +0.140). The model also beats a plain vote of those same
+  5 tickets by 0.140, so it adds something beyond the search that found them.
+- **Memory has to be real tickets, labelled right and up to date.** Short written notes on each
+  component instead (0.485) and memory two years old (0.515) are no better than none, and one
+  wrong label among the 5 tickets gives up more than half the gain (0.545).
+- **Memory hardly moves the issue type:** no condition is more than 6 tickets in 200 away from A.
+- **The model is no better than search at spotting duplicates.** Three prompt designs, tried on
+  dev, only changed how readily it called something a duplicate, not how well it told one apart.
+- **Memory nearly doubles the prompt** (856 → 1,635 tokens). The time it takes depends on whether
+  the runtime reuses the unchanging start of the prompt.
 
 ## Results on test
 
@@ -62,11 +76,12 @@ bootstrap 95% intervals from `tme compare`; answers are in [results/test/](resul
   hides duplicates. B found 8 originals in first place; D1, with that original's component
   shown wrong, finds 3.
 - **Memory two years out of date is worth nothing.** D2 shows the 5 most similar tickets created
-  at least 730 days earlier (the most similar one about 3 years earlier, at the median). That loses all of B's routing gain (−0.080
-  against B) and lands exactly on A. It neither helps nor misleads on balance: D2 and A disagree
-  on 30 tickets, 15 right each way, and even where the old memory shows the right component (101
-  tickets), D2 does no better than A (0.68 each). With only 1 original among the old tickets, it
-  finds no duplicates. It costs 80% more prompt tokens than A for nothing.
+  at least 730 days earlier (the most similar one about 3 years earlier, at the median). That
+  loses all of B's routing gain (−0.080 against B) and lands exactly on A. It neither helps nor
+  misleads on balance: D2 and A disagree on 30 tickets, 15 right each way, and even where the old
+  memory shows the right component (101 tickets), D2 does no better than A (0.68 each). With only
+  1 original among the old tickets, it finds no duplicates. It costs 81% more prompt tokens than A
+  for nothing.
 - **Memory doesn't help the issue type.** A and B give the same type on 170 of 200 tickets.
 - **On duplicates the model is no better than search.** B names an earlier ticket 17 times and
   is right 11 times; the vote names 39 and is right 17 times. Overall the two are level. On dev,
@@ -81,10 +96,10 @@ bootstrap 95% intervals from `tme compare`; answers are in [results/test/](resul
 ## Data
 
 All 25,492 Apache Flink tickets from [The Public Jira Dataset](https://doi.org/10.5281/zenodo.5882881)
-(CC BY 4.0), June 2014 to January 2022. Flink has 69 components, grouped into 27 areas by the
-part before " / " (`Table SQL / Planner` is in area `Table SQL`), and more duplicates of earlier
-tickets than any other Apache project in the dataset. [data/README.md](data/README.md) covers the
-source, the fields and how the subset was extracted.
+(CC BY 4.0), June 2014 to January 2022. Tickets created in 2021 use 69 components, grouped into
+27 areas by the part before " / " (`Table SQL / Planner` is in area `Table SQL`). Flink has more
+duplicates of earlier tickets than any other Apache project in the dataset.
+[data/README.md](data/README.md) covers the source, the fields and how the subset was extracted.
 
 ## Dev and test sets
 
@@ -158,17 +173,18 @@ Each runs over all 200 test tickets with the same model and settings (`eval.toml
 is JSON, held by Ollama to a schema: the component must be one on offer, the type one of the
 four, and the duplicate one of the tickets shown or null.
 
-| | What the model sees | |
+| | What the model sees | Recorded on |
 |---|---|---|
-| A. No memory | Instructions ([prompts/route_v1.md](prompts/route_v1.md)), the components used by any earlier ticket, and the new ticket | Ready |
-| B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | Ready |
-| C. Written notes | A, with each component in the list followed by a note of at most 15 words on what its tickets are about ([prompts/notes_v1.md](prompts/notes_v1.md)). The model writes the notes once per set, one area at a time, from the summaries of each component's 20 most recent tickets before the set starts ([prompts/write_notes_v1.md](prompts/write_notes_v1.md), [src/tme/notes.py](src/tme/notes.py)), so by the end of 2021 they are up to a year old | Test |
-| D1. Mislabelled memory | B, except that the most similar earlier ticket is shown with a wrong component, drawn at random (seeded by the new ticket's key) from the components on offer other than its own and the new ticket's | Test |
-| D2. Stale memory | B, except that memory holds only tickets created at least two years (730 days) before the new one, as if the store had not been updated since; the model is not told | Test |
+| A. No memory | Instructions ([prompts/route_v1.md](prompts/route_v1.md)), the components used by any earlier ticket, and the new ticket | dev, test |
+| B. Similar past tickets | A + [prompts/duplicates_v2.md](prompts/duplicates_v2.md) and the same 5 tickets the vote of 5 uses: key, summary, first 300 characters of the description, component, type | dev, test |
+| C. Written notes | A, with each component in the list followed by a note of at most 15 words on what its tickets are about ([prompts/notes_v1.md](prompts/notes_v1.md)). The model writes the notes once per set, one area at a time, from the summaries of each component's 20 most recent tickets before the set starts ([prompts/write_notes_v1.md](prompts/write_notes_v1.md), [src/tme/notes.py](src/tme/notes.py)), so by the end of 2021 they are up to a year old | test |
+| D1. Mislabelled memory | B, except that the most similar earlier ticket is shown with a wrong component, drawn at random (seeded by the new ticket's key) from the components on offer other than its own and the new ticket's | test |
+| D2. Stale memory | B, except that memory holds only tickets created at least two years (730 days) before the new one, as if the store had not been updated since; the model is not told | test |
 
-A and B share every word except the memory part, so a difference between them comes from the
-memory. [src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no
-request shows the new ticket's own key or any ticket created after it.
+C, D1 and D2 have no settings to tune, so they were recorded on test only. A and B share every
+word except the memory part, so a difference between them comes from the memory.
+[src/tme/conditions.py](src/tme/conditions.py) builds the requests; tests check that no request
+shows the new ticket's own key or any ticket created after it.
 
 ### Dev results
 
@@ -204,12 +220,28 @@ for A and B v2 are in [results/dev/](results/dev/). Changes and intervals come f
   test: it had the highest dev duplicate accuracy, routing was the same for all three, and it was
   the cheapest.
 
-### Recording and replaying
+## Keeping the numbers honest
 
-Model answers are recorded once on a machine running [Ollama](https://ollama.com), and saved in
-`cassettes/` under a hash of the whole request (model, prompt, ticket text, schema, options).
-Replaying reads them back without a model. Any change to the request changes the hash, so an old
-recording can never pass for a new prompt: replay stops and asks for a new recording.
+- **No look-ahead.** A ticket's memory, the search statistics, the components on offer and C's
+  notes all come from tickets created before it (C's: before its set starts). Ticket keys in
+  ticket text are masked. Tests check each of these.
+- **Dev for choices, test for results.** Every setting was chosen on 2020 tickets; the 2021 test
+  tickets were only scored.
+- **Recorded answers.** Model answers are recorded once on a machine running
+  [Ollama](https://ollama.com), and saved in `cassettes/` under a hash of the whole request (model,
+  prompt, ticket text, schema, options). Replaying reads them back without a model. Any change to
+  the request changes the hash, so an old recording can never pass for a new prompt: replay stops
+  and asks for a new recording.
+- **Paired comparisons.** `tme compare` draws the same tickets for both sets of answers in each of
+  10,000 bootstrap resamples, so the 95% interval is for the change on identical tickets. A field
+  is **better** when it rises by more than 0.02 and the interval lies above zero, **fail** when it
+  falls by more than 0.02 and the interval lies below zero, **warn** when it falls by more than
+  0.02 but the interval includes zero, and **pass** otherwise.
+- **A gate in CI.** On every pull request, CI's `gate` job replays all recordings and checks they
+  give the committed results exactly, including C's notes. Then it compares each condition with
+  the target branch's results and blocks the merge on a significant drop in component, area,
+  issue type or duplicate accuracy. The `baselines` job rebuilds the dev/test split and the
+  no-model baselines and fails on any difference.
 
 ## Running it
 
@@ -222,7 +254,7 @@ pytest
 # with Ollama running and `ollama pull qwen3.5:4b` done:
 tme run B dev --limit 5        # record the first 5 dev tickets, printing the time each takes
 tme notes test                 # C only: the model writes the component notes, once per set
-tme run B dev --mode replay    # score from recordings only, as CI does
+tme run B dev --mode replay    # score from recordings only, as CI does (conditions A, B, C, D1, D2)
 
 # compare two sets of answers to the same tickets, e.g. B against the vote of the same 5 tickets
 tme compare results/baselines/dev/vote_of_5.jsonl runs/dev/B --set dev
@@ -233,19 +265,12 @@ tme compare results/baselines/dev/vote_of_5.jsonl runs/dev/B --set dev
 results live in `results/<set>/<condition>/`, made with
 `tme run <condition> <set> --mode replay --out results/<set>/<condition>`.
 
-On every pull request, CI's `gate` job replays the recordings and checks they give the committed
-results exactly. Then it compares each condition with the target branch's results and blocks
-the merge on a significant drop (as `tme compare` defines it) in component, area, issue type or
-duplicate accuracy.
+## Limitations
 
-`tme compare` is paired: each bootstrap resample (10,000) draws the same tickets for both sets of
-answers, so the 95% interval is for the change on identical tickets. A field is **better** when
-it rises by more than 0.02 and the interval lies above zero, **fail** when it falls by more than
-0.02 and the interval lies below zero, **warn** when it falls by more than 0.02 but the interval
-includes zero, and **pass** otherwise.
-
-## Limitations known so far
-
+- One model (`qwen3.5:4b`, thinking off) and one project. A larger model, or a project with
+  cleaner labels, could change the size of every effect here.
+- 200 test tickets give intervals about ±0.06 wide on accuracy, so effects smaller than that are
+  not resolved: for example, C against A on component (−0.030).
 - Dev was used for three duplicate prompts and the rules tried on them. The test numbers above
   are the honest ones; the dev numbers are where the choices were made.
 - One ticket was filed twice on the same day (FLINK-21615 and FLINK-21618, both duplicates of
